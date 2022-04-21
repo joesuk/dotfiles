@@ -1,4 +1,4 @@
-Adapted from [LARBS](https://larbs.xyz.
+Adapted from [LARBS](https://larbs.xyz).
 
 - Very useful scripts are in `~/.local/bin/`
 - Settings for:
