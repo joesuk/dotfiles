@@ -171,6 +171,10 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
-
 " ensure vim opens links with firefox
 let g:netrw_browsex_viewer= "firefox"
+" Load command shortcuts generated from bm-dirs and bm-files via shortcuts script.
+" Here leader is ";".
+" So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
+" if typed fast without the timeout.
+" source ~/.config/nvim/shortcuts.vim
