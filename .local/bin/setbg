@@ -8,7 +8,6 @@
 
 # Location of link to wallpaper link.
 bgloc="$HOME/dox/pix/Wallpapers/wallpaper_h.jpg"
-
 # Configuration files of applications that have their themes changed by pywal.
 dunstconf="${XDG_CONFIG_HOME:-$HOME/.config}/dunst/dunstrc"
 zathuraconf="${XDG_CONFIG_HOME:-$HOME/.config}/zathura/zathurarc"
