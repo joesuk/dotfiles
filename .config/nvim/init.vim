@@ -1,4 +1,4 @@
-let mapleader =","
+" let mapleader ="," , make \ leader instead
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -17,18 +17,40 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+" vim latex
+Plug 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp -interaction=nonstopmode $*'
+"set conceallevel=1
+"let g:tex_conceal='abdmg'
+
 call plug#end()
 
 set title
 set bg=light
-set go=a
-set mouse=a
-set nohlsearch
+set go=a "gui options=a, needed for visual mode copy/paste to other apps
+set mouse=a " mouse enabled
+set hlsearch
 set clipboard+=unnamedplus
-set noshowmode
-set noruler
+set noshowmode "showing visual/insert mode
+set noruler "don't show the cursor position all the time
 set laststatus=0
 set noshowcmd
+set ignorecase
+set incsearch  " do incremental searching
+set history=50 " keep 50 lines of command line history
+set backup     " keep a backup file
+" tell vim where to put its backup files
+set backupdir=~/dox/vim_temp
+" tell vim where to put swap files
+set dir=~/dox/vim_temp
+"set spell
+set smartcase " ignore ignorecase if search contains uppercase
+set wrap
+set wrapmargin=0
+
 
 " Some basics:
 	nnoremap c "_c
@@ -95,9 +117,9 @@ set noshowcmd
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	let g:vimwiki_ext2syntax = {'wiki': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
-	let g:vimwiki_list = [{'path': '~/.local/share/nvim/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	let g:vimwiki_list = [{'path': '~/dox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
@@ -149,3 +171,6 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
+" ensure vim opens links with firefox
+let g:netrw_browsex_viewer= "firefox"

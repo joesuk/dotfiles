@@ -7,7 +7,7 @@
 #	If wal is installed, also generates a colorscheme.
 
 # Location of link to wallpaper link.
-bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
+bgloc="$HOME/dox/pix/Wallpapers/wallpaper_h.jpg"
 
 # Configuration files of applications that have their themes changed by pywal.
 dunstconf="${XDG_CONFIG_HOME:-$HOME/.config}/dunst/dunstrc"
@@ -23,6 +23,7 @@ esac
 # If pywal is installed, use it.
 if command -v wal >/dev/null 2>&1 ; then
 	wal -i "$(readlink -f $bgloc)" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/postrun" >/dev/null 2>&1 &&
+	#wal --theme "solarized" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/postrun" >/dev/null 2>&1 &&
 	pidof dwm >/dev/null && xdotool key super+F12
 # If pywal is removed, return config files to normal.
 else
@@ -30,4 +31,5 @@ else
 	[ -f "$zathuraconf.bak" ] && unlink "$zathuraconf" && mv "$zathuraconf.bak" "$zathuraconf"
 fi
 
-xwallpaper --zoom "$bgloc"
+xwallpaper --output VGA-0 --zoom "$bgloc"
+xwallpaper --output DVI-D-0 --zoom "$HOME/dox/pix/Wallpapers/wallpaper_v.jpg"
