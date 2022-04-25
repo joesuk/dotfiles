@@ -1,0 +1,5 @@
+#!/bin/sh
+
+eth=$(sb-price ETH ethereum a)
+btc=$(sb-price BTC bitcoin a)
+echo "4.27765124*$eth+0.12125901*$btc" | bc | cut -c1-2

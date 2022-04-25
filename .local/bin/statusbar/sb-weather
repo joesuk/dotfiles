@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl wttr.in/10025?format="%t\n" | tr -d '+'
