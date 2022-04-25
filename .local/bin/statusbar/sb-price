@@ -47,4 +47,5 @@ case "$currency" in
 	btc) symb="₿" ;;
 esac
 
-printf "$3$symb%0.2f$after" "$(cat "$pricefile")"
+#printf "$3$symb%0.2f$after" "$(cat "$pricefile")"
+printf "%0.2f$after\n" "$(cat "$pricefile")"
