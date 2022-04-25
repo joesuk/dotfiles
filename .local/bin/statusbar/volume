@@ -13,18 +13,20 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-[ $(pamixer --get-mute) = true ] && echo 🔇 && exit
+micstat=$(amixer sget Capture | tail -n 1 | awk '{print $6}' | tr -d "[]")
+[[ $micstat = "" ]] && micstat="off"
+
+[ $(pamixer --get-mute) = true ] && echo "🔇 🎤$micstat" && exit
 
 vol="$(pamixer --get-volume)"
+[[ "$vol" = 0 || "$vol" = "" ]] && echo "🔇 🎤$micstat" && exit
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"
-elif [ "$vol" -gt "30" ]; then
-	icon="🔉"
-elif [ "$vol" -gt "0" ]; then
+elif [ "$vol" -lt "30" ]; then
 	icon="🔈"
 else
-        echo 🔇 && exit
+	icon="🔉"
 fi
 
-echo "$vol%"
+echo "$icon$vol% 🎤$micstat"
