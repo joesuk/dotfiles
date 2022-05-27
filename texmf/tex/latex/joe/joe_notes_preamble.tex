@@ -12,7 +12,7 @@
 \usepackage{titlesec}
 \usepackage{tikz-cd}
 \usepackage{hyperref}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{etoolbox}
 \setlength{\parindent}{0in}
 \setlength{\parskip}{0.5em}
@@ -75,6 +75,22 @@
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
   {\end{proof}}
+
+% solution block
+\usepackage{cleveref}
+%\usepackage[most]{tcolorbox}
+\newtcbtheorem{solb}{Solution}{
+                lower separated=false,
+                colback=white!80!gray,
+colframe=white, fonttitle=\bfseries,
+colbacktitle=white!50!gray,
+coltitle=black,
+enhanced,
+breakable,
+boxed title style={colframe=black},
+attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
+}{solb}
+
 
 % napkin theorem style
 \usepackage{thmtools}
