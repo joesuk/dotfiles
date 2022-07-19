@@ -1,6 +1,6 @@
 Adapted from [LARBS](https://larbs.xyz).
 
-- Useful cripts are in `~/.local/bin/`
+- Useful scripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
 	- neomutt (email)
@@ -22,10 +22,10 @@ Adapted from [LARBS](https://larbs.xyz).
 
 ## Install these dotfiles and all dependencies
 
-Use [`bootstrap/larbs.sh`](https://github.com/joesuk/dotfiles/blob/master/bootstrap/larbs.sh) to autoinstall everything:
+Use [`bootstrap/install.sh`](https://github.com/joesuk/dotfiles/blob/master/bootstrap/install.sh) to autoinstall everything:
 
 ```
-curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/master/bootstrap/larbs.sh
+curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/master/bootstrap/install.sh
 ```
 or clone the repo files directly to your home directory and install the
 [dependencies](https://github.com/joesuk/dotfiles/blob/master/bootstrap/progs.csv).
