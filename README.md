@@ -1,13 +1,17 @@
 Adapted from [LARBS](https://larbs.xyz).
 
-- Very useful scripts are in `~/.local/bin/`
+- Useful cripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
+	- neomutt (email)
 	- zsh (shell)
 	- lf (file manager)
 	- mpd/ncmpcpp (music)
 	- sxiv (image/gif viewer)
 	- mpv (video player)
+	- [my mod of dwm](https://github.com/joesuk/dwm) (window manager)
+	- [Luke Smith mod of dwmblocks](https://github.com/lukesmithxyz/dwmblocks) (statusbar)
+	- [my mod of st](https://github.com/lukesmithxyz/st) (terminal emulator)
 	- other stuff like xdg default programs, inputrc and more, etc.
 - I try to minimize what's directly in `~` so:
 	- All configs that can be in `~/.config/` are.
@@ -16,27 +20,12 @@ Adapted from [LARBS](https://larbs.xyz).
 	- File bookmarks in `~/.config/shell/bm-files`
 	- Directory bookmarks in `~/.config/shell/bm-dirs`
 
-## Usage
-
-These dotfiles are intended to go with numerous suckless programs I use:
-
-- [dwm](https://github.com/lukesmithxyz/dwm) (window manager)
-- [dwmblocks](https://github.com/lukesmithxyz/dwmblocks) (statusbar)
-- [st](https://github.com/lukesmithxyz/st) (terminal emulator)
-
-I also recommend trying out
-[mutt-wizard](https://github.com/lukesmithxyz/mutt-wizard), which additionally
-works with this setup. It gives you an easy-to-install terminal-based email
-client regardless of your email provider. It is integrated into these dotfiles
-as well.
-
 ## Install these dotfiles and all dependencies
 
-Use [LARBS](https://larbs.xyz) to autoinstall everything:
+Use [`bootstrap/larbs.sh`](https://github.com/joesuk/dotfiles/blob/master/bootstrap/larbs.sh) to autoinstall everything:
 
 ```
-curl -LO larbs.xyz/larbs.sh
+curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/master/bootstrap/larbs.sh
 ```
-
 or clone the repo files directly to your home directory and install the
-[dependencies](https://github.com/LukeSmithxyz/LARBS/blob/master/progs.csv).
+[dependencies](https://github.com/joesuk/dotfiles/blob/master/bootstrap/progs.csv).
