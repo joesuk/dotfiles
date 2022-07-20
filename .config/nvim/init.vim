@@ -110,6 +110,10 @@ set wrapmargin=0
 " Compile document, be it groff/LaTeX/markdown/etc.
 	map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
+" autocompile groff on save
+au BufWritePost,BufFilePost *.ms !groff -ms % -T pdf > %:r.pdf
+au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
+
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
 
