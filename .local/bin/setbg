@@ -30,5 +30,5 @@ else
 	[ -f "$zathuraconf.bak" ] && unlink "$zathuraconf" && mv "$zathuraconf.bak" "$zathuraconf"
 fi
 
-xwallpaper --output VGA-0 --zoom "$bgloc"
-xwallpaper --output DVI-D-0 --zoom "$HOME/dox/pix/Wallpapers/wallpaper_v.jpg"
+xwallpaper --zoom "$bgloc"
+#xwallpaper --output DVI-D-0 --zoom "$HOME/dox/pix/Wallpapers/wallpaper_v.jpg"
