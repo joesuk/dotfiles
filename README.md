@@ -1,5 +1,6 @@
 Adapted from [LARBS](https://larbs.xyz).
 
+- Everything is for Arch/Artix Linux.
 - Useful scripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
