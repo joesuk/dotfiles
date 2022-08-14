@@ -15,4 +15,4 @@ else
 fi
 
 #systemctl enable netctl-auto@ninanina.service
-ssh-agent dwm
+ssh-agent dwm > ~/dwm.log 2>&1
