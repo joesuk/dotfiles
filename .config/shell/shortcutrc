@@ -6,6 +6,7 @@ d="cd /home/amaryllis/dox && ls -a" \
 wiki="cd /home/amaryllis/dox/wiki && ls -a" \
 res="cd /home/amaryllis/dox/research && ls -a" \
 CU="cd /home/amaryllis/dox/CU && ls -a" \
+site="cd /home/amaryllis/dox/sites/academic && ls -a" \
 dt="cd /home/amaryllis/.local/share && ls -a" \
 rr="cd /home/amaryllis/.local/src && ls -a" \
 h="cd /home/amaryllis && ls -a" \
