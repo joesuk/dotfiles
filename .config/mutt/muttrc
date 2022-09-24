@@ -1,1 +1,7 @@
+# vim: filetype=neomuttrc
+source /usr/share/mutt-wizard/mutt-wizard.muttrc
+source /home/amaryllis/.config/mutt/accounts/ybjosuk@gmail.com.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/ybjosuk@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ybjosuk@gmail.com"
+macro index,pager i2 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/js5338@columbia.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to js5338@columbia.edu"
 set editor='vim "+normal \\ec" +/^$/'
+macro index,pager i3 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/jsukcontact@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to jsukcontact@gmail.com"
