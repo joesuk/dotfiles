@@ -50,7 +50,7 @@ set dir=~/dox/vim_temp
 set smartcase " ignore ignorecase if search contains uppercase
 set wrap
 set wrapmargin=0
-
+set ma
 
 " Some basics:
 	nnoremap c "_c
