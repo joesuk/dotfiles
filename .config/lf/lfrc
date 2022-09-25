@@ -105,6 +105,7 @@ map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-s> set hidden!
+map <c-g> $git pull origin main
 map <enter> shell
 map x $$f
 map X !$f
