@@ -10,12 +10,10 @@ set message_cachedir = /home/amaryllis/.cache/mutt-wizard/js5338@columbia.edu/bo
 set mbox_type = Maildir
 set hostname = "columbia.edu"
 source /usr/share/mutt-wizard/switch.muttrc
-set spoolfile = +INBOX
+set spoolfile = "+INBOX"
 set postponed = "=[Gmail]/Drafts"
 set trash = "=[Gmail]/Trash"
 set record = "=[Gmail]/Sent Mail"
-
-
 
 macro index o "<shell-escape>mw -y js5338@columbia.edu<enter>" "run mbsync to sync js5338@columbia.edu"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a js5338@columbia.edu<enter>"  "publish GPG key to WKS provider"

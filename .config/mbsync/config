@@ -1,3 +1,4 @@
+
 IMAPStore ybjosuk@gmail.com-remote
 Host imap.gmail.com
 Port 993
@@ -16,13 +17,13 @@ Channel ybjosuk@gmail.com
 Expunge Both
 Far :ybjosuk@gmail.com-remote:
 Near :ybjosuk@gmail.com-local:
-#Patterns * !"[Gmail]/All Mail"
-Patterns *
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Starred" "[Gmail]/Spam" "[Gmail]/All Mail" "[Gmail]/Trash"
 Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
+
 
 IMAPStore js5338@columbia.edu-remote
 Host imap.gmail.com
@@ -42,37 +43,10 @@ Channel js5338@columbia.edu
 Expunge Both
 Far :js5338@columbia.edu-remote:
 Near :js5338@columbia.edu-local:
-#Patterns * !"[Gmail]/All Mail"
-Patterns *
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Starred" "[Gmail]/Spam" "[Gmail]/All Mail" "[Gmail]/Trash"
 Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
 
-
-IMAPStore jsukcontact@gmail.com-remote
-Host imap.gmail.com
-Port 993
-User jsukcontact@gmail.com
-PassCmd "pass jsukcontact@gmail.com"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore jsukcontact@gmail.com-local
-Subfolders Verbatim
-Path /home/amaryllis/.local/share/mail/jsukcontact@gmail.com/
-Inbox /home/amaryllis/.local/share/mail/jsukcontact@gmail.com/INBOX
-
-Channel jsukcontact@gmail.com
-Expunge Both
-Far :jsukcontact@gmail.com-remote:
-Near :jsukcontact@gmail.com-local:
-#Patterns * !"[Gmail]/All Mail"
-Patterns *
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
-# End profile

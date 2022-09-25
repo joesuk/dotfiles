@@ -10,7 +10,7 @@ set message_cachedir = /home/amaryllis/.cache/mutt-wizard/ybjosuk@gmail.com/bodi
 set mbox_type = Maildir
 set hostname = "gmail.com"
 source /usr/share/mutt-wizard/switch.muttrc
-set spoolfile = +INBOX
+set spoolfile = "+INBOX"
 set postponed = "=[Gmail]/Drafts"
 set trash = "=[Gmail]/Trash"
 set record = "=[Gmail]/Sent Mail"
@@ -20,4 +20,3 @@ macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-se
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a ybjosuk@gmail.com<enter>" "confirm GPG publication"
 
 mailboxes "=INBOX" "=[Gmail]/All Mail" "=[Gmail]/Drafts" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash"
-# "=[Gmail]/All mail" "=[Gmail]All Mail" "=[Gmail]All mail"
