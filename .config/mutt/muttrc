@@ -1,8 +1,8 @@
-source /usr/share/mutt-wizard/mutt-wizard.muttrc
+# vim: filetype=neomuttrc
 set editor='vim "+normal \\ec" +/^$/'
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /home/amaryllis/.config/mutt/accounts/ybjosuk@gmail.com.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/ybjosuk@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ybjosuk@gmail.com"
-
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
 macro index,pager Md ";<save-message>=[Gmail]/Drafts<enter>" "move mail to drafts"
 macro index,pager Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
@@ -18,4 +18,5 @@ macro index,pager Cs ";<copy-message>=[Gmail]/Sent Mail<enter>" "copy mail to se
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "go to all mail"
 macro index,pager Ma ";<save-message>=[Gmail]/All Mail<enter>" "move mail to all mail"
 macro index,pager Ca ";<copy-message>=[Gmail]/All Mail<enter>" "copy mail to all mail"
+macro index,pager \CB "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/js5338@columbia.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to js5338@columbia.edu"
