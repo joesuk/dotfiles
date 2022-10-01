@@ -20,3 +20,4 @@ macro index,pager Ma ";<save-message>=[Gmail]/All Mail<enter>" "move mail to all
 macro index,pager Ca ";<copy-message>=[Gmail]/All Mail<enter>" "copy mail to all mail"
 macro index,pager \CB "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/js5338@columbia.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to js5338@columbia.edu"
+macro index O "<shell-escape>mw -y ybjosuk@gmail.com && mw -y js5338@columbia.edu<enter>" "sync both mailboxes"
