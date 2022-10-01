@@ -295,7 +295,7 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWCtrl+W >/<\fP \(en increase/decrease width of windows.
 .ITEM
-\f(CWCtrl+j/k/fP \(en move up and down windows.
+\f(CWCtrl+j/k\fP \(en move up and down windows.
 .ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
