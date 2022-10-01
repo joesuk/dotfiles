@@ -14,7 +14,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
-Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 " vim latex
@@ -26,7 +25,31 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 "set conceallevel=1
 "let g:tex_conceal='abdmg'
 
+" lightline
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'selenized_dark',
+	\ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
+      \ }
 call plug#end()
+
+" for lightline
+set runtimepath+=~/.config/nvim/plugged/lightline
+if !has('gui_running')
+  set t_Co=256
+endif
 
 set title
 set bg=light
@@ -36,7 +59,7 @@ set hlsearch
 set clipboard+=unnamedplus
 set noshowmode "showing visual/insert mode
 set noruler "don't show the cursor position all the time
-set laststatus=0
+set laststatus=2
 set noshowcmd
 set ignorecase
 set incsearch  " do incremental searching
@@ -81,7 +104,7 @@ set ma
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-" vimling:
+" vimling (for writing accent characters):
 	nm <leader><leader>d :call ToggleDeadKeys()<CR>
 	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
 	nm <leader><leader>i :call ToggleIPA()<CR>
@@ -127,6 +150,12 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" vimwiki commands
+	map ,n :lnext<CR>
+	map ,p :lprev<CR>
+
+
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
