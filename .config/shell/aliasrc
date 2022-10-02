@@ -50,3 +50,8 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+
+# git aliases
+alias \
+	pum="git pull origin main" \
+	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin main"
