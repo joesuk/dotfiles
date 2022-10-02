@@ -19,8 +19,8 @@ for program in $autostart; do
 done >/dev/null 2>&1
 
 # touchpad
-synclient TapButton1=1
-synclient RightButtonAreaLeft=1
+#synclient TapButton1=1
+#synclient RightButtonAreaLeft=1
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
