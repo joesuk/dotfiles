@@ -152,8 +152,8 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " vimwiki commands
-	map ,n :lnext<CR>
-	map ,p :lprev<CR>
+	map <leader>. :lnext<CR>
+	map <leader>, :lprev<CR>
 
 
 
