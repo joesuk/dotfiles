@@ -15,8 +15,10 @@ set postponed = "=[Gmail]/Drafts"
 set trash = "=[Gmail]/Trash"
 set record = "=[Gmail]/Sent Mail"
 set copy = no
+# fix for "No such file or directory (errno = 2)"
+set mbox= +INBOX
 
-macro index o "<shell-escape>mw -y ybjosuk@gmail.com<enter>" "run mbsync to sync ybjosuk@gmail.com"
+macro index o "<shell-escape>mbsync -c ~/.config/mbsync/config ybjosuk@gmail.com<enter>" "run mbsync to sync ybjosuk@gmail.com"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/local/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a ybjosuk@gmail.com<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/local/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a ybjosuk@gmail.com<enter>" "confirm GPG publication"
 
