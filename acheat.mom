@@ -393,6 +393,13 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWgit remote get-url origin\fP \(en get origin url.
 .LIST OFF
+.HEADING 2 "sxiv"
+.LI
+.ITEM
+\f(CWrightclick on right part of screen\fP \(en next image
+.ITEM
+\f(CW>>/<<\fP \(en rotate image
+.LIST OFF
 .HEADING 2 "Misc"
 .LI
 .ITEM
