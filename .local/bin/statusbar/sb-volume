@@ -27,4 +27,4 @@ else
         echo 🔇 && exit
 fi
 
-echo "$vol%"
+echo "$vol"
