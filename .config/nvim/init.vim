@@ -28,7 +28,7 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 " lightline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'selenized_dark',
+      \ 'colorscheme': 'Tomorrow_Night_Blue',
 	\ 'mode_map': {
         \ 'n' : 'N',
         \ 'i' : 'I',
