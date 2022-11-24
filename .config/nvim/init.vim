@@ -1,5 +1,3 @@
-" let mapleader ="," , make \ leader instead
-
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -28,21 +26,26 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 " lightline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night_Blue',
-	\ 'mode_map': {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ },
-      \ }
+\ 'colorscheme': 'Tomorrow_Night_Blue',
+\ 'mode_map': {
+\ 'n' : '四',
+\ 'i' : '五',
+\ 'R' : 'R',
+\ 'v' : '六',
+\ 'V' : 'VL',
+\ "\<C-v>": 'VB',
+\ 'c' : 'C',
+\ 's' : 'S',
+\ 'S' : 'SL',
+\ "\<C-s>": 'SB',
+\ 't': 'T',
+\},
+\   'active': {
+\    'left' :[[ 'mode'],
+\             [ 'readonly', 'absolutepath', 'modified' ]],
+\    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
+\   },
+\}
 call plug#end()
 
 " for lightline
