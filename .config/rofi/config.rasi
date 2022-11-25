@@ -4,69 +4,54 @@
  * Copyright: Rasmus Steinke
  ******************************************************************************/
 * {
-    bg-col:  #303446;
-    bg-col-light: #303446;
-    border-col: #303446;
-    selected-col: #303446;
-    blue: #8caaee;
-    fg-col: #c6d0f5;
-    fg-col2: #e78284;
-    grey: #737994;
-
-    width: 1200;
+    purple: 			 #6943ff;
+    darkpink:			 #D87B90;
+    darkpurple: #6E5676;
+    pink: #d5aeea;
+    foreground:                  @pink;
+    background:                  @darkpurple;
+    selected-normal-foreground:  @darkpink;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @background;
+    selected-urgent-foreground:  @foreground;
+    urgent-foreground:           @foreground;
+    alternate-urgent-background: @background;
+    active-foreground:           @foreground;
+    selected-active-foreground:  @foreground;
+    alternate-active-background: @background;
+    bordercolor:		@background;
+    alternate-normal-foreground: @foreground;
+    normal-background:           @background;
+    selected-normal-background:  @background;
+    border-color:                @foreground;
+    spacing:                     @background;
+    separatorcolor:              @background;
+    urgent-background:		@background;
+    selected-urgent-background: @background;
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            @background;
+    alternate-active-foreground: @active-foreground;
+    active-background:           @background;
+    selected-active-background:  @background;
 }
 
+window {
+    background-color: @background;
+    border:           1;
+    padding:          5;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
 message {
     border:       1px dash 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
-
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+textbox {
+    text-color: @foreground;
 }
-
-window {
-    height: 400px;
-    border: 0;
-    padding: 0;
-    border-color: @border-col;
-    background-color: @bg-col;
-}
-
-mainbox {
-    background-color: @bg-col;
-    border: 0;
-    padding: 0;
-}
-
-inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    padding: 1px;
-    spacing: 0;
-}
-
-prompt {
-    background-color: @blue;
-    spacing: 0;
-    text-color: @bg-col;
-}
-
-textbox-prompt-colon {
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @normal-foreground;
-}
-
-entry {
-    spacing: 0;
-    text-color: @fg-col;
-    background-color: @bg-col;
-}
-
 listview {
     fixed-height: 0;
     border:       2px dash 0px 0px ;
@@ -75,44 +60,87 @@ listview {
     scrollbar:    true;
     padding:      2px 0px 0px ;
 }
-
+element {
+    border:  0;
+    padding: 1px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
 scrollbar {
     width:        4px ;
     border:       0;
     handle-width: 8px ;
-    padding: 0;
+    padding:      0;
 }
-
-element {
-    padding: 1px;
-    border: 0;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
-}
-
-element-icon {
-    size: 16px;
-}
-
-element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
-}
-
 mode-switcher {
     border:       2px dash 0px 0px ;
     border-color: @separatorcolor;
 }
-
-button {
-    padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5;
-    horizontal-align: 0.5;
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
 }
-
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
 }
