@@ -42,7 +42,7 @@ let g:lightline = {
 \},
 \   'active': {
 \    'left' :[[ 'mode'],
-\             [ 'readonly', 'absolutepath', 'modified' ]],
+\             [ 'readonly', 'filename', 'modified' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \}
