@@ -18,9 +18,12 @@ for program in $autostart; do
 	pidof -s "$program" || setsid -f "$program"
 done >/dev/null 2>&1
 
-# touchpad
-#synclient TapButton1=1
-#synclient RightButtonAreaLeft=1
+# touchpad (needed for mac)
+hostname=$(cat /proc/sys/kernel/hostname)
+if [ $hostname = "acm" ]; then
+	synclient TapButton1=1
+	synclient RightButtonAreaLeft=1
+fi
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
