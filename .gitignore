@@ -14,7 +14,9 @@
 # ignore files by name
 .RData
 .RHistory
+acheat.pdf
 
 dox/
 Documents/
 Downloads/
+R/
