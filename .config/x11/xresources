@@ -5,16 +5,17 @@
 *.font: NotoSansMono-Regular:size=16
 
 
-*background: #303446
+*background: #6E5676
 *foreground: #C6D0F5
+*.cursorColor: #F4B8E4
 
 ! black
-*color0: #51576D
+*color0: #6E5676
 *color8: #626880
 
 ! red
-*color1: #E78284
-*color9: #E78284
+*color1: #ff8295
+*color9: #ff8295
 
 ! green
 *color2: #A6D189
@@ -37,5 +38,5 @@
 *color14: #81C8BE
 
 ! white
-*color7: #B5BFE2
+*color7: #6943ff
 *color15: #A5ADCE
