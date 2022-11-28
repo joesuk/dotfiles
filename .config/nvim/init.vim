@@ -226,3 +226,7 @@ autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
 " color .vim file syntaxes
 autocmd filetype vim highlight vimCommand ctermfg=180 guifg=White
 autocmd filetype vim highlight vimHighlight ctermfg=180 guifg=White
+" color muttrc syntax
+autocmd filetype * highlight muttrcCommand ctermfg=180 guifg=White
+" color search terms
+hi Search cterm=NONE ctermfg=16 ctermbg=214
