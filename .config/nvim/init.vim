@@ -230,3 +230,5 @@ autocmd filetype vim highlight vimHighlight ctermfg=180 guifg=White
 autocmd filetype * highlight muttrcCommand ctermfg=180 guifg=White
 " color search terms
 hi Search cterm=NONE ctermfg=16 ctermbg=214
+" set background light, this helps automatic syntax coloring, may have to change to dark depending on type of file
+set background=light
