@@ -22,3 +22,6 @@ macro index,pager \CB "<enter-command>set pipe_decode = yes<enter><pipe-message>
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/amaryllis/.config/mutt/accounts/js5338@columbia.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to js5338@columbia.edu"
 macro index O "<shell-escape>mbsync -c ~/.config/mbsync/config -a<enter>" "sync both mailboxes"
 set wrap=0 #wrap at the width of the terminal
+
+# color selected line
+color indicator brightmagenta white
