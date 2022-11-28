@@ -7,6 +7,7 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'tpope/vim-surround'
+Plug 'https://github.com/dylnmc/synstack.vim.git' " ctrl-p under word to see syntax
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
@@ -28,13 +29,13 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
 \ 'colorscheme': 'Tomorrow_Night_Blue',
 \ 'mode_map': {
-\ 'n' : '四',
-\ 'i' : '五',
+\ 'n' : '普通的',
+\ 'i' : '插入',
 \ 'R' : 'R',
-\ 'v' : '六',
+\ 'v' : '視覺的',
 \ 'V' : 'VL',
 \ "\<C-v>": 'VB',
-\ 'c' : 'C',
+\ 'c' : '命令',
 \ 's' : 'S',
 \ 'S' : 'SL',
 \ "\<C-s>": 'SB',
@@ -48,10 +49,11 @@ let g:lightline = {
 \}
 call plug#end()
 
+set t_Co=16
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
 if !has('gui_running')
-  set t_Co=256
+  set t_Co=16
 endif
 
 set title
@@ -214,3 +216,13 @@ let g:netrw_browsex_viewer= "firefox"
 " So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
 " if typed fast without the timeout.
 " source ~/.config/nvim/shortcuts.vim
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=79 guibg=NONE
+
+" color tex commands (e.g., begin/end)
+autocmd filetype tex highlight texCmd ctermfg=180 guibg=NONE
+" color matchings (e.g., begin/end while under cursor)
+autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
+" color .vim file syntaxes
+autocmd filetype vim highlight vimCommand ctermfg=180 guifg=White
+autocmd filetype vim highlight vimHighlight ctermfg=180 guifg=White
