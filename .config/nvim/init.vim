@@ -49,7 +49,6 @@ let g:lightline = {
 \}
 call plug#end()
 
-set t_Co=16
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
 if !has('gui_running')
@@ -160,8 +159,6 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	map <leader>. :lnext<CR>
 	map <leader>, :lprev<CR>
 
-
-
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
@@ -220,17 +217,19 @@ let g:netrw_browsex_viewer= "firefox"
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=79 guibg=NONE
 
 " color tex commands (e.g., begin/end)
-autocmd filetype tex highlight texCmd ctermfg=180 guibg=NONE
-autocmd filetype tex highlight texMathSuperSub ctermfg=180 guibg=NONE
-autocmd filetype tex highlight texMathOper ctermfg=180 guibg=NONE
+autocmd filetype tex highlight texCmd ctermfg=180
+autocmd filetype tex highlight texMathSuperSub ctermfg=180
+autocmd filetype tex highlight texMathOper ctermfg=180
 " color matchings (e.g., begin/end while under cursor)
 autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
 " color .vim file syntaxes
-autocmd filetype vim highlight vimCommand ctermfg=180 guifg=White
-autocmd filetype vim highlight vimHighlight ctermfg=180 guifg=White
+autocmd filetype vim highlight vimCommand ctermfg=180
+autocmd filetype vim highlight vimHighlight ctermfg=180
 " color muttrc syntax
-autocmd filetype * highlight muttrcCommand ctermfg=180 guifg=White
+autocmd filetype * highlight muttrcCommand ctermfg=180
 " color search terms
 hi Search cterm=NONE ctermfg=16 ctermbg=214
+" color visual/highlighting
+hi Visual cterm=bold ctermbg=13 ctermfg=15
 " set background light, this helps automatic syntax coloring, may have to change to dark depending on type of file
 set background=dark
