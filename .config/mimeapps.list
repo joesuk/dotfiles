@@ -19,3 +19,5 @@ x-scheme-handler/http=firefox.desktop
 
 [Added Associations]
 application/x-compressed-tar=brave-browser.desktop;
+image/jpeg=viewnior.desktop;sxiv.desktop;
+image/png=sxiv.desktop;
