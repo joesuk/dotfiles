@@ -297,6 +297,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWCtrl+j/k\fP \(en move up and down windows.
 .ITEM
+\f(CWLeader+o\fP \(en Spell check.
+.ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
 .HEADING 2 "Vim-LaTeX"
