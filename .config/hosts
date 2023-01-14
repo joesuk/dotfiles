@@ -12,7 +12,7 @@ ff02::2 ip6-allrouters
 0.0.0.0		https://www.reddit.com/
 0.0.0.0		news.ycombinator.com
 0.0.0.0		reddit.com
-#0.0.0.0		teddit.net
+0.0.0.0		teddit.net
 0.0.0.0		search.google.com/test/mobile-friendly
 0.0.0.0		search.google.com
 0.0.0.0		quora.com
