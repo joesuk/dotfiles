@@ -283,6 +283,10 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW^\fP \(en jump to first non-blank character of line.
 .ITEM
+\f(CWg;\fP \(en jump to last edit (go back one in changelist).
+.ITEM
+\f(CWg,\fP \(en jump back one in changelist.
+.ITEM
 \f(CW>>/<<\fP \(en indent/de-indent line one shiftwidth.
 .ITEM
 \f(CWZZ\fP \(en write (save) and quit (same \f(CW:wq\fP).
