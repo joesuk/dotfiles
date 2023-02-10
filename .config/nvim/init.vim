@@ -155,6 +155,10 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 
+" vim-latex commands
+	onoremap <silent> i$ :<c-u>normal! T$vt$<cr>
+	vnoremap i$ T$ot$
+
 " vimwiki commands
 	map <leader>. :lnext<CR>
 	map <leader>, :lprev<CR>
