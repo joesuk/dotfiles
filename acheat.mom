@@ -316,6 +316,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW(d,c)sc/(d,c)se/(d,c)s$/(d,c)sd\fP \(en delete/change surrounding command/environment/delimiter.
 .ITEM
+\f(CWCtrl+p\fP \(en Get syntax of word under cursor (useful for changing color.
+.ITEM
 .PDF_WWW_LINK "https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt" "See more shortcuts here."
 .LIST OFF
 .HEADING 2 "Zathura"
