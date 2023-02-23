@@ -224,6 +224,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE cte
 autocmd filetype tex highlight texCmd ctermfg=180
 autocmd filetype tex highlight texMathSuperSub ctermfg=180
 autocmd filetype tex highlight texMathOper ctermfg=180
+autocmd filetype tex highlight texComment ctermfg=238
 " color matchings (e.g., begin/end while under cursor)
 autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
 " color .vim file syntaxes
@@ -235,5 +236,7 @@ autocmd filetype * highlight muttrcCommand ctermfg=180
 hi Search cterm=NONE ctermfg=16 ctermbg=214
 " color visual/highlighting
 hi Visual cterm=bold ctermbg=13 ctermfg=15
+" change comment colors
+highlight Comment ctermfg=238
 " set background light, this helps automatic syntax coloring, may have to change to dark depending on type of file
 set background=dark
