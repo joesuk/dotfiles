@@ -305,6 +305,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW:so $MYVIMRC and :so PlugClean\fP \(en Get rid of unused/deleted plugs.
 .ITEM
+\f(CW:echo &filetype\fP \(en Get filetype.
+.ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
 .HEADING 2 "Vim-LaTeX"
