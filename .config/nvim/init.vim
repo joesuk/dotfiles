@@ -18,6 +18,16 @@ Plug 'ap/vim-css-color'
 " vim latex
 Plug 'lervag/vimtex'
 " markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'dkarter/bullets.vim' "bullets in markdown
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown'
+    \]
+"Remove the + bullet so * always indents as *
+let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*']
+" latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
