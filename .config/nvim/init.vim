@@ -17,6 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 " vim latex
 Plug 'lervag/vimtex'
+" markdown
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
@@ -78,6 +79,7 @@ set smartcase " ignore ignorecase if search contains uppercase
 set wrap
 set wrapmargin=0
 set ma
+
 
 " Some basics:
 	nnoremap c "_c
@@ -151,9 +153,11 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	let g:vimwiki_ext2syntax = {'wiki': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
 	let g:vimwiki_list = [{'path': '~/dox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+	let g:vimwiki_global_ext = 0 " don't set all .md files as vimwiki type
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
+	autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " vim-latex commands
 	onoremap <silent> i$ :<c-u>normal! T$vt$<cr>
@@ -210,6 +214,7 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
 " ensure vim opens links with firefox
 let g:netrw_browsex_viewer= "firefox"
 " Load command shortcuts generated from bm-dirs and bm-files via shortcuts script.
