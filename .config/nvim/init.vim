@@ -67,7 +67,6 @@ if !has('gui_running')
 endif
 
 set title
-set bg=light
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
 set mouse=a " mouse enabled
 set hlsearch
@@ -233,25 +232,66 @@ let g:netrw_browsex_viewer= "firefox"
 " if typed fast without the timeout.
 " source ~/.config/nvim/shortcuts.vim
 
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=79 guibg=NONE
 
-" color tex commands (e.g., begin/end)
-autocmd filetype tex highlight texCmd ctermfg=180
-autocmd filetype tex highlight texMathSuperSub ctermfg=180
-autocmd filetype tex highlight texMathOper ctermfg=180
-autocmd filetype tex highlight texComment ctermfg=238
-" color matchings (e.g., begin/end while under cursor)
-autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
-" color .vim file syntaxes
-autocmd filetype vim highlight vimCommand ctermfg=180
-autocmd filetype vim highlight vimHighlight ctermfg=180
-" color muttrc syntax
-autocmd filetype * highlight muttrcCommand ctermfg=180
-" color search terms
-hi Search cterm=NONE ctermfg=16 ctermbg=214
-" color visual/highlighting
-hi Visual cterm=bold ctermbg=13 ctermfg=15
-" change comment colors
-highlight Comment ctermfg=238
-" set background light, this helps automatic syntax coloring, may have to change to dark depending on type of file
-set background=dark
+" Initially set it to "dark" or "light" according to your default
+let s:mybg = "dark"
+function! BgToggleSol()
+	" clear current colors
+	"highlight clear
+	"if exists("syntax_on")
+	  "syntax reset
+	"endif
+
+	if !has('gui_running')
+	  set t_Co=16
+	endif
+    if (s:mybg ==? "light")
+	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=72 guibg=NONE
+	" color tex commands (e.g., begin/end)
+	autocmd filetype tex highlight texCmd ctermfg=141
+	autocmd filetype tex highlight texCmdEnv ctermfg=5
+	autocmd filetype tex highlight texMathSuperSub ctermfg=141
+	autocmd filetype tex highlight texMathOper ctermfg=141
+	autocmd filetype tex highlight texComment ctermfg=238
+	" color matchings (e.g., begin/end while under cursor)
+	autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
+	" color .vim file syntaxes
+	autocmd filetype vim highlight vimCommand ctermfg=141
+	autocmd filetype vim highlight vimHighlight ctermfg=141
+	" color muttrc syntax
+	autocmd filetype * highlight muttrcCommand ctermfg=141
+	" color search terms
+	hi Search cterm=NONE ctermfg=16 ctermbg=214
+	" color visual/highlighting
+	hi Visual cterm=bold ctermbg=13 ctermfg=15
+	" change comment colors
+	highlight Comment ctermfg=238
+       	set background=light
+       	let s:mybg = "dark"
+    else
+	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=79 guibg=NONE
+	" color tex commands (e.g., begin/end)
+	autocmd filetype tex highlight texCmd ctermfg=180
+	autocmd filetype tex highlight texMathSuperSub ctermfg=180
+	autocmd filetype tex highlight texMathOper ctermfg=180
+	autocmd filetype tex highlight texComment ctermfg=238
+	" color matchings (e.g., begin/end while under cursor)
+	autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
+	" color .vim file syntaxes
+	autocmd filetype vim highlight vimCommand ctermfg=180
+	autocmd filetype vim highlight vimHighlight ctermfg=180
+	" color muttrc syntax
+	autocmd filetype * highlight muttrcCommand ctermfg=180
+	" color search terms
+	hi Search cterm=NONE ctermfg=16 ctermbg=214
+	" color visual/highlighting
+	hi Visual cterm=bold ctermbg=13 ctermfg=15
+	" change comment colors
+	highlight Comment ctermfg=238
+	set background=dark
+       	let s:mybg = "light"
+    endif
+    " set background=light
+endfunction
+
+nnoremap <silent> <leader>bg :call BgToggleSol()<cr>
