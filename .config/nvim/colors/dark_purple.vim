@@ -24,7 +24,7 @@ hi Visual cterm=bold ctermbg=13 ctermfg=15
 " change comment colors
 highlight Comment ctermfg=238
 set background=light
-let s:mybg = "dark"
+let s:mybg = "light"
 
 " lightline
 let s:base3 = '#ffffff'
