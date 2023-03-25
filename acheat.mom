@@ -15,7 +15,7 @@
 .HEADING 2 "General keyboard changes"
 .LI
 .ITEM
-Capslock is remapped.
+Capslock is remapped to escape.
 If you press it alone, it will function as escape, making vimcraft much more natural,
 but you can also hold it down and it will act as another Windows/super/mod key.
 .LIST OFF
@@ -324,6 +324,25 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 .PDF_WWW_LINK "https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt" "See more shortcuts here."
 .LIST OFF
+.HEADING 2 "Vim-Markdown"
+.LI
+.ITEM
+\f(CWzr\fP \(en reduces fold level throughout the buffer
+.ITEM
+\f(CWzR\fP \(en opens all folds
+.ITEM
+\f(CWzm\fP \(en increases fold level throughout the buffer
+.ITEM
+\f(CWzM\fP \(en folds everything all the way
+.ITEM
+\f(CWza\fP \(en open a fold your cursor is on
+.ITEM
+\f(CWzA\fP \(en open a fold your cursor is on recursively
+.ITEM
+\f(CWzc\fP \(en close a fold your cursor is on
+.ITEM
+\f(CWzC\fP \(en close a fold your cursor is on recursively
+.LIST OFF
 .HEADING 2 "Zathura"
 .LI
 .ITEM
@@ -432,6 +451,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CW(in vim) source init.vim\fP \(en source init.vim
 .ITEM
 \f(CWheif-convert image.HEIC new-image.png(or jpg)\fP \(en convert HEIC/HEIF to image.
+.ITEM
+\f(CW(in rstudio) fn+ENTER\fP \(en Toggle insert mode.
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
