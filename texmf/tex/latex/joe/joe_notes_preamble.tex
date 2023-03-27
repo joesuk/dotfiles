@@ -39,8 +39,7 @@
 \usepackage{multirow}
 \usepackage{prerex}
 \usepackage{hyperref}
-\usepackage[nameinlink]{cleveref}
-
+\usepackage[capitalize,noabbrev]{cleveref}
 
 
 \usepackage{amsthm}
@@ -98,14 +97,14 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 
 \theoremstyle{definition}
 \mdfdefinestyle{mdbluebox}{%
-	roundcorner = 10pt,
+	roundcorner = 5pt,
 	linewidth=1pt,
 	skipabove=12pt,
 	innerbottommargin=9pt,
 	skipbelow=2pt,
 	nobreak=true,
-	linecolor=black,
-	backgroundcolor=Gray!20,
+	linecolor=RedViolet,
+	backgroundcolor=WildStrawberry!20,
 }
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{RoyalPurple},
@@ -128,6 +127,19 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	linecolor=PineGreen,
 	backgroundcolor=SeaGreen!10,
 }
+\mdfdefinestyle{mdanswerbox}{%
+	linewidth=0.5pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=4pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	linecolor=Melon,
+	backgroundcolor=Dandelion!10,
+}
 \declaretheoremstyle[
 	headfont=\bfseries\color{PineGreen},
 	mdframed={style=mdredbox},
@@ -135,6 +147,14 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	headpunct={\\[3pt]},
 	postheadspace={0pt},
 ]{thmredbox}
+\declaretheoremstyle[
+	headfont=\bfseries\color{RedOrange},
+	mdframed={style=mdanswerbox},
+	spaceabove=7pt,
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmanswerbox}
+
 
 
 \mdfdefinestyle{mdgreenbox}{%
@@ -200,6 +220,7 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \declaretheorem[style=thmredbox,name=Example,numbered=no]{ex*}
 \declaretheorem[style=thmredbox,name=Example,sibling=thm]{example}
 \declaretheorem[style=thmredbox,name=Example,numbered=no]{example*}
+\declaretheorem[style=thmanswerbox,name=Answer,numbered=no]{answer}
 \declaretheorem[style=thmblackbox,name=Remark,sibling=thm]{rmk}
 \declaretheorem[style=thmblackbox,name=Remark,numbered=no]{rmk*}
 \declaretheorem[style=thmblackbox,name=Remark,sibling=thm]{remark}
@@ -207,7 +228,6 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \declaretheorem[style=thmbluebox,name=Proposition,sibling=thm]{proposition}
 \declaretheorem[style=thmbluebox,name=Corollary,sibling=thm]{corollary}
 \declaretheorem[style=thmredbox,name=Example,sibling=thm]{exercise}
-
 
 
 \theoremstyle{definition}
@@ -219,7 +239,7 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{fact}[thm]{Fact}
 %\newtheorem{prop}[prop]{Proposition}
-\newtheorem{answer}[thm]{Answer}
+%\newtheorem{answer}[thm]{Answer}
 \newtheorem{ques}[thm]{Question}
 \newtheorem{exer}[thm]{Exercise}
 \newtheorem{prob}[thm]{Problem}
@@ -227,11 +247,29 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \newtheorem*{defn*}{Definition}
 \newtheorem*{note*}{Notation}
 \newtheorem*{fact*}{Fact}
-\newtheorem*{answer*}{Answer}
+%\newtheorem*{answer*}{Answer}
 \newtheorem*{ques*}{Question}
 \newtheorem*{exer*}{Exercise}
 \newtheorem*{prob*}{Problem}
 
+% cleveref setup
+\Crefname{defn}{Definition}{Definitions}
+\Crefname{rmk}{Remark}{Remarks}
+\Crefname{prop}{Proposition}{Propositions}
+\Crefname{thm}{Theorem}{Theorems}
+\Crefname{cor}{Corollary}{Corollaries}
+\Crefname{lemma}{Lemma}{Lemmas}
+\Crefname{algo}{Algorithm}{Algorithms}
+\Crefname{ex}{Example}{Examples}
+\Crefname{answer}{Answer}{Answers}
+\Crefname{ques}{Question}{Questions}
+\Crefname{prob}{Problem}{Problems}
+\Crefname{assumption}{Assumption}{Assumptions}
+\Crefname{note}{Note}{Notes}
+\Crefname{fact}{Fact}{Facts}
+\Crefname{exer}{Exercise}{Exercises}
+\Crefname{conj}{Conjecture}{Conjectures}
+\Crefname{claim}{Claim}{Claims}
 
 % colors and hypersetup
 \definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
