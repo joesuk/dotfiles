@@ -1,9 +1,9 @@
 # vim: filetype=neomuttrc
 # muttrc file for account js5338@columbia.edu
 set realname = "Joe Suk"
-set from = "js5338@columbia.edu"
+set from = "joe.suk@columbia.edu"
 set sendmail = "msmtp -a js5338@columbia.edu"
-alias me js5338 <js5338@columbia.edu>
+alias me js5338 <joe.suk@columbia.edu>
 set folder = "/home/amaryllis/.local/share/mail/js5338@columbia.edu"
 set header_cache = /home/amaryllis/.cache/mutt-wizard/js5338@columbia.edu/headers
 set message_cachedir = /home/amaryllis/.cache/mutt-wizard/js5338@columbia.edu/bodies
