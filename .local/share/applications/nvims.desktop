@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=nvims
+Exec=/usr/local/bin/st -e nvim -S ~/.config/nvim/init.vim %u
