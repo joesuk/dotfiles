@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# pull from git repos
+cd ~/dox/wiki && git remote set-url origin git@github.com:joeysuk/wiki.git
+cd ~/dox/res && git remote set-url origin git@github.com:joeysuk/research.git
+cd ~/dox/CU && git remote set-url origin git@github.com:joeysuk/CU.git
+cd ~/dox/SBU && git remote set-url origin git@github.com:joeysuk/SBU.git
+cd ~/dox/sites/academic && git remote set-url origin git@github.com:joeysuk/website.git
+cd ~/dox/bidness/cv && git remote set-url origin git@github.com:joeysuk/cv.git
+#notify-send -t 5000 "CU: $(cd ~/dox/CU && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
+#otify-send -t 5000 "res: $(cd ~/dox/res && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
+# notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/bidness/cv && git pull origin main)"
