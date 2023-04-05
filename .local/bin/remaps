@@ -13,3 +13,10 @@ setxkbmap -option caps:swapescape
 xmodmap -e 'keycode 135 = Down'
 # Turn off the caps lock if on since there is no longer a key for it.
 #xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+
+# touchpad (needed for mac)
+hostname=$(cat /proc/sys/kernel/hostname)
+if [ $hostname = "acm" ]; then
+	synclient TapButton1=1
+	synclient RightButtonAreaLeft=1
+fi
