@@ -20,3 +20,5 @@ dox/
 Documents/
 Downloads/
 R/
+.local/lib
+.local/src
