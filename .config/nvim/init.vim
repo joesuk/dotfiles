@@ -117,20 +117,20 @@ set ma
 	map <leader>sc :source $MYVIMRC<CR>
 
 " Nerd tree
-	" map <leader>n :NERDTreeToggle<CR>
-	" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    " if has('nvim')
-        " let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
-    " else
-        " let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
-    " endif
+	map <leader>n :NERDTreeToggle<CR>
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    if has('nvim')
+        let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
+    else
+        let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
+    endif
 
-" vimling (for writing accent characters):
-	nm <leader><leader>d :call ToggleDeadKeys()<CR>
-	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader><leader>i :call ToggleIPA()<CR>
-	imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader><leader>q :call ToggleProse()<CR>
+" vimling:
+	nm <leader>d :call ToggleDeadKeys()<CR>
+	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
+	nm <leader>i :call ToggleIPA()<CR>
+	imap <leader>i <esc>:call ToggleIPA()<CR>a
+	nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -152,20 +152,20 @@ set ma
 	nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+	map <leader>c :w! \| !compiler "%:p"<CR>
 
 " autocompile groff on save
 au BufWritePost,BufFilePost *.ms !groff -ms % -T pdf > %:r.pdf
 au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+	map <leader>p :!opout "%:p"<CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'wiki': 'markdown'}
+	let g:vimwiki_ext2syntax = {'wiki': 'markdown','.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
 	let g:vimwiki_list = [{'path': '~/dox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 	let g:vimwiki_global_ext = 0 " don't set all .md files as vimwiki type
@@ -183,7 +183,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	map <leader>, :lprev<CR>
 
 " Save file as sudo on files that require root permission
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+	cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Enable Goyo by default for mutt writing
 	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=120
@@ -195,7 +195,6 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
  	autocmd BufWritePre * let currPos = getpos(".")
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
-	autocmd BufWritePre *.[ch] %s/\%$/\r/e
   	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
@@ -236,4 +235,4 @@ let g:netrw_browsex_viewer= "firefox"
 " Here leader is ";".
 " So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
 " if typed fast without the timeout.
-" source ~/.config/nvim/shortcuts.vim
+silent! source ~/.config/nvim/shortcuts.vim
