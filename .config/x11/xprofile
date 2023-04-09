@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
@@ -10,12 +10,11 @@ xset s off -dpms & # turn off screensaver
 #xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate right --output VGA-0 --mode 1920x1080 --pos 1080x420 --rotate normal --output HDMI-3 --off --output VGA-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off # multiple monitors
 setbg &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
-remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 
-autostart="mpd xcompmgr dunst unclutter pipewire"
+autostart="mpd xcompmgr dunst unclutter pipewire remapd"
 
 for program in $autostart; do
-	pidof -s "$program" || setsid -f "$program"
+	pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
 # touchpad (needed for mac)
