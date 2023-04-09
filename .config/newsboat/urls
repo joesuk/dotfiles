@@ -1,9 +1,13 @@
 https://lukesmith.xyz/rss.xml
-https://notrelated.xyz/rss
+https://videos.lukesmith.xyz/feeds/videos.xml?videoChannelId=2 "~Luke Smith (Videos)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
+https://lindypress.net/rss
+https://github.com/LukeSmithxyz/voidrice/commits/master.atom "~LARBS dotfiles"
+https://notrelated.xyz/rss
 https://landchad.net/rss.xml
-https://based.cooking/rss.xml
+https://based.cooking/index.xml
 https://tracingwoodgrains.medium.com/feed
+https://www.archlinux.org/feeds/news/ "tech"
 https://ymeskhout.substack.com/feed
 https://defaultfriend.substack.com/feed
 https://www.ribbonfarm.com/feed/
