@@ -1,4 +1,4 @@
-Adapted from [LARBS](https://larbs.xyz).
+Adapted from [LARBS](https://larbs.xyz) and [voidrice](https://github.com/LukeSmithxyz/voidrice)
 
 - Everything is for Arch/Artix Linux.
 - Useful scripts are in `~/.local/bin/`
