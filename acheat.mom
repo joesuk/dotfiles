@@ -434,6 +434,8 @@ You'll have to restart the program to see its effects obviously.
 .HEADING 2 "Misc"
 .LI
 .ITEM
+\f(CWdf -H\fP \(en see remaining space.
+.ITEM
 \f(CWunzip -a foo.zip\fP \(en Unzip zip file.
 .ITEM
 \f(CWsudo eject /dev/sda\fP \(en eject drive.
