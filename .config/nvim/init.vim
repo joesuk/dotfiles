@@ -37,9 +37,9 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/dark_purple.vim (causes problems)
+" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
 let g:lightline = {
-\ 'colorscheme': 'dark_purple',
+\ 'colorscheme': 'kawaii_pink',
 \ 'mode_map': {
 \ 'n' : '普通的',
 \ 'i' : '插入',
@@ -68,7 +68,7 @@ set runtimepath+=~/.config/nvim/plugged/lightline
 " endif
 
 " colorscheme
-colorscheme dark_purple
+colorscheme kawaii_pink
 
 set title
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
@@ -126,11 +126,11 @@ set ma
     endif
 
 " vimling:
-	nm <leader>d :call ToggleDeadKeys()<CR>
-	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
-	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
+	"nm <leader>d :call ToggleDeadKeys()<CR>
+	"imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
+	"nm <leader>i :call ToggleIPA()<CR>
+	"imap <leader>i <esc>:call ToggleIPA()<CR>a
+	"nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
