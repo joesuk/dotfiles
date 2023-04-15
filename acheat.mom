@@ -309,6 +309,13 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
+.HEADING 2 "Vimwiki"
+.LI
+.ITEM
+\f(CWLeader+wd\fP \(en Delete wiki page.
+.ITEM
+\f(CWLeader+wr\fP \(en Rename wiki page.
+.LIST OFF
 .HEADING 2 "Vim-LaTeX"
 .LI
 .ITEM
