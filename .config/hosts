@@ -10,9 +10,9 @@ ff02::2 ip6-allrouters
 # sudo ln -f {source} /etc/hosts to hardlink this
 
 0.0.0.0		https://www.reddit.com/
-0.0.0.0		news.ycombinator.com
+#0.0.0.0		news.ycombinator.com
 0.0.0.0		reddit.com
-0.0.0.0		teddit.net
+#0.0.0.0		teddit.net
 0.0.0.0		search.google.com/test/mobile-friendly
 0.0.0.0		search.google.com
 0.0.0.0		quora.com
@@ -24,7 +24,6 @@ ff02::2 ip6-allrouters
 0.0.0.0 	mathematicsgre.com
 0.0.0.0 	forum.thegradcafe.com
 0.0.0.0 	artofproblemsolving.com
-0.0.0.0 	quora.com
 0.0.0.0 	instagram.com
 0.0.0.0 	facebook.com
 0.0.0.0 	tiktok.com
