@@ -171,6 +171,8 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn} setlocal syntax=markdown
 	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} setlocal syntax=markdown
+	" open folds by default in vim
+	au BufRead * normal zR
 
 
 " vim-latex commands
