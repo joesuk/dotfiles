@@ -137,8 +137,8 @@ set ma
 " Replace ex mode with gq
 	map Q gq
 
-" Check file in spellcheck:
-	"map <leader>s :!clear && spellcheck -x %<CR>
+" Check file in shellcheck:
+	"map <leader>s :!clear && shellcheck -x %<CR>
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
