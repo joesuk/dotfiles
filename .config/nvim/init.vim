@@ -18,16 +18,6 @@ Plug 'ap/vim-css-color'
 " vim latex
 Plug 'lervag/vimtex'
 " markdown
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
-Plug 'dkarter/bullets.vim' "bullets in markdown
-" Bullets.vim
-let g:bullets_enabled_file_types = [
-    \ 'markdown'
-    \]
-"Remove the + bullet so * always indents as *
-let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*']
-" latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
@@ -37,9 +27,8 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
 let g:lightline = {
-\ 'colorscheme': 'kawaii_pink',
+\ 'colorscheme': 'Tomorrow_Night_Blue',
 \ 'mode_map': {
 \ 'n' : '普通的',
 \ 'i' : '插入',
@@ -63,14 +52,12 @@ call plug#end()
 
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
-" if !has('gui_running')
-  " set t_Co=16
-" endif
-
-" colorscheme
-colorscheme kawaii_pink
+if !has('gui_running')
+  set t_Co=16
+endif
 
 set title
+set bg=light
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
 set mouse=a " mouse enabled
 set hlsearch
@@ -113,8 +100,6 @@ set ma
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
-" source vimrc keybind
-	map <leader>sc :source $MYVIMRC<CR>
 
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
@@ -125,12 +110,12 @@ set ma
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-" vimling:
-	"nm <leader>d :call ToggleDeadKeys()<CR>
-	"imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	"nm <leader>i :call ToggleIPA()<CR>
-	"imap <leader>i <esc>:call ToggleIPA()<CR>a
-	"nm <leader>q :call ToggleProse()<CR>
+" vimling (for writing accent characters):
+	nm <leader><leader>d :call ToggleDeadKeys()<CR>
+	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
+	nm <leader><leader>i :call ToggleIPA()<CR>
+	imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
+	nm <leader><leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -152,20 +137,20 @@ set ma
 	nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "%:p"<CR>
+	map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
 " autocompile groff on save
 au BufWritePost,BufFilePost *.ms !groff -ms % -T pdf > %:r.pdf
 au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout "%:p"<CR>
+	map <leader>p :!opout <c-r>%<CR><CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'wiki': 'markdown','.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	let g:vimwiki_ext2syntax = {'wiki': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
 	let g:vimwiki_list = [{'path': '~/dox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 	let g:vimwiki_global_ext = 0 " don't set all .md files as vimwiki type
@@ -183,7 +168,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	map <leader>, :lprev<CR>
 
 " Save file as sudo on files that require root permission
-	cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Enable Goyo by default for mutt writing
 	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=120
@@ -195,6 +180,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
  	autocmd BufWritePre * let currPos = getpos(".")
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
+	autocmd BufWritePre *.[ch] %s/\%$/\r/e
   	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
@@ -235,4 +221,27 @@ let g:netrw_browsex_viewer= "firefox"
 " Here leader is ";".
 " So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
 " if typed fast without the timeout.
-silent! source ~/.config/nvim/shortcuts.vim
+" source ~/.config/nvim/shortcuts.vim
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE ctermfg=79 guibg=NONE
+
+" color tex commands (e.g., begin/end)
+autocmd filetype tex highlight texCmd ctermfg=180
+autocmd filetype tex highlight texMathSuperSub ctermfg=180
+autocmd filetype tex highlight texMathOper ctermfg=180
+autocmd filetype tex highlight texComment ctermfg=238
+" color matchings (e.g., begin/end while under cursor)
+autocmd filetype * highlight MatchParen ctermfg=16 ctermbg=214
+" color .vim file syntaxes
+autocmd filetype vim highlight vimCommand ctermfg=180
+autocmd filetype vim highlight vimHighlight ctermfg=180
+" color muttrc syntax
+autocmd filetype * highlight muttrcCommand ctermfg=180
+" color search terms
+hi Search cterm=NONE ctermfg=16 ctermbg=214
+" color visual/highlighting
+hi Visual cterm=bold ctermbg=13 ctermfg=15
+" change comment colors
+highlight Comment ctermfg=238
+" set background light, this helps automatic syntax coloring, may have to change to dark depending on type of file
+set background=dark
