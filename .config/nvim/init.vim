@@ -37,9 +37,9 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
+" source ~/.config/nvim/colors/dark_purple.vim (causes problems)
 let g:lightline = {
-\ 'colorscheme': 'kawaii_pink',
+\ 'colorscheme': 'dark_purple',
 \ 'mode_map': {
 \ 'n' : '普通的',
 \ 'i' : '插入',
@@ -68,7 +68,7 @@ set runtimepath+=~/.config/nvim/plugged/lightline
 " endif
 
 " colorscheme
-colorscheme kawaii_pink
+colorscheme dark_purple
 
 set title
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
@@ -173,6 +173,9 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn} setlocal syntax=markdown
+	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} setlocal syntax=markdown
+
 
 " vim-latex commands
 	onoremap <silent> i$ :<c-u>normal! T$vt$<cr>
