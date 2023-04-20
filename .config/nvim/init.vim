@@ -63,10 +63,6 @@ call plug#end()
 
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
-" if !has('gui_running')
-  " set t_Co=16
-" endif
-
 " colorscheme
 colorscheme dark_purple
 
@@ -141,8 +137,8 @@ set ma
 " Replace ex mode with gq
 	map Q gq
 
-" Check file in shellcheck:
-	map <leader>s :!clear && shellcheck -x %<CR>
+" Check file in spellcheck:
+	"map <leader>s :!clear && spellcheck -x %<CR>
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
@@ -165,7 +161,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'wiki': 'markdown','.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	let g:vimwiki_ext2syntax = {'wiki': 'markdown'}
 	map <leader>v :VimwikiIndex<CR>
 	let g:vimwiki_list = [{'path': '~/dox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 	let g:vimwiki_global_ext = 0 " don't set all .md files as vimwiki type
