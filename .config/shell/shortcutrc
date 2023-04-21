@@ -36,3 +36,4 @@ cfmc="$EDITOR /home/amaryllis/.config/ncmpcpp/config" \
 cfl="$EDITOR /home/amaryllis/.config/lf/lfrc" \
 cfL="$EDITOR /home/amaryllis/.config/lf/scope" \
 cfX="$EDITOR /home/amaryllis/.config/sxiv/exec/key-handler" \
+cfh="sudo $EDITOR /home/amaryllis/.config/hosts" \
