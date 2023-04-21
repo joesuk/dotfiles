@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # pull from git repos
-cd ~/dox/wiki && git remote set-url origin git@github.com:joeysuk/wiki.git && git push --set-upstream origin main
-cd ~/dox/res && git remote set-url origin git@github.com:joesuk/research.git && git push --set-upstream origin main
-cd ~/dox/CU && git remote set-url origin git@github.com:joesuk/CU.git && git push --set-upstream origin main
-cd ~/dox/SBU && git remote set-url origin git@github.com:joesuk/SBU.git && git push --set-upstream origin main
-cd ~/dox/sites/academic && git remote set-url origin git@github.com:joesuk/website.git && git push --set-upstream origin main
-cd ~/dox/bidness/cv && git remote set-url origin git@github.com:joesuk/cv.git && git push --set-upstream origin main
-cd ~/dox/blog && git remote set-url origin git@github.com:joesuk/blog.git && git push --set-upstream origin main
-#notify-send -t 5000 "CU: $(cd ~/dox/CU && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
-#otify-send -t 5000 "res: $(cd ~/dox/res && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
+cd ~/dox/wiki && git remote set-url origin git@github.com:joesuk/wiki.git && git pull origin main
+cd ~/dox/res && git remote set-url origin git@github.com:joesuk/research.git && git pull origin main
+cd ~/dox/CU && git remote set-url origin git@github.com:joesuk/CU.git && git pull origin main
+cd ~/dox/SBU && git remote set-url origin git@github.com:joesuk/SBU.git && git pull origin main
+cd ~/dox/sites/academic && git remote set-url origin git@github.com:joesuk/website.git && git pull origin main
+cd ~/dox/bidness/cv && git remote set-url origin git@github.com:joesuk/cv.git && git pull origin main
+cd ~/dox/blog && git remote set-url origin git@github.com:joesuk/blog.git && git pull origin main
+#notify-send -t 5000 "CU: $(cd ~/dox/CU && git add . && git commit -a --allow-empty-message -m '' && git pull
+#otify-send -t 5000 "res: $(cd ~/dox/res && git add . && git commit -a --allow-empty-message -m '' && git pull
 # notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
 #notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
 #notify-send -u critical -t 3000 "$(cd ~/dox/bidness/cv && git pull origin main)"
