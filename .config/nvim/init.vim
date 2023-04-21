@@ -63,10 +63,6 @@ call plug#end()
 
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
-" if !has('gui_running')
-  " set t_Co=16
-" endif
-
 " colorscheme
 colorscheme dark_purple
 
@@ -126,11 +122,11 @@ set ma
     endif
 
 " vimling:
-	nm <leader>d :call ToggleDeadKeys()<CR>
-	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
-	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
+	"nm <leader>d :call ToggleDeadKeys()<CR>
+	"imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
+	"nm <leader>i :call ToggleIPA()<CR>
+	"imap <leader>i <esc>:call ToggleIPA()<CR>a
+	"nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -142,7 +138,7 @@ set ma
 	map Q gq
 
 " Check file in shellcheck:
-	map <leader>s :!clear && shellcheck -x %<CR>
+	"map <leader>s :!clear && shellcheck -x %<CR>
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
@@ -173,6 +169,11 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn} setlocal syntax=markdown
+	au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} setlocal syntax=markdown
+	" open folds by default in vim
+	au BufRead * normal zR
+
 
 " vim-latex commands
 	onoremap <silent> i$ :<c-u>normal! T$vt$<cr>
