@@ -417,6 +417,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWgS\fP \(en Go to spam
 .ITEM
 \f(CWi#\fP \(en Go to a different account (# is the number of the account)
+.ITEM
+\f(CWESC-B\fP \(en Search in bodies and headers of mails.
 .LIST OFF
 .HEADING 2 "lf"
 .LI
