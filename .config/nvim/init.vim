@@ -15,6 +15,7 @@ Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+Plug 'JuliaEditorSupport/julia-vim'
 " vim latex
 Plug 'lervag/vimtex'
 " markdown
