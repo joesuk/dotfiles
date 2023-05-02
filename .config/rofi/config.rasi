@@ -39,6 +39,7 @@ window {
     background-color: @background;
     border:           1;
     padding:          5;
+    width: 80%;
 }
 mainbox {
     border:  0;
