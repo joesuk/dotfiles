@@ -38,9 +38,9 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/dark_purple.vim (causes problems)
+" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
 let g:lightline = {
-\ 'colorscheme': 'dark_purple',
+\ 'colorscheme': 'kawaii_pink',
 \ 'mode_map': {
 \ 'n' : '普通的',
 \ 'i' : '插入',
@@ -65,7 +65,7 @@ call plug#end()
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
 " colorscheme
-colorscheme dark_purple
+colorscheme kawaii_pink
 
 set title
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
