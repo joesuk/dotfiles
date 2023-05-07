@@ -309,6 +309,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW"{abc}{y,yy} & "{abc}p or (in insert mode) Ctrl-r{abc}\fP \(en Yank to register abc and paste from said register, respectively.
 .ITEM
+\f(CW"0{y,yy} & "{abc}p or (in insert mode) Ctrl-r{abc}\fP \(en Yank to register abc and paste from said register, respectively.
+.ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
 .HEADING 2 "Vimwiki"
