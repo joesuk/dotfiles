@@ -447,7 +447,7 @@ You'll have to restart the program to see its effects obviously.
 .HEADING 2 "Misc"
 .LI
 .ITEM
-\f(CWcd -\fP \(en cd to previous directory.
+\f(CWcd -\fP \(en cd to last directory.
 .ITEM
 \f(CWdf -H\fP \(en see remaining space.
 .ITEM
