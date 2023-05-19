@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Usage:
+#	price <url> <Name of currency> <icon> <Price to show in>
+#	price bat "Basic Attention Token" 🦁
+# When the name of the currency is multi-word, put it in quotes.
+
+echo $((($(date +%s)-$(date +%s --date "2023-05-02"))/(3600*24)))
