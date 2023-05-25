@@ -2,7 +2,7 @@
 
 # pull from git repos
 notify-send -t 5000 "wiki: $(cd ~/dox/wiki && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
-notify-send -t 5000 "CU: $(cd ~/dox/CU && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
+notify-send -t 5000 "CU: $(cd ~/dox/skool/CU && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
 notify-send -t 5000 "res: $(cd ~/dox/res && git add . && git commit -a --allow-empty-message -m '' && git push origin main)"
 # notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
 #notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
