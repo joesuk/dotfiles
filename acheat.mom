@@ -353,6 +353,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWzc\fP \(en close a fold your cursor is on
 .ITEM
 \f(CWzC\fP \(en close a fold your cursor is on recursively
+.ITEM
+\f(CWzM\fP \(en Close all folds
 .LIST OFF
 .HEADING 2 "Zathura"
 .LI
