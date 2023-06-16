@@ -234,6 +234,23 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+" toggle wrap
+" Make \w toggle through the three wrapping modes.
+function ToggleWrap()
+ if (&wrap == 1)
+   if (&linebreak == 0)
+     set linebreak
+   else
+     set nowrap
+   endif
+ else
+   set wrap
+   set nolinebreak
+ endif
+endfunction
+
+map <leader>w :call ToggleWrap()<CR>
+
 " ensure vim opens links with firefox
 let g:netrw_browsex_viewer= "firefox"
 " Load command shortcuts generated from bm-dirs and bm-files via shortcuts script.
@@ -241,3 +258,6 @@ let g:netrw_browsex_viewer= "firefox"
 " So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
 " if typed fast without the timeout.
 silent! source ~/.config/nvim/shortcuts.vim
+
+" disable \ww to open vimwiki
+ map <leader>ww <Nop>
