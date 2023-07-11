@@ -471,7 +471,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWheif-convert image.HEIC new-image.png(or jpg)\fP \(en convert HEIC/HEIF to image.
 .ITEM
-\f(CW(in rstudio) fn+ENTER\fP \(en Toggle insert mode.
+\f(CW(in rstudio) fn+ENTER\fP \(en Toggle insert mode..ITEM
+\f(CWddjvu --format=pdf input.djvu output.pdf\fP \(en convert djvu to pdf.
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
