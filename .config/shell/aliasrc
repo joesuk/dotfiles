@@ -55,7 +55,8 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	z="zathura" \
+	update="pacman -Syu && sh $HOME/.local/bin/remaps"
 
 alias \
 	lf="lfub" \
