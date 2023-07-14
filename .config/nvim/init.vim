@@ -207,6 +207,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 	autocmd BufWritePost ~/.config/headers/dwmblocks_config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 	autocmd BufWritePost ~/acheat.mom !cd ~/; git add acheat.mom && git commit -m "acheat"
+	autocmd BufWritePost ~/bootstrap/progs.csv !cd ~/; git add ~/bootstrap/progs.csv && git commit -m "progs.csv"
 	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_notes_preamble.tex !cd ~/; git add ~/texmf/tex/latex/joe/joe_notes_preamble.tex && git commit -m "texmf"
 	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/joe_macros.sty && git commit -m "texmf"
 
