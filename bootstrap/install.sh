@@ -3,9 +3,9 @@
 ### OPTIONS AND VARIABLES ###
 
 dotfilesrepo="https://github.com/joesuk/dotfiles.git"
-progsfile="https://raw.githubusercontent.com/joesuk/dotfiles/master/bootstrap/progs.csv"
+progsfile="https://raw.githubusercontent.com/joesuk/dotfiles/main/bootstrap/progs.csv"
 aurhelper="yay"
-repobranch="master"
+repobranch="main"
 export TERM=ansi
 
 ### FUNCTIONS ###
@@ -114,7 +114,7 @@ manualinstall() {
 		--no-tags -q "https://aur.archlinux.org/$1.git" "$repodir/$1" ||
 		{
 			cd "$repodir/$1" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin main
 		}
 	cd "$repodir/$1" || exit 1
 	sudo -u "$name" -D "$repodir/$1" \
@@ -137,7 +137,7 @@ gitmakeinstall() {
 		--no-tags -q "$1" "$dir" ||
 		{
 			cd "$dir" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin main
 		}
 	cd "$dir" || exit 1
 	make >/dev/null 2>&1
