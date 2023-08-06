@@ -375,5 +375,23 @@ echo "Defaults editor=/usr/bin/nvim" >/etc/sudoers.d/02-larbs-visudo-editor
 mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
+# source xinitrc
+source "/home/$name/.config/x11/xinitrc"
+
+# set up header files for dwmblocks and dmenu
+rm -rf "/home/$name/.local/src/dwmblocks/config.h"
+ln -s "/home/$name/.config/headers/dwmblocks_config.h" "/home/$name/.local/src/dwmblocks/config.h"
+cd ~/.local/src/dwmblocks/; sudo make install
+rm -rf "/home/$name/.local/src/dmenu/config.h"
+ln -s "/home/$name/.config/headers/dmenu_config.h" "/home/$name/.local/src/dmenu/config.h"
+cd ~/.local/src/dmenu/; sudo make install
+
+# set wallpaper
+xwallpaper --zoom "/home/$name/.local/share/bg.png"
+
+# hardlink hosts file
+sudo chown -h "$name":"$name" "/home/$name/.local/share/hosts"
+sudo ln -f "/home/$name/.local/share/hosts" /etc/hosts
+
 # Last message! Install complete!
 finalize
