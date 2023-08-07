@@ -393,5 +393,20 @@ xwallpaper --zoom "/home/$name/.local/share/bg.png"
 sudo chown -h "$name":"$name" "/home/$name/.local/share/hosts"
 sudo ln -f "/home/$name/.local/share/hosts" /etc/hosts
 
+# set up redshift
+sudo rm -rf /usr/lib/systemd/user/redshift.service
+sudo touch /usr/lib/systemd/user/redshift.service
+sudo echo "[Unit]" >> /usr/lib/systemd/user/redshift.service
+sudo echo "Description=Redshift display colour temperature adjustment" >> /usr/lib/systemd/user/redshift.service
+sudo echo "Documentation=http://jonls.dk/redshift/" >> /usr/lib/systemd/user/redshift.service
+sudo echo "After=display-manager.service" >> /usr/lib/systemd/user/redshift.service
+sudo echo "[Service]" >> /usr/lib/systemd/user/redshift.service
+sudo echo "ExecStart=/usr/bin/redshift" >> /usr/lib/systemd/user/redshift.service
+sudo echo "Restart=always" >> /usr/lib/systemd/user/redshift.service
+sudo echo "[Install]" >> /usr/lib/systemd/user/redshift.service
+sudo echo "WantedBy=default.target" >> /usr/lib/systemd/user/redshift.service
+systemctl --user daemon-reload
+systemctl --user enable redshift.service
+
 # Last message! Install complete!
 finalize
