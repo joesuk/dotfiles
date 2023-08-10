@@ -1,3 +1,10 @@
 #!/bin/bash
 
-locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" | xargs -r -0 xdg-open
+locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' | xargs -r -0 xdg-open
+
+hostname=$(cat /proc/sys/kernel/hostname)
+if [ $hostname = "acm" ]; then
+	locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' | xargs -r -0 xdg-open
+else
+	locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 10' | xargs -r -0 xdg-open
+fi

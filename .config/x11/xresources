@@ -4,7 +4,6 @@
 !! Set a default font and font size as below:
 *.font: NotoSansMono-Regular:size=16
 
-
 *background: #6E5676
 *foreground: #C6D0F5
 
