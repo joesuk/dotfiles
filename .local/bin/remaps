@@ -19,4 +19,5 @@ hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acm" ]; then
 	synclient TapButton1=1
 	synclient RightButtonAreaLeft=1
+	synclient PalmDetect=1
 fi
