@@ -14,5 +14,7 @@ else
 	. "$HOME/.xprofile"
 fi
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 #systemctl enable netctl-auto@ninanina.service
 ssh-agent dwm > /tmp/dwm.log 2>&1
