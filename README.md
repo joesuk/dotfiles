@@ -23,10 +23,10 @@ Adapted from [LARBS](https://larbs.xyz) and [voidrice](https://github.com/LukeSm
 
 ## Install these dotfiles and all dependencies
 
-Use [`bootstrap/install.sh`](https://github.com/joesuk/dotfiles/blob/master/bootstrap/install.sh) to autoinstall everything:
+Use [`bootstrap/install.sh`](https://github.com/joesuk/dotfiles/blob/main/bootstrap/install.sh) to autoinstall everything:
 
 ```
-curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/master/bootstrap/install.sh
+curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/main/bootstrap/install.sh
 ```
 or clone the repo files directly to your home directory and install the
-[dependencies](https://github.com/joesuk/dotfiles/blob/master/bootstrap/progs.csv).
+[dependencies](https://github.com/joesuk/dotfiles/blob/main/bootstrap/progs.csv).
