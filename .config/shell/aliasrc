@@ -56,7 +56,8 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura" \
-	update="pacman -S archlinux-keyring && pacman -Syu && sh $HOME/.local/bin/remaps"
+	update="pacman -S archlinux-keyring && pacman -Syu && sh $HOME/.local/bin/remaps" \
+	terremoto="ssh js5338@terremoto.rcs.columbia.edu"
 
 alias \
 	lf="lfub" \
