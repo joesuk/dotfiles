@@ -67,5 +67,6 @@ alias \
 
 # git aliases
 alias \
-	pum="git pull origin main" \
-	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin main"
+	pum="git pull origin" \
+	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin" \
+	pshcmt="git commit -a --allow-empty-message -m '' && git push origin"
