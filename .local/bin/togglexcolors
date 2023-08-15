@@ -12,3 +12,9 @@ else
     sed -i 's/dark_purple/kawaii_pink/' $HOME/.config/nvim/init.vim
     xrdb $HOME/.config/x11/xresources && notify-send "solarized dark enabled"
 fi
+
+hostname=$(cat /proc/sys/kernel/hostname)
+if [ $hostname = "acm" ]; then
+	xrandr --dpi 235
+	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mbp
+fi
