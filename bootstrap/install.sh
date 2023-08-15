@@ -407,6 +407,9 @@ sudo echo "WantedBy=default.target" >> /usr/lib/systemd/user/redshift.service
 systemctl --user daemon-reload
 systemctl --user enable redshift.service
 
+# update fonts
+fc-cache
+
 # set up email?
 
 
