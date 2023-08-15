@@ -1,5 +1,4 @@
 #!/bin/sh
-
 ### OPTIONS AND VARIABLES ###
 
 dotfilesrepo="https://github.com/joesuk/dotfiles.git"
@@ -407,6 +406,9 @@ sudo echo "[Install]" >> /usr/lib/systemd/user/redshift.service
 sudo echo "WantedBy=default.target" >> /usr/lib/systemd/user/redshift.service
 systemctl --user daemon-reload
 systemctl --user enable redshift.service
+
+# set up email?
+
 
 # Last message! Install complete!
 finalize
