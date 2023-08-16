@@ -29,7 +29,7 @@ static const Block blocks[] = {
 	{"",	"getpmode",	5,	3},
 	{"",	"sb-clock",	60,	1},
 	 {"",	"sb-internet",	5,	4},
-	{"",	"sb-help-icon",	0,	15},
+	/*{"",	"sb-help-icon",	0,	15},*/
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.
