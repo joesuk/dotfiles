@@ -410,6 +410,10 @@ systemctl --user enable redshift.service
 # update fonts
 fc-cache
 
+# correct permissions on gnupg
+find ~/.gnupg -type f -exec chmod 600 {} \;
+find ~/.gnupg -type d -exec chmod 700 {} \;
+
 # set up email?
 
 
