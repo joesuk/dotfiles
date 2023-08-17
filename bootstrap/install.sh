@@ -414,6 +414,9 @@ fc-cache
 find ~/.gnupg -type f -exec chmod 600 {} \;
 find ~/.gnupg -type d -exec chmod 700 {} \;
 
+# set up pix and screenshots location
+mkdir -p /home/$name/dox/pix/screenshots
+
 # set up email?
 
 
