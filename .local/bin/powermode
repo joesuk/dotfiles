@@ -1,8 +1,17 @@
 #!/bin/sh
 
-echo "choose"
+echo "(1) performance: run CPU at maximum frequency"
+echo "(2) powersave: run CPU at minimum frequency"
+echo "(3) conservative: scale frequency dynamically according to current load"
+echo "(4) schedutil: scheduler-driven CPU frequency selection"
 read mode
 
-echo $mode | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-#echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-#echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+if [ $mode = "1" ]; then
+	echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+elif [ $mode = "2" ]; then
+	echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+elif [ $mode = "3" ]; then
+	echo conservative | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+elif [ $mode = "4" ]; then
+	echo schedutil | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+fi
