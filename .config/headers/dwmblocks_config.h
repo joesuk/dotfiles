@@ -13,7 +13,7 @@ static const Block blocks[] = {
 	/* {"",	"sb-price xmr \"Monero\" 🔒",			9000,	24}, */
 	/* {"",	"sb-price eth Ethereum 🍸",	9000,	23}, */
 	 /*{"",	"sb-price btc Bitcoin 💰",				9000,	21},*/
-	 {"",	"sb-days",				9000,	21},
+	 /*{"",	"sb-days",				9000,	21},*/
 	 /*{"",	"sb-crypto",				9000,	21},*/
 	 /*{"",	"sb-vtsax",				9000,	21},*/
 	/*{"",	"sb-weather",	18000,	5},*/
@@ -26,7 +26,7 @@ static const Block blocks[] = {
 	{"",	"sb-mailbox",	180,	12},
 	{"",	"sb-volume",	0,	10},
 	{"",	"sb-battery",	5,	3},
-	{"",	"getpmode",	5,	3},
+	{"",	"sb-getpmode",	5,	3},
 	{"",	"sb-clock",	60,	1},
 	 {"",	"sb-internet",	5,	4},
 	/*{"",	"sb-help-icon",	0,	15},*/
