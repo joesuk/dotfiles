@@ -284,6 +284,52 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \newcommand\mycommfont[1]{\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
 
+\usepackage{etoolbox}  % patch def of algorithmic environment
+\makeatletter
+\patchcmd{\algorithmic}{\addtolength{\ALC@tlm}{\leftmargin} }{\addtolength{\ALC@tlm}{\leftmargin}}{}{}
+\makeatother
+
+
+
+\newenvironment{protocol}[1][htb]
+  {\renewcommand{\algorithmcfname}{Protocol}% Update algorithm name
+   \begin{algorithm2e}[#1]%
+   }{\end{algorithm2e}}
+
+
+\newenvironment{exampl}[1][htb]
+  {%\refstepcounter{examcounter}\par\medskip
+  \renewcommand{\algorithmcfname}{Algorithm}
+   \begin{algorithm2e}[#1]%
+   }{\end{algorithm2e}}
+
+
+\newenvironment{procedures}[1][htb]
+  {\renewcommand{\algorithmcfname}{Procedure}% Update algorithm name
+   \begin{algorithm2e}[#1]%
+   }{\end{algorithm2e}}
+
+\def\QED{{\phantom{x}} \hfill \ensuremath{\rule{1.3ex}{1.3ex}}}
+\newcommand{\extraproof}[1]{\rm \trivlist
+
+\item[\hskip \labelsep{\bf Proof of #1. }]}
+\def\endextraproof{\QED \endtrivlist}
+
+\newenvironment{rtheorem}[3][]{
+
+\bigskip
+
+\noindent \ifthenelse{\equal{#1}{}}{\bf #2 #3}{\bf #2 #3 (#1)}
+\begin{it}
+}{\end{it}}
+
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl}}
+\def\NoNumber#1{{\def\alglinenumber##1{}\State #1}\addtocounter{ALG@line}{-1}}
+\newcommand{\obs}{o}
+
+% enable do while
+\SetKwRepeat{Do}{do}{while}
+
 
 % colors and hypersetup
 \definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
