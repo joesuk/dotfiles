@@ -276,6 +276,13 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \Crefname{table}{Table}{Tables}
 \crefformat{equation}{(#2#1#3)}
 
+% algorithm2e
+\usepackage[algo2e, vlined, ruled, linesnumbered]{algorithm2e}
+% algorithm2e commenting
+%\newcommand{\com}[1]{{\color{red}\textbf{[[} #1 \textbf{]]}}}
+%\newcommand\mycommfont[1]{\footnotesize\textcolor{black}{#1}}
+\newcommand\mycommfont[1]{\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
 
 
 % colors and hypersetup
