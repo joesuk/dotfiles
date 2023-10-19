@@ -331,6 +331,28 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \SetKwRepeat{Do}{do}{while}
 
 
+% if you use cleveref..
+%\usepackage{nameref}
+%\usepackage[capitalize,noabbrev]{cleveref}
+\crefname{algocf}{Algorithm}{Algorithms}
+\Crefname{algocfproc}{Algorithm}{Algorithms}
+\Crefname{definition}{Definition}{Definitions}
+
+% fix algorithm2e labelling by cleverref
+\crefalias{AlgoLine}{line}%
+\makeatletter
+\let\cref@old@stepcounter\stepcounter
+\def\stepcounter#1{%
+  \cref@old@stepcounter{#1}%
+  \cref@constructprefix{#1}{\cref@result}%
+  \@ifundefined{cref@#1@alias}%
+    {\def\@tempa{#1}}%
+    {\def\@tempa{\csname cref@#1@alias\endcsname}}%
+  \protected@edef\cref@currentlabel{%
+    [\@tempa][\arabic{#1}][\cref@result]%
+    \csname p@#1\endcsname\csname the#1\endcsname}}
+\makeatother
+
 % colors and hypersetup
 \definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
 \definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
