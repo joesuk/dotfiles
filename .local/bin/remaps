@@ -17,6 +17,8 @@ xmodmap -e 'keycode 135 = Down'
 # touchpad (needed for mac)
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acm" ]; then
+	xrandr --dpi 235
+	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mbp
 	synclient TapButton1=1
 	synclient RightButtonAreaLeft=1
 	synclient PalmDetect=1
