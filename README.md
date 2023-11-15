@@ -35,4 +35,4 @@ or clone the repo files directly to your home directory and install the
 
 ![wallpaper](/.local/share/the_seine_morning.jpg)
 
-<img src="https://useum.org/artwork/The-Seine-Morning-Charles-Francois-Daubigny-1874" alt="wallpaper" width="200"/>
+The Seine: Morning, 1874 Charles-François Daubigny
