@@ -30,3 +30,7 @@ curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/main/bootstrap/instal
 ```
 or clone the repo files directly to your home directory and install the
 [dependencies](https://github.com/joesuk/dotfiles/blob/main/bootstrap/progs.csv).
+
+## Wallpaper
+
+<img src="https://useum.org/artwork/The-Seine-Morning-Charles-Francois-Daubigny-1874" alt="wallpaper" width="200"/>
