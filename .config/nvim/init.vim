@@ -209,9 +209,9 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufWritePost ~/.config/nvim/init.vim !cd ~/; git add ~/.config/nvim/init.vim && git commit -m "nvim update"
 	autocmd BufWritePost ~/acheat.mom !cd ~/; git add acheat.mom && git commit -m "acheat"
 	autocmd BufWritePost ~/bootstrap/progs.csv !cd ~/; git add ~/bootstrap/progs.csv && git commit -m "progs.csv"
-	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_notes_preamble.tex !cd ~/; git add ~/texmf/tex/latex/joe/joe_notes_preamble.tex && git commit -m "texmf"
-	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/joe_macros.sty && git commit -m "texmf"
-	autocmd BufWritePost ~/texmf/tex/latex/joe/bandit_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/bandit_macros.sty && git commit -m "texmf"
+	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_notes_preamble.tex !cd ~/; git add ~/texmf/tex/latex/joe/joe_notes_preamble.tex && git commit -m "texmf joe_notes"
+	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/joe_macros.sty && git commit -m "texmf joe macros"
+	autocmd BufWritePost ~/texmf/tex/latex/joe/bandit_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/bandit_macros.sty && git commit -m "texmf bandit macros"
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
