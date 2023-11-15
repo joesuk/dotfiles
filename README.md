@@ -33,6 +33,6 @@ or clone the repo files directly to your home directory and install the
 
 ## Wallpaper
 
-[wallpaper](https://useum.org/artwork/The-Seine-Morning-Charles-Francois-Daubigny-1874)
+![wallpaper](https://useum.org/artwork/The-Seine-Morning-Charles-Francois-Daubigny-1874)
 
 <img src="https://useum.org/artwork/The-Seine-Morning-Charles-Francois-Daubigny-1874" alt="wallpaper" width="200"/>
