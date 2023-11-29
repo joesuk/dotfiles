@@ -264,3 +264,6 @@ silent! source ~/.config/nvim/shortcuts.vim
 
 " disable \ww to open vimwiki
  map <leader>ww <Nop>
+
+ " Automatically change the current working directory
+ set autochdir
