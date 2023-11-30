@@ -9,20 +9,26 @@ xset r rate 300 100
 #killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # map the escape key to capslock
 setxkbmap -option caps:swapescape
-# Map the menu button to down
-xmodmap -e 'keycode 135 = Down'
 # Turn off the caps lock if on since there is no longer a key for it.
 #xset -q | grep -q "Caps Lock:\s*on" && xdotool key Caps_Lock
 
 # touchpad (needed for mac)
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acm" ] || [ $hostname = "acma" ]; then
-	#xrandr --dpi 235
-	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mbp
 	synclient TapButton1=1
 	synclient RightButtonAreaLeft=1
 	synclient PalmDetect=1
 	synclient VertScrollDelta=100
 	synclient HorizScrollDelta=100
 	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
+else
+	# Map the menu button to down
+	xmodmap -e 'keycode 135 = Down'
+fi
+
+if [ $hostname = "acm" ]; then
+	xrandr --dpi 235
+	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mbp
+elif [ $hostname = "acma" ]; then
+	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mba
 fi
