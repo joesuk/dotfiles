@@ -476,6 +476,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWddjvu --format=pdf input.djvu output.pdf\fP \(en convert djvu to pdf.
 .ITEM
 \f(CWCtrl+n\fP \(en go down in GRUB menu.
+.ITEM
+\f(CWlast\fP \(en last output in bc calculator
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
