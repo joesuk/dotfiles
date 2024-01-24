@@ -71,3 +71,7 @@ alias \
 	pum="git pull origin" \
 	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin" \
 	pshcmt="git commit -a --allow-empty-message -m '' && git push origin"
+
+# other useful aliases
+alias \
+	siteupdate="sudo scp -oHostKeyAlgorithms=+ssh-dss -r -O . js5338@cunix.columbia.edu:public_html"
