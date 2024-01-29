@@ -5,4 +5,4 @@
 #	price bat "Basic Attention Token" 🦁
 # When the name of the currency is multi-word, put it in quotes.
 
-echo $((($(date +%s)-$(date +%s --date "2024-01-16"))/(3600*24)))
+echo $((($(date +%s)-$(date +%s --date "2024-01-29"))/(3600*24)))
