@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# pull from git repos
+notify-send -t 5000 "spell: $(cd ~ && git add ~/.config/nvim/spell/* && git commit -m 'nvim spell')"
+# notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/bidness/cv && git pull origin main)"
