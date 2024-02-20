@@ -269,4 +269,4 @@ silent! source ~/.config/nvim/shortcuts.vim
  set autochdir
 
  " split up line by sentences
-map <leader>s :s/\.\ /\.\ \r/g<CR>
+map <leader>ss :s/\.\ /\.\ \r/g<CR>
