@@ -41,6 +41,12 @@
   \@ifnextchar\bgroup{\@pder{#1}}{\@pder{}{#1}}}
 \newcommand{\@pder}[2]{\frac{\partial#1}{\partial#2}}
 \makeatother
+\makeatletter
+\DeclareRobustCommand{\dpder}[1]{%
+  \@ifnextchar\bgroup{\@dpder{#1}}{\@dpder{}{#1}}}
+\newcommand{\@dpder}[2]{\frac{\partial^2 #1}{\partial#2^2}}
+\makeatother
+
 
 
 %algebra
