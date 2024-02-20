@@ -267,3 +267,6 @@ silent! source ~/.config/nvim/shortcuts.vim
 
  " Automatically change the current working directory
  set autochdir
+
+ " split up line by sentences
+map <leader>s :s/\.\ /\.\ \r/g
