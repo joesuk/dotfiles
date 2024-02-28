@@ -315,6 +315,13 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 .PDF_WWW_LINK "https://vim.rtorr.com/" "See more shortcuts here."
 .LIST OFF
+.HEADING 3 "vim spell check"
+.LI
+.ITEM
+\f(CW]s,[s\fP \(en Next/previous misspelled word.
+.ITEM
+\f(CWzg\fP \(en add mispelled word to dictionary.
+.LIST OFF
 .HEADING 2 "Vimwiki"
 .LI
 .ITEM
