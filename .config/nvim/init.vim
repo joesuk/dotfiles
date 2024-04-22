@@ -212,6 +212,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_notes_preamble.tex !cd ~/; git add ~/texmf/tex/latex/joe/joe_notes_preamble.tex && git commit -m "texmf joe_notes"
 	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/joe_macros.sty && git commit -m "texmf joe macros"
 	autocmd BufWritePost ~/texmf/tex/latex/joe/bandit_macros.sty !cd ~/; git add ~/texmf/tex/latex/joe/bandit_macros.sty && git commit -m "texmf bandit macros"
+	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_article_preamble.tex !cd ~/; git add ~/texmf/tex/latex/joe/joe_article_preamble.tex && git commit -m "texmf article macros"
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
