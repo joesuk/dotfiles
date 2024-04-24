@@ -96,6 +96,41 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \usepackage{thmtools}
 \usepackage[framemethod=TikZ]{mdframed}
 
+\newenvironment{boxtype1}
+  {%
+  \begin{mdframed}[
+    linewidth=.5,
+    everyline=true,
+    %margin=8.5,
+    backgroundcolor=gray!2,
+    linecolor=red,
+    fontcolor=black,
+    roundcorner=10pt,
+    middlelinewidth=2pt,
+    splittopskip=25pt,
+    secondextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Excursus (Cont.)};
+      },
+    middleextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Excursus (Cont.)};
+      }
+  ]%
+  \fontsize{12}{14}\sffamily\selectfont%
+  }
+  {\end{mdframed}}
+
 \theoremstyle{definition}
 \mdfdefinestyle{mdbluebox}{%
 	roundcorner = 5pt,
@@ -127,6 +162,29 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	nobreak=true,
 	linecolor=PineGreen,
 	backgroundcolor=SeaGreen!10,
+	% below new
+    everyline=true,
+    roundcorner=10pt,
+    middlelinewidth=2pt,
+    splittopskip=25pt,
+    secondextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Excursus (Cont.)};
+      },
+    middleextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Excursus (Cont.)};
+      }
 }
 \mdfdefinestyle{mdanswerbox}{%
 	linewidth=0.5pt,
