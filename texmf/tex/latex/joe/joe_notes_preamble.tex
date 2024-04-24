@@ -150,20 +150,6 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	postheadspace={0pt}
 ]{thmbluebox}
 
-\tikzset{titregris/.style =
-{draw=gray, thick, fill=white, shading = exersicetitle, %
-text=gray, rectangle, rounded corners, right,minimum height=.7cm}}
-\pgfdeclarehorizontalshading{exersicebackground}{100bp}
-{color(0bp)=(green!40); color(100bp)=(black!5)}
-\pgfdeclarehorizontalshading{exersicetitle}{100bp}
-{color(0bp)=(red!40);color(100bp)=(black!5)}
-\newcounter{exer}
-\renewcommand*\theexercise{Exercise~n\arabic{exer}}
-\makeatletter
-\def\mdf@@exercisepoints{}%new mdframed key:
-\define@key{mdf}{exercisepoints}{%
-\def\mdf@@exercisepoints{#1}
-}
 \mdfdefinestyle{pinegreenbox}{%
 	linewidth=0.5pt,
 	skipabove=12pt,
@@ -175,22 +161,6 @@ text=gray, rectangle, rounded corners, right,minimum height=.7cm}}
 	innerbottommargin=8pt,
 	linecolor=PineGreen,
 	backgroundcolor=SeaGreen!10,
-	singleextra={%
-\node[titregris,xshift=1cm] at (P−|O) %
-{~\mdf@frametitlefont{\theexercise}\hbox{~}};
-\ifdefempty{\mdf@@exercisepoints}%
-{}%
-{\node[titregris,left,xshift=−1cm] at (P)%
-{~\mdf@frametitlefont{\mdf@@exercisepoints points}\hbox{~}};}%
-},
-firstextra={%
-\node[titregris,xshift=1cm] at (P−|O) %
-{~\mdf@frametitlefont{\theexercise}\hbox{~}};
-\ifdefempty{\mdf@@exercisepoints}%
-{}%
-{\node[titregris,left,xshift=−1cm] at (P)%
-{~\mdf@frametitlefont{\mdf@@exercisepoints points}\hbox{~}};}%
-},
 }
 \declaretheoremstyle[
 	headfont=\bfseries\color{PineGreen},
