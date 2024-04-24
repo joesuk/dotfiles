@@ -161,6 +161,8 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	innerbottommargin=8pt,
 	linecolor=PineGreen,
 	backgroundcolor=SeaGreen!10,
+	firstextra={\useasboundingbox (P) rectangle (P); \node[titregris,xshift=5mm] at (P-|O)  {puttetuiroe};},
+  singleextra={\useasboundingbox (P) rectangle (P); \node[titregris,xshift=5mm] at (P-|O)  {puttetuiroe};}],
 }
 \declaretheoremstyle[
 	headfont=\bfseries\color{PineGreen},
