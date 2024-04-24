@@ -150,6 +150,20 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	postheadspace={0pt}
 ]{thmbluebox}
 
+\tikzset{titregris/.style =
+{draw=gray, thick, fill=white, shading = exersicetitle, %
+text=gray, rectangle, rounded corners, right,minimum height=.7cm}}
+\pgfdeclarehorizontalshading{exersicebackground}{100bp}
+{color(0bp)=(green!40); color(100bp)=(black!5)}
+\pgfdeclarehorizontalshading{exersicetitle}{100bp}
+{color(0bp)=(red!40);color(100bp)=(black!5)}
+\newcounter{exercise}
+\renewcommand∗\theexercise{Exercise~n\arabic{exercise}}
+\makeatletter
+\def\mdf@@exercisepoints{}%new mdframed key:
+\define@key{mdf}{exercisepoints}{%
+\def\mdf@@exercisepoints{#1}
+}
 \mdfdefinestyle{pinegreenbox}{%
 	linewidth=0.5pt,
 	skipabove=12pt,
