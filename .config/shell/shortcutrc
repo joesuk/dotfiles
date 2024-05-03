@@ -5,6 +5,7 @@ D="cd $HOME/Downloads && ls -A" \
 d="cd $HOME/dox && ls -A" \
 wiki="cd $HOME/dox/wiki && ls -a" \
 res="cd $HOME/dox/res && ls -a" \
+bibs="cd $HOME/dox/res/bibs && ls -a" \
 over="cd $HOME/dox/res/overleafs && ls -a" \
 CU="cd $HOME/dox/skool/CU && ls -a" \
 ADA="cd $HOME/dox/skool/CU/TA/ADA && ls -a" \
