@@ -22,6 +22,7 @@ sc="cd $HOME/.local/bin && ls -A" \
 src="cd $HOME/.local/src && ls -A" \
 vv="cd $HOME/Videos && ls -A" \
 ovc="cd $HOME/dox/res/overleafs/sig-shifts/neurips && ls -A" \
+policy="cd $HOME/dox/res/overleafs/policy && ls -A" \
 joelatex="cd $HOME/texmf/tex/latex/joe && ls -A" \
 bf="$EDITOR $HOME/.config/shell/bm-files" \
 bd="$EDITOR $HOME/.config/shell/bm-dirs" \
