@@ -273,4 +273,4 @@ silent! source ~/.config/nvim/shortcuts.vim
 map <leader>ss :s/\.\ /\.\ \r/g<CR>
 
 " git pull from submodules in current directory
-map <leader>gp :! git pull -recurse-submodules
+map <leader>gp :! git pull --recurse-submodules<CR>
