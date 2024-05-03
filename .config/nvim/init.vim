@@ -271,3 +271,6 @@ silent! source ~/.config/nvim/shortcuts.vim
 
  " split up line by sentences
 map <leader>ss :s/\.\ /\.\ \r/g<CR>
+
+" git pull from submodules in current directory
+map <leader>gp :! git pull -recurse-submodules
