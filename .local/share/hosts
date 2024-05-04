@@ -1,6 +1,6 @@
 127.0.0.1	localhost
 127.0.1.1	ac
-
+j
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -20,7 +20,6 @@ ff02::2 ip6-allrouters
 0.0.0.0		search.google.com
 0.0.0.0		quora.com
 0.0.0.0		typeracer.com
-0.0.0.0		10fastfingers.com
 0.0.0.0		slack.com
 0.0.0.0		stat.columbia.edu
 0.0.0.0		https://academiccommons.columbia.edu/explore/doctoraltheses
@@ -45220,7 +45219,6 @@ ff02::2 ip6-allrouters
 0.0.0.0 redtube.com
 0.0.0.0 redtubelesbian.com
 0.0.0.0 reelgalleries.com
-0.0.0.0 refinery29.com
 0.0.0.0 regretfulmorning.com
 0.0.0.0 rehgdia.angelfire.com
 0.0.0.0 reihesg.angelfire.com
@@ -48540,7 +48538,6 @@ ff02::2 ip6-allrouters
 0.0.0.0 www.redlightcenter.com
 0.0.0.0 www.redtube.com
 0.0.0.0 www.reelgalleries.com
-0.0.0.0 www.refinery29.com
 0.0.0.0 www.rejalsgays.info
 0.0.0.0 www.relationship-resources.com
 0.0.0.0 www.rencontres-webcams.com
