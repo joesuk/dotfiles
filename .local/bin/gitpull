@@ -5,8 +5,6 @@
 notify-send -t 3000 "wiki: $(cd ~/dox/wiki && git pull origin main)"
 notify-send -t 3000 "CU: $(cd ~/dox/skool/CU && git pull origin main)"
 notify-send -t 3000 "res: $(cd ~/dox/res && git pull origin main)"
-notify-send -t 5000 "bibs: $(cd ~/dox/res/bibs && git add . && git pull origin main)"
-notify-send -t 5000 "texmf: $(cd ~/texmf && git add . && git pull origin main)"
 # notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
 #notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
 #notify-send -u critical -t 3000 "$(cd ~/dox/bidness/cv && git pull origin main)"
