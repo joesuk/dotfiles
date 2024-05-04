@@ -272,5 +272,5 @@ silent! source ~/.config/nvim/shortcuts.vim
  " split up line by sentences
 map <leader>ss :s/\.\ /\.\ \r/g<CR>
 
-" git pull from submodules in current directory
-map <leader>gp :! git pull --recurse-submodules<CR>
+" for overleafs, rsync and then git push
+map <leader>gp :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin
