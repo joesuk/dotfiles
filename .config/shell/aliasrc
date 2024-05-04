@@ -70,7 +70,8 @@ alias \
 alias \
 	pum="git pull origin" \
 	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin" \
-	pshcmt="git commit -a --allow-empty-message -m '' && git push origin"
+	pshcmt="git commit -a --allow-empty-message -m '' && git push origin" \
+	pshl="rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin"
 
 # other useful aliases
 alias \
