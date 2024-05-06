@@ -274,3 +274,4 @@ map <leader>ss :s/\.\ /\.\ \r/g<CR>
 
 " for overleafs, rsync and then git push
 map <leader>gp :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin<CR>
+map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe<CR>
