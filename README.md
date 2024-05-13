@@ -33,6 +33,6 @@ or clone the repo files directly to your home directory and install the
 
 ## Wallpaper
 
-![wallpaper](/.local/share/the_seine_morning.jpg)
+![wallpaper](/.local/share/the_artists_garden_at_eragny_1970_17_54.jpg)
 
-The Seine: Morning, 1874 Charles-François Daubigny
+The Artist's Garden at Eragny, 1898. Camille Pissarro
