@@ -277,7 +277,7 @@ map <leader>gp :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -a
 map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe<CR>
 
 " function for find and replace across all tex files
-function findReplace(initial,end)
+function! FindReplace(initial,end)
 	" load all files we want to search into arglist
 	execute "args *.tex"
 	" find the value in those files
@@ -287,3 +287,5 @@ function findReplace(initial,end)
 	" save files
 	execute "cdo update"
 endfunction
+
+call FindReplace()
