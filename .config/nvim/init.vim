@@ -287,7 +287,8 @@ function FindReplace(initial,end)
 	" save files
 	execute "cdo update"
 	" close buffers
-	execute "ccl"
+	execute "\%bd|e\#"
+"
 endfunction
 
 " call FindReplace(initial,end)
