@@ -277,13 +277,13 @@ map <leader>gp :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -a
 map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe<CR>
 
 " function for find and replace across all tex files
-function! FindReplace(initial,end)
+function FindReplace(initial,end)
 	" load all files we want to search into arglist
 	execute "args *.tex"
 	" find the value in those files
-	execute "vimgrep" . '\%V/' . a:initial . '\%V/' . '/g ##'
+	execute "vimgrep" . '/' . a:initial . '/' . '/g ##'
 	" replace the value in those files
-	execute "\%s/" . a:initial . '\%V/' . a:end . '/ge'
+	execute "\%s/" . a:initial . '/' . a:end . '/ge'
 	" save files
 	execute "cdo update"
 endfunction
