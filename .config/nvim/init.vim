@@ -281,7 +281,7 @@ function FindReplace(initial,end)
 	" load all files we want to search into arglist
 	execute "args *.tex"
 	" find the value in those files
-	execute "vimgrep" . '/' . a:initial . '/' . '/g ##'
+	execute "vimgrep" . '/' . a:initial . '/g ##'
 	" replace the value in those files
 	execute "\%s/" . a:initial . '/' . a:end . '/ge'
 	" save files
