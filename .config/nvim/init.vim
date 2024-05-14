@@ -18,7 +18,6 @@ Plug 'ap/vim-css-color'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --vimgrep'
 " vim latex
 Plug 'lervag/vimtex'
 " markdown
