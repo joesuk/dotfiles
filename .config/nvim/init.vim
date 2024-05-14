@@ -281,11 +281,11 @@ function! FindReplace(initial,end)
 	" load all files we want to search into arglist
 	execute "args *.tex"
 	" find the value in those files
-	execute "vimgrep" . '\%V/' . a:query . '\%V/' . '/g'
+	execute "vimgrep" . '\%V/' . a:initial . '\%V/' . '/g'
 	" replace the value in those files
-	execute "\%s/" . a:query . '\%V/' . a:replacement . '/g'
+	execute "\%s/" . a:initial . '\%V/' . a:end . '/g'
 	" save files
 	execute "cdo update"
 endfunction
 
-call FindReplace(initial,end)
+" call FindReplace(initial,end)
