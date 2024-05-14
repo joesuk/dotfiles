@@ -279,7 +279,7 @@ map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -a
 " function for find and replace across all tex files
 function FindReplace(initial,end)
 	" load all files we want to search into arglist
-	execute "args *.tex"
+	execute "args \*\.tex"
 	" find the value in those files
 	execute "vimgrep" . '/' . a:initial . '/g ##'
 	" replace the value in those files
