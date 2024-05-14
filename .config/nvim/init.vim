@@ -286,6 +286,8 @@ function FindReplace(initial,end)
 	execute "cdo \%s/" . a:initial . '/' . a:end . '/ge'
 	" save files
 	execute "cdo update"
+	" close buffers
+	execute "cfdo :bd"
 endfunction
 
 " call FindReplace(initial,end)
