@@ -288,4 +288,4 @@ function! FindReplace(initial,end)
 	execute "cdo update"
 endfunction
 
-call FindReplace()
+call FindReplace(initial,end)
