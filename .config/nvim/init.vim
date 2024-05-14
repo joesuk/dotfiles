@@ -288,7 +288,6 @@ function FindReplace(initial,end)
 	execute "cdo update"
 	" close buffers
 	execute "\%bd|e\#"
-"
 endfunction
 
 " call FindReplace(initial,end)
