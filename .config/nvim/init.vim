@@ -287,7 +287,7 @@ function FindReplace(initial,end)
 	" save files
 	execute "cdo update"
 	" close buffers
-	execute "cfdo :bd"
+	execute "ccl"
 endfunction
 
 " call FindReplace(initial,end)
