@@ -275,19 +275,3 @@ map <leader>ss :s/\.\ /\.\ \r/g<CR>
 " for overleafs, rsync and then git push
 map <leader>gp :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin<CR>
 map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe<CR>
-
-" function for find and replace across all tex files
-function FindReplace(initial,end)
-	" load all files we want to search into arglist
-	execute "args \*\.tex"
-	" find the value in those files
-	execute "vimgrep" . '/' . a:initial . '/g ##'
-	" replace the value in those files
-	execute "cdo \%s/" . a:initial . '/' . a:end . '/ge'
-	" save files
-	execute "cdo update"
-	" close buffers
-	execute "\%bd|e\#"
-endfunction
-
-" call FindReplace(initial,end)
