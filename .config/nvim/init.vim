@@ -278,26 +278,12 @@ map <leader>gs :! rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -a
 
 " function for find and replace across all tex files
 function findReplace(initial,end)
-	let str1=a:initial
-	let str2=a:end
-	args *.tex
-	vimgrep /$str1/g
-	cdo %s/$str1/$str2/ge
-	cdo update
-endfunction
-
-" find the value in those files
-:vimgrep /some_name/g ##
-
-" replace the value in those files
-:cdo %s/some_name/some_other_name/ge
-
-" save those files
-:cdo update
-  let l:part = strpart(getline('.'),col('.')-2,1)
-  if (l:part =~ '^\W\?$')
-      return "\<Tab>"
-  else
-      return "\<C-n>"
-  endif
+	" load all files we want to search into arglist
+	execute "args *.tex"
+	" find the value in those files
+	execute "vimgrep" . '\%V/' . a:query . '\%V/' . '/g'
+	" replace the value in those files
+	execute "\%s/" . a:query . '\%V/' . a:replacement . '/g'
+	" save files
+	execute "cdo update"
 endfunction
