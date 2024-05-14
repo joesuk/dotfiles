@@ -283,7 +283,7 @@ function FindReplace(initial,end)
 	" find the value in those files
 	execute "vimgrep" . '/' . a:initial . '/g ##'
 	" replace the value in those files
-	execute "\%s/" . a:initial . '/' . a:end . '/ge'
+	execute "cdo \%s/" . a:initial . '/' . a:end . '/ge'
 	" save files
 	execute "cdo update"
 endfunction
