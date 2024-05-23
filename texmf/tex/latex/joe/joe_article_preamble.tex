@@ -451,3 +451,18 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \setlength{\cftbeforesecskip}{5pt}
 
 % citation style
+
+% wrapfig stuff
+\makeatletter
+\def\clearwf{\par{\count@\c@WF@wrappedlines\zz}\par}
+
+\def\zz{{%
+\ifnum\count@>\@ne
+\noindent\mbox{zz}\\%
+\advance\count@\m@ne
+\expandafter\zz
+\else
+\ifhmode\unskip\unpenalty\fi
+\fi}}
+
+\makeatother
