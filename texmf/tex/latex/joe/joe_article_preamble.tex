@@ -486,7 +486,10 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
   \vskip 2em%
   \begin{center}%
   \let \footnote \thanks
-    {\LARGE \@title \par}%
+  {\LARGE \begin{tcolorbox}
+	  \@title
+\end{tcolorbox}
+\par}%
     \vskip 1.5em%
     {\large
       \lineskip .5em%
