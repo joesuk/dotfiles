@@ -468,24 +468,3 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \fi}}
 
 \makeatother
-
-% maketitle
-%\makeatletter
-%\def\@maketitle{%
-    %{\LARGE \@title \bf \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
-%\centering \color{charcoal}
-%\@title
-%\end{tcolorbox}}
-%}
-%\makeatother
-
-\makeatletter
-\def\@maketitle{%
-  \begin{center}%
-  { \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
-		  \LARGE\bf\centering\@title \color{charcoal}
-\end{tcolorbox}
-}%
-  \end{center}%
-  }
-\makeatother
