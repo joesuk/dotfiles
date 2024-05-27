@@ -482,9 +482,8 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \makeatletter
 \def\@maketitle{%
   \begin{center}%
-  \let \footnote \thanks
-  {\LARGE \begin{tcolorbox}
-	  \@title
+  {\LARGE \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
+		  \@title \color{charcoal}
 \end{tcolorbox}
 \par}%
   \end{center}%
