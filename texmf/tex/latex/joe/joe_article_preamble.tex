@@ -9,6 +9,9 @@
 \usepackage{makecell} % for makecell command for line breaks in table cells
 \usepackage[round]{natbib}
 \usepackage{url}
+\usepackage{wrapfig} % for wrapping figure inside paragraph
+\restylefloat{figure} % to allow for caption or \captionlistentry{} inside wrapfig
+\usepackage{caption}
 
 % For theorems and such
 %\usepackage[amsmath]{ntheorem}
@@ -291,13 +294,15 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 %\declaretheorem[style=thmredbox,name=Example,sibling=thm]{exercise}
 
 % cleveref setup
-\Crefname{defn}{Definition}{Definitions}
+\Crefname{defn}{Defn.}{Defn.}
+\Crefname{definition}{Defn.}{Defn.}
 \Crefname{rmk}{Remark}{Remarks}
 \Crefname{prop}{Proposition}{Propositions}
-\Crefname{thm}{Theorem}{Theorems}
-\Crefname{cor}{Corollary}{Corollaries}
-\Crefname{lemma}{Lemma}{Lemmas}
-\Crefname{algo}{Algorithm}{Algorithms}
+\Crefname{thm}{Thm.}{Thm.}
+\Crefname{theorem}{Thm.}{Thm.}
+\Crefname{cor}{Cor.}{Cor.}
+\Crefname{lemma}{Lem.}{Lem.}
+\Crefname{algo}{Alg.}{Alg.}
 \Crefname{ex}{Example}{Examples}
 \Crefname{answer}{Answer}{Answers}
 \Crefname{ques}{Question}{Questions}
@@ -308,8 +313,10 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \Crefname{exer}{Exercise}{Exercises}
 \Crefname{conj}{Conjecture}{Conjectures}
 \Crefname{claim}{Claim}{Claims}
-\Crefname{subsection}{Subsection}{Subsections}
-\Crefname{section}{Section}{Sections}
+\Crefname{figure}{Fig.}{Fig.}
+\Crefname{subsection}{Subsec.}{Subsec.}
+\Crefname{section}{Sec.}{Sec.}
+\Crefname{appendix}{Appendix}{Appendices}
 \Crefname{table}{Table}{Tables}
 \crefformat{equation}{(#2#1#3)}
 
@@ -446,3 +453,49 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \setlength{\cftbeforesecskip}{5pt}
 
 % citation style
+
+% wrapfig stuff
+\makeatletter
+\def\clearwf{\par{\count@\c@WF@wrappedlines\zz}\par}
+
+\def\zz{{%
+\ifnum\count@>\@ne
+\noindent\mbox{zz}\\%
+\advance\count@\m@ne
+\expandafter\zz
+\else
+\ifhmode\unskip\unpenalty\fi
+\fi}}
+
+\makeatother
+
+% maketitle
+%\makeatletter
+%\def\@maketitle{%
+    %{\LARGE \@title \bf \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
+%\centering \color{charcoal}
+%\@title
+%\end{tcolorbox}}
+%}
+%\makeatother
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
