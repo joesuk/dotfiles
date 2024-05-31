@@ -10,7 +10,7 @@
 \usepackage[round]{natbib}
 \usepackage{url}
 \usepackage{wrapfig} % for wrapping figure inside paragraph
-\restylefloat{figure} % to allow for caption or \captionlistentry{} inside wrapfig
+%\restylefloat{figure} % to allow for caption or \captionlistentry{} inside wrapfig
 \usepackage{caption}
 
 % For theorems and such
@@ -467,35 +467,4 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \ifhmode\unskip\unpenalty\fi
 \fi}}
 
-\makeatother
-
-% maketitle
-%\makeatletter
-%\def\@maketitle{%
-    %{\LARGE \@title \bf \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
-%\centering \color{charcoal}
-%\@title
-%\end{tcolorbox}}
-%}
-%\makeatother
-
-\makeatletter
-\def\@maketitle{%
-  \newpage
-  \null
-  \vskip 2em%
-  \begin{center}%
-  \let \footnote \thanks
-    {\LARGE \@title \par}%
-    \vskip 1.5em%
-    {\large
-      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-    \vskip 1em%
-    %{\large \@date}%
-  \end{center}%
-  \par
-  \vskip 1.5em}
 \makeatother
