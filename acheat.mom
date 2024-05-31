@@ -487,6 +487,12 @@ You'll have to restart the program to see its effects obviously.
 \f(CWCtrl+n\fP \(en go down in GRUB menu.
 .ITEM
 \f(CWlast\fP \(en last output in bc calculator
+.ITEM
+\f(CWsed -i 's/foo/bar/g' *.md\fP \(en find and replace in all md files of current irectory.
+.ITEM
+\f(CWfind . -type f -name "*.md" -exec sed -i 's/foo/bar/g' {} +\fP \(en recursive find and replace in all md files of subdirectories
+.ITEM
+\f(CWcrop in gimp\fP \(en Shift c (or crop tool/rectangle in upper left menu), select and click on selected region, "Image" > "Crop to Content"
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
