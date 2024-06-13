@@ -127,17 +127,3 @@
 
 % commenting command
 \newcommand{\com}[1]{{\color{red}\textbf{[[} #1 \textbf{]]}}}
-
-% redefine title command
-\makeatletter
-\def\@maketitle{%
-  \begin{center}%
-  { \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
-		  \LARGE\bf\centering\@title \color{charcoal}
-\end{tcolorbox}
-}%
-  \end{center}%
-  }
-\makeatother
-
-\endinput
