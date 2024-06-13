@@ -411,3 +411,17 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 % table of contents spacing
 \usepackage{tocloft}
 \setlength{\cftbeforesecskip}{5pt}
+
+% redefine title command
+\makeatletter
+\def\@maketitle{%
+  \begin{center}%
+  { \begin{tcolorbox}[colframe=caribbeangreen,colback=caribbeangreen!10]
+		  \LARGE\bf\centering\@title \color{charcoal}
+\end{tcolorbox}
+}%
+  \end{center}%
+  }
+\makeatother
+
+\endinput
