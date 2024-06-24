@@ -10,10 +10,10 @@ ff02::2 ip6-allrouters
 # sudo ln -f {source} /etc/hosts to hardlink this
 
 # you need an record an excuse for these
-0.0.0.0		https://www.reddit.com/
+#0.0.0.0		https://www.reddit.com/
 0.0.0.0		news.ycombinator.com
-0.0.0.0		reddit.com
-0.0.0.0		old.reddit.com
+#0.0.0.0		reddit.com
+#0.0.0.0		old.reddit.com
 0.0.0.0		discord.com
 0.0.0.0		youtube.com
 0.0.0.0		themotte.org
@@ -30,6 +30,7 @@ ff02::2 ip6-allrouters
 0.0.0.0		stat.columbia.edu
 0.0.0.0		search.google.com/test/mobile-friendly
 0.0.0.0		search.google.com
+0.0.0.0		scholar.google.com
 0.0.0.0		quora.com
 0.0.0.0		typeracer.com
 0.0.0.0		https://academiccommons.columbia.edu/explore/doctoraltheses
