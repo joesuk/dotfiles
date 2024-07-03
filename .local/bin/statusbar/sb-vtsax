@@ -1,3 +1,3 @@
 #!/bin/sh
 #echo "397.351*$(bash ticker.sh VTIAX)+1382.744*$(bash ticker.sh VTSAX)" | bc | cut -c1-3
-echo "1382.744*$(bash ticker.sh VTSAX)+990.618*$(bash ticker.sh VTIAX)" | bc | cut -c1-3
+echo "1383.291*$(bash ticker.sh VTSAX)+990.618*$(bash ticker.sh VTIAX)" | bc | cut -c1-3
