@@ -3,4 +3,4 @@
 read word
 
 sed -i "s|^https.*$|$word|g" ~/dox/sites/academic/static/qr/index.html
-sudo scp -oHostKeyAlgorithms=+ssh-dss ~/dox/sites/academic/static/qr/index.html js5338@cunix.columbia.edu:public_html/qr
+sudo scp ~/dox/sites/academic/static/qr/index.html js5338@cunix.columbia.edu:public_html/qr
