@@ -1,7 +1,7 @@
 set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
-set page-padding 1
+set page-padding 0
 set selection-clipboard clipboard
 map u scroll half-up
 map d scroll half-down
@@ -10,3 +10,4 @@ map R rotate
 map i recolor
 map p print
 map g goto top
+map <C-z> feedkeys "<s><+><+>" # set zoom level to avoid standard 1 in page margins

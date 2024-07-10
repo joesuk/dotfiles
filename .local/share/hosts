@@ -33,7 +33,7 @@ ff02::2 ip6-allrouters
 0.0.0.0		scholar.google.com
 0.0.0.0		quora.com
 0.0.0.0		typeracer.com
-0.0.0.0		https://academiccommons.columbia.edu/explore/doctoraltheses
+#0.0.0.0		https://academiccommons.columbia.edu/explore/doctoraltheses
 0.0.0.0		cs.columbia.edu
 0.0.0.0		math.columbia.edu
 0.0.0.0		math.stonybrook.edu
