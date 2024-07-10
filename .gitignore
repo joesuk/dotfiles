@@ -29,4 +29,6 @@ R/
 .local/share/*
 !.local/share/applications
 !.local/share/larbs
-.config/nvim/en.utf-8.add.spl
+.config/nvim/spell/en.utf-8.add.spl
+.ssh/*.pub
+.texlive/
