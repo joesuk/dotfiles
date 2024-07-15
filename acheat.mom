@@ -476,6 +476,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWfind . -maxdepth 1 -name "string" -print\fP \(en find files in current directory containing "string".
 .ITEM
+\f(CWack "string"\fP \(en find files in current directory containing "string".
+.ITEM
 \f(CW(in vim) source init.vim\fP \(en source init.vim
 .ITEM
 \f(CWheif-convert image.HEIC new-image.png(or jpg)\fP \(en convert HEIC/HEIF to image.
