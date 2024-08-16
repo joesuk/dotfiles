@@ -52,3 +52,4 @@ R/
 .mozilla/
 .ssh/joesuk
 .ssh/known_hosts
+.gitconfig
