@@ -76,4 +76,5 @@ alias \
 # other useful aliases
 alias \
 	siteupdate="sudo scp -r -O . js5338@cunix.columbia.edu:public_html" \
-	webcam="mpv --untimed --no-cache --no-osc --profile=low-latency --title=webcam av://v4l2:/dev/video0"
+	webcam="mpv --untimed --no-cache --no-osc --profile=low-latency --title=webcam av://v4l2:/dev/video0" \
+	grubmake="sudo grub-mkconfig -o /boot/grub/grub.cfg"
