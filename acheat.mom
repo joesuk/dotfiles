@@ -342,6 +342,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWCtrl+p\fP \(en Get syntax of word under cursor (useful for changing color.
 .ITEM
+\f(CWcs$\fP \(en change surrounding $, $$, \[, \( (i.e., inline/math display environment).
+.ITEM
 .PDF_WWW_LINK "https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt" "See more shortcuts here."
 .LIST OFF
 .HEADING 2 "Vim-Markdown"
