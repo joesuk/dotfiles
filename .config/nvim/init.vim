@@ -280,3 +280,11 @@ map <leader>ss :s/\.\ /\.\ \r/g<CR>
 " for overleafs, rsync and then git push
 map <leader>gp :! rsync -av --progress ~/dox/res/bibs/ bibs && rsync -av --progress  ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin<CR>
 map <leader>gs :! rsync -av --progress ~/dox/res/bibs/ bibs && rsync -av --progress ~/texmf/tex/latex/joe/ joe<CR>
+
+function! ShowColourSchemeName()
+    try
+        echo g:colors_name
+    catch /^Vim:E121/
+        echo "default"
+    endtry
+endfunction
