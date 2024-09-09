@@ -376,35 +376,37 @@ mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
 # source xinitrc
-source "/home/$name/.config/x11/xinitrc"
+sudo -u "$name" source "/home/$name/.config/x11/xinitrc"
 
 # set up header files for dwmblocks and dmenu
-rm -rf "/home/$name/.local/src/dwmblocks/config.h"
-ln -s "/home/$name/.config/headers/dwmblocks_config.h" "/home/$name/.local/src/dwmblocks/config.h"
-cd ~/.local/src/dwmblocks/; sudo make install
-rm -rf "/home/$name/.local/src/dmenu/config.h"
-ln -s "/home/$name/.config/headers/dmenu_config.h" "/home/$name/.local/src/dmenu/config.h"
-cd ~/.local/src/dmenu/; sudo make install
+sudo -u "$name" rm -rf "/home/$name/.local/src/dwmblocks/config.h"
+sudo -u "$name" ln -s "/home/$name/.config/headers/dwmblocks_config.h" "/home/$name/.local/src/dwmblocks/config.h"
+cd ~/.local/src/dwmblocks/
+sudo -u "$name" make install
+sudo -u "$name" rm -rf "/home/$name/.local/src/dmenu/config.h"
+sudo -u "$name" ln -s "/home/$name/.config/headers/dmenu_config.h" "/home/$name/.local/src/dmenu/config.h"
+cd ~/.local/src/dmenu/
+sudo -u "$name" make install
 
 # set wallpaper
-xwallpaper --zoom "/home/$name/.local/share/bg.png"
+sudo -u "$name" xwallpaper --zoom "/home/$name/.local/share/bg.png"
 
 # hardlink hosts file
-sudo chown -h "$name":"$name" "/home/$name/.local/share/hosts"
-sudo ln -f "/home/$name/.local/share/hosts" /etc/hosts
+sudo -u "$name" chown -h "$name":"$name" "/home/$name/.local/share/hosts"
+sudo -u "$name" ln -f "/home/$name/.local/share/hosts" /etc/hosts
 
 # set up redshift
-sudo rm -rf /usr/lib/systemd/user/redshift.service
-sudo touch /usr/lib/systemd/user/redshift.service
-sudo echo "[Unit]" >> /usr/lib/systemd/user/redshift.service
-sudo echo "Description=Redshift display colour temperature adjustment" >> /usr/lib/systemd/user/redshift.service
-sudo echo "Documentation=http://jonls.dk/redshift/" >> /usr/lib/systemd/user/redshift.service
-sudo echo "After=display-manager.service" >> /usr/lib/systemd/user/redshift.service
-sudo echo "[Service]" >> /usr/lib/systemd/user/redshift.service
-sudo echo "ExecStart=/usr/bin/redshift" >> /usr/lib/systemd/user/redshift.service
-sudo echo "Restart=always" >> /usr/lib/systemd/user/redshift.service
-sudo echo "[Install]" >> /usr/lib/systemd/user/redshift.service
-sudo echo "WantedBy=default.target" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" rm -rf /usr/lib/systemd/user/redshift.service
+sudo -u "$name" touch /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "[Unit]" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "Description=Redshift display colour temperature adjustment" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "Documentation=http://jonls.dk/redshift/" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "After=display-manager.service" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "[Service]" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "ExecStart=/usr/bin/redshift" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "Restart=always" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "[Install]" >> /usr/lib/systemd/user/redshift.service
+sudo -u "$name" echo "WantedBy=default.target" >> /usr/lib/systemd/user/redshift.service
 systemctl --user daemon-reload
 systemctl --user enable redshift.service
 
