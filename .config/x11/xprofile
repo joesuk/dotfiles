@@ -25,12 +25,12 @@ elif [ $hostname = "acma" ]; then
 	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
 elif [ $hostname = "acf" ]; then
 	xrandr --dpi 120
-	synclient TapButton1=1
-	synclient RightButtonAreaLeft=1
-	synclient PalmDetect=1
-	synclient VertScrollDelta=100
-	synclient HorizScrollDelta=100
-	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
+	#synclient TapButton1=1
+	#synclient RightButtonAreaLeft=1
+	#synclient PalmDetect=1
+	#synclient VertScrollDelta=100
+	#synclient HorizScrollDelta=100
+	#synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
 elif [ $hostname = "act" ]; then
 	xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 	xset s off -dpms & # turn off screensaver
@@ -40,7 +40,7 @@ fi
 
 #xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate right --output VGA-0 --mode 1920x1080 --pos 1080x420 --rotate normal --output HDMI-3 --off --output VGA-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off # multiple monitors
 setbg &			# set the background with the `setbg` script
-remaps &
+#remaps &
 
 # symlink hosts
 sudo ln -f $HOME/.local/share/hosts /etc/hosts &
@@ -53,12 +53,12 @@ done >/dev/null 2>&1
 
 # korean.
 # export fcitx5 environment variables
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx5"
+#export GTK_IM_MODULE=fcitx5
+#export QT_IM_MODULE=fcitx5
+#export XMODIFIERS="@im=fcitx5"
 
 # start fcitx5
-fcitx5 &
+#fcitx5 &
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
