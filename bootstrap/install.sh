@@ -375,9 +375,6 @@ echo "Defaults editor=/usr/bin/nvim" >/etc/sudoers.d/02-larbs-visudo-editor
 mkdir -p /etc/sysctl.d
 echo "kernel.dmesg_restrict = 0" > /etc/sysctl.d/dmesg.conf
 
-# source xinitrc
-sudo -u "$name" source "/home/$name/.config/x11/xinitrc"
-
 # set up header files for dwmblocks and dmenu
 sudo -u "$name" rm -rf "/home/$name/.local/src/dwmblocks/config.h"
 sudo -u "$name" ln -s "/home/$name/.config/headers/dwmblocks_config.h" "/home/$name/.local/src/dwmblocks/config.h"
