@@ -94,3 +94,4 @@ G,https://github.com/joesuk/mutt-wizard.git,"is a light-weight terminal-based em
 ,aria2,"ultra-fast download utility (for yt-dlp)"
 ,at-spi2-core,"basic daemons for accessbility stack"
 ,urlview-xdg-git,"url viewer"
+,dunst," for notifications"
