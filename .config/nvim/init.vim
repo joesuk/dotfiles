@@ -211,6 +211,7 @@ au BufWritePost,BufFilePost *.mom !groff -mom % -T pdf > %:r.pdf
 	autocmd BufWritePost ~/.local/bin/statusbar/sb-days !cd ~/; git add ~/.local/bin/statusbar/sb-days && git commit -m "sbdays"
 	autocmd BufWritePost ~/.local/bin/statusbar/sb-crypto !cd ~/; git add ~/.local/bin/statusbar/sb-crypto && git commit -m "finance scripts"
 	autocmd BufWritePost ~/.local/bin/statusbar/sb-vtsax !cd ~/; git add ~/.local/bin/statusbar/sb-vtsax && git commit -m "finance scripts"
+	autocmd BufWritePost ~/.local/bin/statusbar/sb-finance !cd ~/; git add ~/.local/bin/statusbar/sb-finance && git commit -m "finance scripts"
 	autocmd BufWritePost ~/acheat.mom !cd ~/; git add acheat.mom && git commit -m "acheat"
 	autocmd BufWritePost ~/bootstrap/progs.csv !cd ~/; git add ~/bootstrap/progs.csv && git commit -m "progs.csv"
 	autocmd BufWritePost ~/texmf/tex/latex/joe/joe_notes_preamble.tex !cd ~/texmf; git add ~/texmf/tex/latex/joe/joe_notes_preamble.tex && git commit -m "texmf joe_notes"
