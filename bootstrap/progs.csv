@@ -102,3 +102,6 @@ G,https://github.com/joesuk/mutt-wizard.git,"is a light-weight terminal-based em
 ,fcitx5-qt,"for east asian fonts"
 ,fontconfig," provide configuration, enumeration and substitution of fonts to other programs"
 ,groff," is a text-formatting system"
+,grub," is a boot loader"
+,hugo," is a static site generator"
+,imagemagick," is for displaying, converting, and editing raster image and vector image files"
