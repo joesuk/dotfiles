@@ -408,14 +408,14 @@ systemctl --user daemon-reload
 systemctl --user enable redshift.service
 
 # update fonts
-fc-cache
+#fc-cache
 
 # correct permissions on gnupg
-find ~/.gnupg -type f -exec chmod 600 {} \;
-find ~/.gnupg -type d -exec chmod 700 {} \;
+#find ~/.gnupg -type f -exec chmod 600 {} \;
+#find ~/.gnupg -type d -exec chmod 700 {} \;
 
 # set up pix and screenshots location
-mkdir -p /home/$name/dox/pix/screenshots
+mkdir -p "/home/$name/dox/pix/screenshots"
 
 # set up email
 
