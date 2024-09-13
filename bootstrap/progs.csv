@@ -72,7 +72,6 @@ G,https://github.com/joesuk/mutt-wizard.git,"is a light-weight terminal-based em
 ,tesseract-data-eng,"english language pack for OCR"
 ,jq,"for perl"
 ,libx11,"is libx11"
-,polkit,"for getting poweroff/reboot to work"
 ,noto-fonts,"for noto sans mono font"
 ,dkms,"for wifi adapter to update on kernel upgrades"
 ,gdu,"is a fast disk usage analyzer"
