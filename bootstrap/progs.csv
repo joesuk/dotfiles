@@ -95,3 +95,8 @@ G,https://github.com/joesuk/mutt-wizard.git,"is a light-weight terminal-based em
 ,at-spi2-core,"basic daemons for accessbility stack"
 ,urlview-xdg-git,"url viewer"
 ,dunst," for notifications"
+,fcitx5,"for east asian fonts"
+,fcitx5-configtool,"for east asian fonts"
+,fcitx5-gtk,"for east asian fonts"
+,fcitx5-hangul,"for east asian fonts"
+,fcitx5-qt,"for east asian fonts"
