@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# pull from git repos
+
+notify-send -t 3000 "wiki: $(cd ~/dox/wiki && git pull )"
+notify-send -t 3000 "CU: $(cd ~/dox/skool/CU && git pull )"
+notify-send -t 3000 "res: $(cd ~/dox/res && git pull )"
+# notify-send -u critical -t 3000 "$(cd ~/dox/sites/academic && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/sites/amaryllis && git pull origin main)"
+#notify-send -u critical -t 3000 "$(cd ~/dox/bidness/cv && git pull origin main)"

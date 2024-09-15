@@ -1,0 +1,16 @@
+#!/bin/sh
+# This shell script is PUBLIC DOMAIN. You may do whatever you want with it.
+
+TOGGLE=$HOME/.config/.toggle_a
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    #pactl set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo && notify-send "analog stereo"
+
+else
+    rm $TOGGLE
+    pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo && notify-send "hdmi stereo"
+fi
+
+wpctl status | awk '/Built-in Audio/'
+ wpctl status | sed -nr '/Built-in/!d;/Analog Stereo/p'
