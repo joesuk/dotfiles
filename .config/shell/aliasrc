@@ -1,0 +1,80 @@
+#!/bin/sh
+
+# nvim source vimrc at end
+# alias nvim="nvim -S ~/.config/nvim/init.vim"
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d" nvim="nvim -S ~/.config/nvim/init.vim"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+[ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
+
+# sudo not required for some system commands
+for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
+	alias $command="sudo $command"
+done; unset command
+
+se() {
+	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
+	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
+	}
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	rsync="rsync -vrPlu" \
+	mkd="mkdir -pv" \
+	yt="yt-dlp --embed-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ytt="yt --skip-download --write-thumbnail" \
+	ffmpeg="ffmpeg -hide_banner" \
+	mdsplit="python ~/.local/bin/mdsplit.py"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	ip="ip -color=auto"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="shutdown -h now" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query" \
+	z="zathura" \
+	update="pacman -S archlinux-keyring && pacman -Syyu && sh $HOME/.local/bin/remaps" \
+	terremoto="ssh js5338@terremoto.rcs.columbia.edu"
+
+alias \
+	lf="lfub" \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
+
+# git aliases
+alias \
+	pum="git pull origin" \
+	psh="git add . && git commit -a --allow-empty-message -m '' && git push origin" \
+	pshcmt="git commit -a --allow-empty-message -m '' && git push origin" \
+	pshl="rsync -av --progress --delete ~/dox/res/bibs/ bibs && rsync -av --progress --delete ~/texmf/tex/latex/joe/ joe && git add . && git commit -a --allow-empty-message -m '' && git push origin"
+
+# other useful aliases
+alias \
+	siteupdate="sudo scp -r -O . js5338@cunix.columbia.edu:public_html" \
+	webcam="mpv --untimed --no-cache --no-osc --profile=low-latency --title=webcam av://v4l2:/dev/video0" \
+	grubmake="sudo grub-mkconfig -o /boot/grub/grub.cfg"

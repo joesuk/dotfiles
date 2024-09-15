@@ -1,0 +1,53 @@
+
+
+IMAPStore ybjosuk@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User ybjosuk@gmail.com
+PassCmd "pass ybjosuk@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore ybjosuk@gmail.com-local
+Subfolders Verbatim
+Path /home/amaryllis/.local/share/mail/ybjosuk@gmail.com/
+Inbox /home/amaryllis/.local/share/mail/ybjosuk@gmail.com/INBOX
+
+Channel ybjosuk@gmail.com
+Expunge Both
+Far :ybjosuk@gmail.com-remote:
+Near :ybjosuk@gmail.com-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Starred" "[Gmail]/Spam" "[Gmail]/All Mail" "[Gmail]/Trash"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore js5338@columbia.edu-remote
+Host imap.gmail.com
+Port 993
+User js5338@columbia.edu
+PassCmd "pass js5338@columbia.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore js5338@columbia.edu-local
+Subfolders Verbatim
+Path /home/amaryllis/.local/share/mail/js5338@columbia.edu/
+Inbox /home/amaryllis/.local/share/mail/js5338@columbia.edu/INBOX
+
+Channel js5338@columbia.edu
+Expunge Both
+Far :js5338@columbia.edu-remote:
+Near :js5338@columbia.edu-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Starred" "[Gmail]/Spam" "[Gmail]/All Mail" "[Gmail]/Trash"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
