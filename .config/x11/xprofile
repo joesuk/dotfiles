@@ -23,20 +23,24 @@ elif [ $hostname = "acma" ]; then
 	synclient VertScrollDelta=100
 	synclient HorizScrollDelta=100
 	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
-elif [ $hostname = "acf" ]; then
-	xrandr --dpi 120
-	#synclient TapButton1=1
-	#synclient RightButtonAreaLeft=1
-	#synclient PalmDetect=1
-	#synclient VertScrollDelta=100
-	#synclient HorizScrollDelta=100
-	#synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
-elif [ $hostname = "act" ]; then
-	xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
+elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
+	xrandr --dpi 235
+	xrandr --output eDPI --scale 1.5x1.5 # upscaling per archwiki
+	synclient TapButton1=1
+	synclient VertScrollDelta=31
+	synclient HorizScrollDelta=31
+	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.125156
+elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
+	#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 	xrandr --auto
 	xrandr --setprovideroutputsource modesetting NVIDIA-0
+else
+	xrandr --dpi 120
 fi
 
+#xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate right --output VGA-0 --mode 1920x1080 --pos 1080x420 --rotate normal --output HDMI-3 --off --output VGA-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off # multiple monitors
+#setbg &			# set the background with the `setbg` script
+#remaps &
 xset s off -dpms & # turn off screensaver
 setbg &			# set the background with the `setbg` script
 remaps &
@@ -51,7 +55,7 @@ for program in $autostart; do
 done >/dev/null 2>&1
 
 # korean.
- export fcitx5 environment variables
+# export fcitx5 environment variables
 export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS="@im=fcitx5"
