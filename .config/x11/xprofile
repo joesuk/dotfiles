@@ -29,7 +29,7 @@ elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
 	synclient TapButton1=1
 	synclient VertScrollDelta=31
 	synclient HorizScrollDelta=31
-	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.125156
+	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.2
 elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
 	#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 	xrandr --auto
