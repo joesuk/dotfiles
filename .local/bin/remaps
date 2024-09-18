@@ -22,7 +22,7 @@ if [ $hostname = "acm" ] || [ $hostname = "acma" ]; then
 elif [ $hostname = "act" ]; then
 	# Map the menu button to down
 	xmodmap -e 'keycode 135 = Down'
-elif [ $hostname = "artixlinux" ]; then
+elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
 	synclient TapButton1=1
 	synclient VertScrollDelta=31
 	synclient HorizScrollDelta=31
