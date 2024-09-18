@@ -2,19 +2,22 @@
 # This shell script is PUBLIC DOMAIN. You may do whatever you want with it.
 
 TOGGLE=$HOME/.config/x11/.toggle
+hostname=$(cat /proc/sys/kernel/hostname)
+if [ $hostname = "acf" ] || [ $hostname = "artixlinux" ]; then
 
-if [ ! -e $TOGGLE ]; then
-    touch $TOGGLE
-    sed -i 's/kawaii_pink/dark_purple/' $HOME/.config/nvim/init.vim
-    xrdb $HOME/.config/x11/xresources_alt && notify-send "light colors enabled"
 else
-    rm $TOGGLE
-    sed -i 's/dark_purple/kawaii_pink/' $HOME/.config/nvim/init.vim
-    xrdb $HOME/.config/x11/xresources && notify-send "solarized dark enabled"
+	if [ ! -e $TOGGLE ]; then
+	    touch $TOGGLE
+	    sed -i 's/kawaii_pink/dark_purple/' $HOME/.config/nvim/init.vim
+	    xrdb $HOME/.config/x11/xresources_alt && notify-send "light colors enabled"
+	else
+	    rm $TOGGLE
+	    sed -i 's/dark_purple/kawaii_pink/' $HOME/.config/nvim/init.vim
+	    xrdb $HOME/.config/x11/xresources && notify-send "solarized dark enabled"
+	fi
 fi
 
-hostname=$(cat /proc/sys/kernel/hostname)
-if [ $hostname = "acm" ]; then
+if [ $hostname = "acm" ] || [ $hostname = "acma" ]; then
 	xrandr --dpi 235
 	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mbp
 fi
