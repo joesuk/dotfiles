@@ -1,6 +1,6 @@
-Adapted from [LARBS](https://larbs.xyz) and [voidrice](https://github.com/LukeSmithxyz/voidrice)
+Adapted from [LARBS](https://larbs.xyz)/[voidrice](https://github.com/LukeSmithxyz/voidrice)
 
-- Everything is for Arch/Artix Linux.
+- Everything is for Arch/Artix Linux. No strict requirement on systemd.
 - Useful scripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
@@ -10,7 +10,9 @@ Adapted from [LARBS](https://larbs.xyz) and [voidrice](https://github.com/LukeSm
 	- mpd/ncmpcpp (music)
 	- sxiv (image/gif viewer)
 	- mpv (video player)
-	- [my mod of dwm](https://github.com/joesuk/dwm) (window manager)
+	- (hardened) firefox (ubo files)
+	- LaTeX (texmf macros and preamble files)
+	- [my mod of dwm](https://github.com/joesuk/dwm) (more minimalist appearing version of dynamic window manager)
 	- [Luke Smith mod of dwmblocks](https://github.com/lukesmithxyz/dwmblocks) (statusbar)
 	- [my mod of st](https://github.com/lukesmithxyz/st) (terminal emulator)
 	- other stuff like xdg default programs, inputrc and more, etc.
@@ -31,8 +33,12 @@ curl -LO https://raw.githubusercontent.com/joesuk/dotfiles/main/bootstrap/instal
 or clone the repo files directly to your home directory and install the
 [dependencies](https://github.com/joesuk/dotfiles/blob/main/bootstrap/progs.csv).
 
+## what it looks like
+
+![neofetch](/.local/share/neofetch.png)
+
 ## Wallpaper
 
 ![wallpaper](/.local/share/the_artists_garden_at_eragny_1970_17_54.jpg)
 
-The Artist's Garden at Eragny, 1898. Camille Pissarro
+_The Artist's Garden at Eragny_, 1898. Camille Pissarro
