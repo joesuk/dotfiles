@@ -1,5 +1,7 @@
 #!/bin/sh
 
-eth=$(sb-price ETH ethereum a)
-btc=$(sb-price BTC bitcoin a)
+#eth=$(sb-price ETH ethereum a)
+#btc=$(sb-price BTC bitcoin a)
+eth=$(curl -s "rate.sx/1ETH")
+btc=$(curl -s "rate.sx/1BTC")
 echo "3.82947*$eth+0.116346*$btc" | bc | cut -c1-2
