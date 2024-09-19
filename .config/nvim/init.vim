@@ -65,7 +65,7 @@ call plug#end()
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
 " colorscheme
-colorscheme kawaii_pink
+" colorscheme kawaii_pink
 colorscheme vim
 
 set title
