@@ -2,11 +2,10 @@
 # This shell script is PUBLIC DOMAIN. You may do whatever you want with it.
 
 TOGGLE=$HOME/.config/.toggle_r
-
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
-    systemctl --user start redshift && notify-send "redshift started"
+    redshift &
 else
     rm $TOGGLE
-    systemctl --user stop redshift && notify-send "redshift stopped"
+    pkill redshift
 fi
