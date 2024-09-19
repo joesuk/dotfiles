@@ -2,6 +2,7 @@
 # This shell script is PUBLIC DOMAIN. You may do whatever you want with it.
 
 TOGGLE=$HOME/.config/x11/.toggle
+
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acf" ] || [ $hostname = "artixlinux" ]; then
 
