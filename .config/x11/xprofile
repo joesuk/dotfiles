@@ -37,7 +37,7 @@ elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
 fi
 
 #xrandr --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate right --output VGA-0 --mode 1920x1080 --pos 1080x420 --rotate normal --output HDMI-3 --off --output VGA-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off # multiple monitors
-#xset s off -dpms & # turn off screensaver
+xset s off -dpms & # turn off screensaver
 setbg &			# set the background with the `setbg` script
 remaps &
 
