@@ -25,7 +25,8 @@ elif [ $hostname = "acma" ]; then
 	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
 elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
 	xrandr --dpi 120
-	#xrandr --output eDPI --scale 1.5x1.5 # upscaling per archwiki
+	#xrandr --output eDP-1 --scale 1.5x1.5 # upscaling per archwiki
+	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_fw
 	synclient TapButton1=1
 	synclient VertScrollDelta=31
 	synclient HorizScrollDelta=31
