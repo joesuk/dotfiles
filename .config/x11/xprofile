@@ -34,6 +34,7 @@ elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
 	synclient PalmDetect=1
 	synclient PalmMinWidth=8
 	synclient PalmMinZ=100
+	syndaemon -i 0.5 -t -K -R # explicitly disable touchpad while typing
 elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
 	#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 	xrandr --auto
