@@ -104,7 +104,7 @@ set runtimepath+=~/.config/nvim/plugged/lightline
 " colorscheme
 " colorscheme dark_purple
 " colorscheme lightline_pink
-colorscheme kawaii_pink
+colorscheme dark_purple
 
 set title
 set go=a "gui options=a, needed for visual mode copy/paste to other apps
