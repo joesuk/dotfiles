@@ -327,3 +327,14 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \fi}}
 
 \makeatother
+
+% label arbitrary text (such as when labeling terms in a decomposition of terms with underbrace)
+\newcounter{mylabelcounter}
+\makeatletter
+\newcommand{\labelText}[2]{%
+#1\refstepcounter{mylabelcounter}%
+\immediate\write\@auxout{%
+  \string\newlabel{#2}{{1}{\thepage}{{\unexpanded{#1}}}{mylabelcounter.\number\value{mylabelcounter}}{}}%
+}%
+}
+\makeatother
