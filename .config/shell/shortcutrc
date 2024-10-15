@@ -19,6 +19,7 @@ m="cd $HOME/Music && ls -A" \
 mn="cd /mnt && ls -A" \
 pp="cd $HOME/Pictures && ls -A" \
 sc="cd $HOME/.local/bin && ls -A" \
+sb="cd $HOME/.local/bin/statusbar && ls -A" \
 src="cd $HOME/.local/src && ls -A" \
 vv="cd $HOME/Videos && ls -A" \
 ovc="cd $HOME/dox/res/overleafs/sig-shifts/neurips && ls -A" \
