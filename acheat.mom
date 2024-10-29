@@ -503,6 +503,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWcrop in gimp\fP \(en Shift c (or crop tool/rectangle in upper left menu), select and click on selected region, "Image" > "Crop to Content"
 .ITEM
 \(CWCtrl+Alt+= and then r\fP \(en Insert row above in google sheets.
+.ITEM
+\(CWCtrl+Alt+- and then r\fP \(en Delete current row.
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
