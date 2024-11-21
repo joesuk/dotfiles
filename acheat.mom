@@ -449,6 +449,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWgit remote set-url origin LINK\fP \(en set origin url.
 .ITEM
 \f(CWgit remote get-url origin\fP \(en get origin url.
+.ITEM
+\f(CWgit diff filename\fP \(en see changes in file w.r.t. git remote
 .LIST OFF
 .HEADING 2 "sxiv"
 .LI
