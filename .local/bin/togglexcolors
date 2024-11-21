@@ -5,7 +5,15 @@ TOGGLE=$HOME/.config/x11/.toggle
 
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acf" ] || [ $hostname = "artixlinux" ]; then
-
+	if [ ! -e $TOGGLE ]; then
+	    touch $TOGGLE
+	    #sed -i 's/colorscheme vim/colorscheme dark_purple/' $HOME/.config/nvim/init.vim
+	    xrdb $HOME/.config/x11/xresources_alt && notify-send "light colors enabled"
+	else
+	    rm $TOGGLE
+	    sed -i 's/colorscheme dark_purple/colorscheme vim/' $HOME/.config/nvim/init.vim
+	    xrdb $HOME/.config/x11/xresources_fw && notify-send "gruvbox enabled"
+	fi
 else
 	if [ ! -e $TOGGLE ]; then
 	    touch $TOGGLE
