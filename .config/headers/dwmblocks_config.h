@@ -15,10 +15,10 @@ static const Block blocks[] = {
 	 /*{"",	"sb-price btc Bitcoin 💰",				9000,	21},*/
 	 /*{"",	"sb-days",				9000,	21},*/
 	 /*{"",	"sb-crypto",				9000,	21},*/
-	 /*{"",	"sb-vtsax",				9000,	21},*/
+	 /*{"",	"sb-finance",				80000,	21},*/
 	/*{"",	"sb-weather",	18000,	5},*/
 	/*{"",	"sb-torrent",	20,	7},*/
-	  {"",	"sb-days",	1,	16},
+	  {"",	"sb-days",	80000,	16},
 	  {"",	"sb-nettraf",	1,	16},
 	 {"",	"sb-memory",	10,	14},
 	 {"",	"sb-cpu",		10,	18},
