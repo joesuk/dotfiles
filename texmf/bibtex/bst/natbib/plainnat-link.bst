@@ -435,7 +435,16 @@ FUNCTION {format.date}
 }
 
 FUNCTION {format.btitle}
-{ title emphasize
+{
+	title empty$
+    { "" }
+    { title "t" change.case$
+      url empty$
+        { }
+        { "\href{" url * "}{" * swap$ * "}" * }
+      if$
+    }
+  if$
 }
 
 FUNCTION {tie.or.space.connect}
@@ -600,7 +609,7 @@ FUNCTION {format.in.ed.booktitle}
     { "" }
     { editor empty$
         { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
+        %{ "In " format.editors * ", " * booktitle emphasize * }
       if$
     }
   if$
@@ -734,7 +743,7 @@ FUNCTION {article}
 FUNCTION {book}
 { output.bibitem
   author empty$
-    { format.editors "author and editor" output.check
+    { %format.editors "author and editor" output.check
       editor format.key output
     }
     { format.authors output.nonnull
@@ -789,7 +798,7 @@ FUNCTION {booklet}
 FUNCTION {inbook}
 { output.bibitem
   author empty$
-    { format.editors "author and editor" output.check
+    { %format.editors "author and editor" output.check
       editor format.key output
     }
     { format.authors output.nonnull
@@ -965,8 +974,8 @@ FUNCTION {phdthesis}
 
 FUNCTION {proceedings}
 { output.bibitem
-  format.editors output
-  editor format.key output
+  % format.editors output
+  % editor format.key output
   new.block
   format.btitle "title" output.check
   format.bvolume output
