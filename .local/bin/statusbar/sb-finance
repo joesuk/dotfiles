@@ -9,4 +9,4 @@ van=(1150.502+193.634)*$(bash ticker.sh VTSAX)+990.618*$(bash ticker.sh VTIAX)
 cr=3.82947*$eth+0.116346*$btc
 echo "vanguard: $van"
 echo "cr:$cr"
-echo "$van+$cr | bc | cut -c1-4"
+echo "$van+$cr" | bc | cut -c1-4
