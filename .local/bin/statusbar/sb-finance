@@ -7,7 +7,7 @@ btc=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&
 #echo "(1189.657+193.634)*$(bash ticker.sh VTSAX)+990.618*$(bash ticker.sh VTIAX)+3.82947*$eth+0.116346*$btc+15000" | bc | cut -c1-4
 vtsax=$(bash ticker.sh VTSAX)
 vtiax=$(bash ticker.sh VTIAX)
-van=$(((1150.502 + 193.634) * vtsax+990.618 * vtiax))
+van=$(((1150.502 + 193.634) * vtsax + 990.618 * vtiax))
 cr=3.82947*$eth+0.116346*$btc
 echo "vanguard:$van"
 echo "cr:$cr"
