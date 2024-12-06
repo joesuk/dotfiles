@@ -10,7 +10,7 @@ vtiax=$(bash ticker.sh VTIAX)
 vtsax_chase=1150.502
 vtsax_v=193.634
 vtiax_amount=990.618
-van=$(((vtsax_chase + vtsax_v) + vtiax_amount ))
+van=$((vtsax_chase + vtsax_v + vtiax_amount ))
 cr=3.82947*$eth+0.116346*$btc
 echo "vanguard:$van"
 echo "cr:$cr"
