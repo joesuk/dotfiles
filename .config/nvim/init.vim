@@ -102,7 +102,7 @@ let g:lightline#colorscheme#lightline_pink#palette = lightline#colorscheme#fill(
 " for lightline
 set runtimepath+=~/.config/nvim/plugged/lightline
 " colorscheme
-" colorscheme dark_purple
+" colorscheme vim
 " colorscheme lightline_pink
 colorscheme vim
 
