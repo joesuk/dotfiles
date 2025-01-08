@@ -24,6 +24,6 @@ fi
 
 #systemctl enable netctl-auto@ninanina.service
 #ssh-agent dwm > /tmp/dwm.log 2>&1
-fcitx5 > /tmp/fcitx5.log 2>&1 &
+#fcitx5 > /tmp/fcitx5.log 2>&1 &
 dbus-update-activation-environment --all
 dbus-launch ssh-agent dwm > /tmp/dwm.log 2>&1
