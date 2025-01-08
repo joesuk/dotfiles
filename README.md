@@ -39,6 +39,6 @@ or clone the repo files directly to your home directory and install the
 
 ## Wallpaper
 
-![wallpaper](/.local/share/4k-Japanese-Forest-Painting-AI-Generated-4K-Wallpaper.jpg)
+![wallpaper](/.local/share/the_artists_garden_at_eragny_1970_17_54.jpg)
 
-[Link](https://www.pixground.com/japanese-forest-painting-4k-wallpaper/)
+The Artist's Garden at Eragny, 1898. Camille Pissarro.
