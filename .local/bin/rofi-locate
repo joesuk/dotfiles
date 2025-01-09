@@ -4,8 +4,9 @@
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "acm" ]; then
 	#locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' | xargs -r -0 xdg-open
-	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' )"
-else
-	#locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 12' | xargs -r -0 xdg-open
+	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' )"
+elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
 	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 12' )"
+elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
+	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 20' )"
 fi

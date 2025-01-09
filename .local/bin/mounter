@@ -27,20 +27,20 @@ done)"
 lsblkoutput="$(lsblk -rpo "uuid,name,type,size,label,mountpoint,fstype")"
 # Get all LUKS drives
 allluks="$(echo "$lsblkoutput" | grep crypto_LUKS)"
-# Get a list of the LUKS drive UUIDs already decrypted.
-decrypted="$(find /dev/disk/by-id/dm-uuid-CRYPT-LUKS2-* | sed "s|.*LUKS2-||;s|-.*||")"
+## Get a list of the LUKS drive UUIDs already decrypted.
+#decrypted="$(find /dev/disk/by-id/dm-uuid-CRYPT-LUKS2-* | sed "s|.*LUKS2-||;s|-.*||")"
 # Functioning for formatting drives correctly for dmenu:
 filter() { sed "s/ /:/g" | awk -F':' '$7==""{printf "%s%s (%s) %s\n",$1,$3,$5,$6}' ; }
-
-# Get only LUKS drives that are not decrypted.
-unopenedluks="$(for drive in $allluks; do
-	uuid="${drive%% *}"
-	uuid="${uuid//-}"	# This is a bashism.
-	for open in $decrypted; do
-		[ "$uuid" = "$open" ] && break 1
-	done && continue 1
-	echo "🔒 $drive"
-done | filter)"
+#
+## Get only LUKS drives that are not decrypted.
+#unopenedluks="$(for drive in $allluks; do
+	#uuid="${drive%% *}"
+	#uuid="${uuid//-}"	# This is a bashism.
+	#for open in $decrypted; do
+		#[ "$uuid" = "$open" ] && break 1
+	#done && continue 1
+	#echo "🔒 $drive"
+#done | filter)"
 
 # Get all normal, non-encrypted or decrypted partitions that are not mounted.
 normalparts="$(echo "$lsblkoutput"| grep -v crypto_LUKS | grep 'part\|rom\|crypt' | sed "s/^/💾 /" | filter )"
