@@ -1,5 +1,18 @@
 #!/bin/sh
 
-eth=$(sb-price ETH ethereum a)
-btc=$(sb-price BTC bitcoin a)
-echo "(1189.657+193.634)*$(bash ticker.sh VTSAX)+990.618*$(bash ticker.sh VTIAX)+3.82947*$eth+0.116346*$btc+15000" | bc | cut -c1-3
+#eth=$(curl -s "rate.sx/1ETH")
+#btc=$(curl -s "rate.sx/1BTC")
+eth=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=$(echo $APIKEY)" | jq '.ETH.USD')
+btc=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=$(echo $APIKEY)" | jq '.BTC.USD')
+vtsax_chase=1150.502
+vtsax_v=193.634
+vtiax_v=990.618
+echo "vtsax"
+echo "($vtsax_chase + $vtsax_v)*$(bash ticker.sh VTSAX)" | bc | cut -c1-4
+echo "vtiax"
+echo "$vtiax_v*$(bash ticker.sh VTIAX)" | bc | cut -c1-4
+echo "eth"
+echo "3.82947*$eth" | bc | cut -c1-3
+echo "btc"
+echo "0.116346*$btc" | bc | cut -c1-3
+echo "($vtsax_chase + $vtsax_v)*$(bash ticker.sh VTSAX) + $vtiax_v*$(bash ticker.sh VTIAX)+3.82947*$eth+0.116346*$btc+15000" | bc | cut -c1-4
