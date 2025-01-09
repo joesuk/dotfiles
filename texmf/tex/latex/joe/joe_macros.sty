@@ -130,4 +130,26 @@
 % commenting command
 \newcommand{\com}[1]{{\color{red}\textbf{[[} #1 \textbf{]]}}}
 
-% t
+% tags for underbrace in equation
+\usepackage{mathtools}% http://ctan.org/pkg/mathtools
+\makeatletter
+\newcommand{\mytag}[2]{%
+  \text{#1}%
+  \@bsphack
+  \begingroup
+    \@onelevel@sanitize\@currentlabelname
+    \edef\@currentlabelname{%
+      \expandafter\strip@period\@currentlabelname\relax.\relax\@@@%
+    }%
+    \protected@write\@auxout{}{%
+      \string\newlabel{#2}{%
+        {#1}%
+        {\thepage}%
+        {\@currentlabelname}%
+        {\@currentHref}{}%
+      }%
+    }%
+  \endgroup
+  \@esphack
+}
+\makeatother
