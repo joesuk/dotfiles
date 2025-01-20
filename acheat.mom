@@ -295,9 +295,11 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW:sp filename\fP \(en horizontal split open filename in same directory.
 .ITEM
-\f(CWCtrl+W +/-\fP \(en increase/decrease height of windows.
+\f(CWCtrl+w +/-\fP \(en increase/decrease height of windows.
 .ITEM
-\f(CWctrl-w _\fP \(en make height of window as large as possible.
+\f(CWCtrl+w =\fP \(en Equalize height if windows.
+.ITEM
+\f(CWctrl-W _\fP \(en make height of window as large as possible.
 .ITEM
 \f(CWCtrl+W >/<\fP \(en increase/decrease width of windows.
 .ITEM
