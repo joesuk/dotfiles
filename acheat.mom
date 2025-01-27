@@ -488,6 +488,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWheif-convert image.HEIC new-image.png(or jpg)\fP \(en convert HEIC/HEIF to image.
 .ITEM
+\f(CWconvert img.jpg img.pdf\fP \(en convert image to pdf
+.ITEM
 \f(CW(in rstudio) fn+ENTER\fP \(en Toggle insert mode.
 .ITEM
 \f(CWddjvu --format=pdf input.djvu output.pdf\fP \(en convert djvu to pdf.
