@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # This script is called on startup to remap keys.
 # Decrease key repeat delay to 300ms and increase key repeat rate to 100 per second.
 xset r rate 300 100
@@ -12,17 +11,17 @@ setxkbmap -option caps:swapescape
 
 # touchpad (needed for mac)
 hostname=$(cat /proc/sys/kernel/hostname)
-if [ $hostname = "acm" ] || [ $hostname = "acma" ]; then
+if [ $hostname = "acm" ] || [ $hostname = "acma" ] ; then
 	synclient TapButton1=1
 	synclient RightButtonAreaLeft=1
 	synclient PalmDetect=1
 	synclient VertScrollDelta=100
 	synclient HorizScrollDelta=100
 	synclient MinSpeed=1 MaxSpeed=3.5 AccelFactor=0.05
-elif [ $hostname = "act" ]; then
+elif  [ $hostname = "ac" ]; then
 	# Map the menu button to down
 	xmodmap -e 'keycode 135 = Down'
-elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
+elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ] ; then
 	synclient TapButton1=1
 	synclient VertScrollDelta=31
 	synclient HorizScrollDelta=31
