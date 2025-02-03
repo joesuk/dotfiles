@@ -508,7 +508,6 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWcrop in gimp\fP \(en Shift c (or crop tool/rectangle in upper left menu), select and click on selected region, "Image" > "Crop to Content"
 .ITEM
-<<<<<<< HEAD
 \f(CWpatch -i example.diff\fP \(en Apply patch of diff file to current repo.
 .ITEM
 \(CWCtrl+Alt+(equals) and then r\fP \(en Insert row above in google sheets.
