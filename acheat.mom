@@ -511,7 +511,7 @@ You'll have to restart the program to see its effects obviously.
 <<<<<<< HEAD
 \f(CWpatch -i example.diff\fP \(en Apply patch of diff file to current repo.
 =======
-\(CWCtrl+Alt+= and then r\fP \(en Insert row above in google sheets.
+\(CWCtrl+Alt+(equals) and then r\fP \(en Insert row above in google sheets.
 .ITEM
 \(CWCtrl+Alt+- and then r\fP \(en Delete current row.
 >>>>>>> c4b0975bd3353bcb3a9a93fa6187460c75402bc0
