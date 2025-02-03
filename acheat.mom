@@ -510,11 +510,10 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 <<<<<<< HEAD
 \f(CWpatch -i example.diff\fP \(en Apply patch of diff file to current repo.
-=======
+.ITEM
 \(CWCtrl+Alt+(equals) and then r\fP \(en Insert row above in google sheets.
 .ITEM
 \(CWCtrl+Alt+- and then r\fP \(en Delete current row.
->>>>>>> c4b0975bd3353bcb3a9a93fa6187460c75402bc0
 .LIST OFF
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
