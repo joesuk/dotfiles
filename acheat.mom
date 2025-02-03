@@ -67,7 +67,7 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+v\fP \(en Jump to master window
 .ITEM
-\f(CWCtrl+'\fP \(en see clipboard history
+\f(CWCtrl+;\fP \(en see clipboard history
 .LIST OFF
 .HEADING 2 "Window layouts"
 .LI
