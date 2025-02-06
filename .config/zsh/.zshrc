@@ -91,3 +91,6 @@ zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+# fix folder name highlighting thing
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
