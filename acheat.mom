@@ -466,19 +466,15 @@ You'll have to restart the program to see its effects obviously.
 .HEADING 2 "Misc"
 .LI
 .ITEM
-\f(CWcd -\fP \(en cd to last directory.
-.ITEM
 \f(CWdf -H\fP \(en see remaining space.
-.ITEM
-\f(CWunzip -a foo.zip\fP \(en Unzip zip file.
 .ITEM
 \f(CWsudo eject /dev/sda\fP \(en eject drive.
 .ITEM
 \f(CWpiactl connect/disconnect\fP \(en Start/stop piactl.
 .ITEM
-\f(CWtransmission-remote -l\fP \(en List torrents
+\f(CWtrem -l\fP \(en List torrents
 .ITEM
-\f(CWtransmission-remote -t ID -r\fP \(en Delete torrent with ID
+\f(CWtrem -t ID -r\fP \(en Delete torrent with ID
 .ITEM
 \f(CWhugo server -w\fP \(en Generate hugo site locally.
 .ITEM
