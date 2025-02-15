@@ -476,6 +476,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWtrem -t ID -r\fP \(en Delete torrent with ID
 .ITEM
+\f(CWhistory 1\fP \(en See all history in see zsh.
+.ITEM
 \f(CWhugo server -w\fP \(en Generate hugo site locally.
 .ITEM
 \f(CWfind . -maxdepth 1 -name "string" -print\fP \(en find files in current directory containing "string".
