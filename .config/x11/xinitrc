@@ -16,6 +16,7 @@ fi
 
 #[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
+hostname=$(cat /proc/sys/kernel/hostname)
 if [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
 	/usr/bin/pipewire &
 	/usr/bin/pipewire-pulse &
