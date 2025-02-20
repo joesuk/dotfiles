@@ -4,10 +4,12 @@ btc=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&
 vtsax_chase=1150.502
 vtsax_v=193.634
 vtiax_v=990.618
+vtsax=$(bash ticker.sh VTSAX)
+vtiax=$(bash ticker.sh VTIAX)
 echo "vtsax"
-echo "($vtsax_chase + $vtsax_v)*$(bash ticker.sh VTSAX)" | bc | cut -c1-4
+echo "($vtsax_chase + $vtsax_v)*$vtsax" | bc | cut -c1-4
 echo "vtiax"
-echo "$vtiax_v*$(bash ticker.sh VTIAX)" | bc | cut -c1-4
+echo "$vtiax_v*$vtiax" | bc | cut -c1-4
 echo "eth"
 echo "3.82947*$eth" | bc | cut -c1-3
 echo "btc"
