@@ -14,4 +14,4 @@ echo "eth"
 echo "3.82947*$eth" | bc | cut -c1-3
 echo "btc"
 echo "0.116346*$btc" | bc | cut -c1-3
-echo "($vtsax_chase + $vtsax_v)*$(bash ticker.sh VTSAX) + $vtiax_v*$(bash ticker.sh VTIAX)+3.82947*$eth+0.116346*$btc" | bc | cut -c1-4
+echo "($vtsax_chase + $vtsax_v)*$vtsax + $vtiax_v*$vtiax+3.82947*$eth+0.116346*$btc" | bc | cut -c1-4
