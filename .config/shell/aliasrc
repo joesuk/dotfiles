@@ -58,7 +58,7 @@ alias \
 	xq="xbps-query" \
 	z="zathura" \
 	update="pacman -S archlinux-keyring && pacman -Syyu && sh $HOME/.local/bin/remaps" \
-	terremoto="ssh js5338@terremoto.rcs.columbia.edu"
+	ginsburg="ssh js5338@ginsburg.rcs.columbia.edu"
 
 alias \
 	lf="lfub" \
