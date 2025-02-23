@@ -277,7 +277,8 @@ function! ToggleHiddenAll()
         set showcmd
     endif
 endfunction
-nnoremap <leader>h :call ToggleHiddenAll()<CR>
+" but disable the above function since never use
+" nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
 " toggle wrap
 " Make \w toggle through the three wrapping modes.
