@@ -107,7 +107,7 @@ set runtimepath+=~/.config/nvim/plugged/lightline
 colorscheme vim
 
 set title
-set go=a "gui options=a, needed for visual mode copy/paste to other apps
+"set go=a "gui options=a, needed for visual mode copy/paste to other apps
 set mouse=a " mouse enabled
 set hlsearch
 set clipboard+=unnamedplus
