@@ -38,7 +38,7 @@ let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp 
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/dark_purple.vim (causes problems)
+" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
 let g:lightline = {
 "\ 'colorscheme': 'Tomorrow_Night_Blue',
 \ 'colorscheme': 'lightline_pink',
