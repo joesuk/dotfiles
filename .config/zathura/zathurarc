@@ -1,4 +1,4 @@
-set sandbox none
+# set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 0
@@ -12,7 +12,7 @@ map R rotate
 map i recolor
 map p print
 map g goto top
-map <C-z> feedkeys "<s><+><+>" # set zoom level to avoid standard 1 in page margins
+map <C-z> feedkeys "<s><+><+>" # set zoom level to avoid standard 1 in page margins (same as pressing keys s++)
 map [fullscreen] u scroll half-up
 map [fullscreen] d scroll half-down
 map [fullscreen] D toggle_page_mode
@@ -26,4 +26,4 @@ map [fullscreen] g goto top
 
 # highlight color
 set highlight-color "rgba(255, 255, 0, 0.5)"
-set highlight-active-color "rgba(255, 255, 0, 0.5)" # search results not highlighte duntil I put this in (2/5/25)
+set highlight-active-color "rgba(255, 255, 0, 0.5)" # search results not highlighted until I put this in (2/5/25)
