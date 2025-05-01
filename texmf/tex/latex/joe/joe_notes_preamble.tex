@@ -243,6 +243,14 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	linecolor=WildStrawberry,
 	backgroundcolor=WildStrawberry!10,
 }
+\declaretheoremstyle[
+	headfont=\bfseries,
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=1pt,
+	mdframed={style=mdquestionbox}
+]{questionbox}
+
 \mdfdefinestyle{mdanswerbox}{%
 	linewidth=0.5pt,
 	skipabove=12pt,
@@ -277,13 +285,6 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	spacebelow=0pt,
 	mdframed={style=mdblackbox}
 ]{thmblackbox}
-\declaretheoremstyle[
-	headfont=\bfseries,
-	bodyfont=\normalfont,
-	spaceabove=0pt,
-	spacebelow=0pt,
-	mdframed={style=mdquestionbox}
-]{questionbox}
 
 
 \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=section]{thm}
