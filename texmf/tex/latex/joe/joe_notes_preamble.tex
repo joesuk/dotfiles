@@ -178,6 +178,13 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	headpunct={\\[3pt]},
 	postheadspace={0pt},
 ]{thmanswerbox}
+\declaretheoremstyle[
+	headfont=\bfseries\color{RedOrange},
+	mdframed={style=mdassumptionbox},
+	spaceabove=7pt,
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{assumptionbox}
 
 
 
@@ -232,6 +239,20 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	linecolor=Melon,
 	backgroundcolor=Dandelion!10,
 }
+\mdfdefinestyle{mdassumptionbox}{%
+	linewidth=0.5pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=4pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	linecolor=RoyalPurple,
+	backgroundcolor=SpringGreen!10,
+}
+
 \declaretheoremstyle[
 	headfont=\bfseries,
 	bodyfont=\normalfont\small,
@@ -267,8 +288,8 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \declaretheorem[style=thmbluebox,name=Proposition,sibling=thm]{proposition}
 \declaretheorem[style=thmbluebox,name=Corollary,sibling=thm]{corollary}
 \declaretheorem[style=thmpinegreenbox,name=Example,sibling=thm]{exercise}
-\declaretheorem[style=thmanswerbox,name=Assumption]{assumption}
-\declaretheorem[style=thmanswerbox,name=Assumption,numbered=no]{assumption*}
+\declaretheorem[style=thmassumptionbox,name=Assumption]{assumption}
+\declaretheorem[style=thmassumptionbox,name=Assumption,numbered=no]{assumption*}
 
 
 \theoremstyle{definition}
