@@ -29,6 +29,8 @@ elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ] ; then
 	synclient PalmDetect=1
 	synclient PalmMinWidth=8
 	synclient PalmMinZ=100
+	# Map the menu button to down
+	xmodmap -e 'keycode 135 = Down'
 fi
 
 if [ $hostname = "acm" ]; then

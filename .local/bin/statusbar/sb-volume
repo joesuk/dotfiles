@@ -18,7 +18,9 @@ vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 # If muted, print 🔇 and exit.
 [ "$vol" != "${vol%\[MUTED\]}" ] && echo 🔇 && exit
 
-vol="${vol#Volume: }"
+# vol=$(printf "%s\n" "$vol" | sed -n '/Volume:/,$p')
+vol="${vol#*Volume: }"
+# echo "$vol"
 
 split() {
 	# For ommiting the . without calling and external program.
