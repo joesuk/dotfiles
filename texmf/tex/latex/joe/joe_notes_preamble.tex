@@ -216,6 +216,26 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	headpunct={},
 ]{thmgreenbox*}
 
+\mdfdefinestyle{mdbluebox}{%
+	skipabove=8pt,
+	linewidth=2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=ForestGreen,
+	backgroundcolor=ForestGreen!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=1pt,
+	mdframed={style=mdbluebox},
+	headpunct={ --- },
+]{thmbluebox}
+
+
 \mdfdefinestyle{mdblackbox}{%
 	skipabove=8pt,
 	linewidth=3pt,
