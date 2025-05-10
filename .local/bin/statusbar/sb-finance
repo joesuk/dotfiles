@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 eth=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=$(echo $APIKEY)" | jq '.ETH.USD')
 btc=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=$(echo $APIKEY)" | jq '.BTC.USD')
 vtsax_chase=1105.228
