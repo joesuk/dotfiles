@@ -39,3 +39,5 @@ if [ $hostname = "acm" ]; then
 elif [ $hostname = "acma" ]; then
 	xrdb -merge  ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_mba
 fi
+
+notify-send "remaps"
