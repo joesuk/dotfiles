@@ -6,15 +6,6 @@ vtsax_v=193.634
 vtiax_v=1290.468
 vtsax=$(bash ticker.sh VTSAX)
 vtiax=$(bash ticker.sh VTIAX)
-#echo "vtsax"
-#echo "($vtsax_chase + $vtsax_v)*$vtsax" | bc | cut -c1-4
-#echo "vtiax"
-#echo "$vtiax_v*$vtiax" | bc | cut -c1-4
-#echo "eth"
-#echo "3.82947*$eth" | bc | cut -c1-3
-#echo "btc"
-#echo "0.116346*$btc" | bc | cut -c1-3
-#echo "($vtsax_chase + $vtsax_v)*$vtsax + $vtiax_v*$vtiax+3.82947*$eth+0.116346*$btc" | bc | cut -c1-3
 
 # Compute raw values
 vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
