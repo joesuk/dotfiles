@@ -16,14 +16,14 @@ vtiax=$(bash ticker.sh VTIAX)
 #echo "0.116346*$btc" | bc | cut -c1-3
 #echo "($vtsax_chase + $vtsax_v)*$vtsax + $vtiax_v*$vtiax+3.82947*$eth+0.116346*$btc" | bc | cut -c1-3
 
-# Compute values using bc and format with printf
-vtsax_total=$(echo "scale=2; ($vtsax_chase + $vtsax_v) * $vtsax" | bc)
-vtiax_total=$(echo "scale=2; $vtiax_v * $vtiax" | bc)
-eth_total=$(echo "scale=2; 3.82947 * $eth" | bc)
-btc_total=$(echo "scale=2; 0.116346 * $btc" | bc)
-total=$(echo "scale=2; ($vtsax_chase + $vtsax_v) * $vtsax + $vtiax_v * $vtiax + 3.82947 * $eth + 0.116346 * $btc" | bc)
+# Truncate decimals
+vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax / 1" | bc)
+vtiax_total=$(echo "$vtiax_v * $vtiax / 1" | bc)
+eth_total=$(echo "3.82947 * $eth / 1" | bc)
+btc_total=$(echo "0.116346 * $btc / 1" | bc)
+total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax + $vtiax_v * $vtiax + 3.82947 * $eth + 0.116346 * $btc" | bc | cut -d'.' -f1)
 
-# Output nicely
+# Print output
 echo "VTSAX: $vtsax_total"
 echo "VTIAX: $vtiax_total"
 echo "ETH:   $eth_total"
