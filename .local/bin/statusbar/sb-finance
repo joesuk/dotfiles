@@ -22,3 +22,10 @@ vtiax_total=$(echo "scale=2; $vtiax_v * $vtiax" | bc)
 eth_total=$(echo "scale=2; 3.82947 * $eth" | bc)
 btc_total=$(echo "scale=2; 0.116346 * $btc" | bc)
 total=$(echo "scale=2; ($vtsax_chase + $vtsax_v) * $vtsax + $vtiax_v * $vtiax + 3.82947 * $eth + 0.116346 * $btc" | bc)
+
+# Output nicely
+echo "VTSAX: $vtsax_total"
+echo "VTIAX: $vtiax_total"
+echo "ETH:   $eth_total"
+echo "BTC:   $btc_total"
+echo "Total: $total"
