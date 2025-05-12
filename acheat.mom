@@ -326,6 +326,16 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWzg\fP \(en add mispelled word to dictionary.
 .LIST OFF
+.HEADING 3 "nerdtree"
+.LI
+.ITEM
+\f(CWt\fP \(en open the selected file in a new tab
+\f(CWi\fP \(en Open the selected file in a horizontal split window
+\f(CWs\fP \(en Open the selected file in a vertical split window
+\f(CWI\fP \(en Toggle hidden files
+\f(CWm\fP \(en Show the NERD Tree menu
+\f(CWR\fP \(en Refresh the tree, useful if files change outside of Vim
+\f(CW?\fP \(enToggle NERD Tree's quick help
 .HEADING 2 "Vimwiki"
 .LI
 .ITEM
