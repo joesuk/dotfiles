@@ -16,29 +16,26 @@ vtiax=$(bash ticker.sh VTIAX)
 #echo "0.116346*$btc" | bc | cut -c1-3
 #echo "($vtsax_chase + $vtsax_v)*$vtsax + $vtiax_v*$vtiax+3.82947*$eth+0.116346*$btc" | bc | cut -c1-3
 
-# Compute raw totals
+# Compute raw values
 vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
 vtiax_total=$(echo "$vtiax_v * $vtiax" | bc)
 eth_total=$(echo "3.82947 * $eth" | bc)
 btc_total=$(echo "0.116346 * $btc" | bc)
 total=$(echo "$vtsax_total + $vtiax_total + $eth_total + $btc_total" | bc)
 
-# Function to round to nearest thousand and add 'k'
-format_k() {
-    rounded=$(echo "$1" | awk '{ printf("%d", int(($1 + 500)/1000)) }')
-    echo "${rounded}k"
+# Function to round to nearest 1000 and return string like "182k (73%)"
+format_entry() {
+    raw=$1
+    label=$2
+    total=$3
+    rounded_k=$(echo "$raw" | awk '{ printf("%d", int(($1 + 500)/1000)) }')
+    percent=$(echo "$raw * 100 / $total" | bc -l | awk '{ printf("%d", $1) }')
+    echo "$label: ${rounded_k}k (${percent}%)"
 }
 
-# Format all values
-vtsax_fmt=$(format_k $vtsax_total)
-vtiax_fmt=$(format_k $vtiax_total)
-eth_fmt=$(format_k $eth_total)
-btc_fmt=$(format_k $btc_total)
-total_fmt=$(format_k $total)
-
-# Output
-echo "VTSAX: $vtsax_fmt"
-echo "VTIAX: $vtiax_fmt"
-echo "ETH:   $eth_fmt"
-echo "BTC:   $btc_fmt"
-echo "Total: $total_fmt"
+# Output all
+format_entry $vtsax_total "VTSAX" $total
+format_entry $vtiax_total "VTIAX" $total
+format_entry $eth_total   "ETH"   $total
+format_entry $btc_total   "BTC"   $total
+format_entry $total       "Total" $total
