@@ -16,16 +16,29 @@ vtiax=$(bash ticker.sh VTIAX)
 #echo "0.116346*$btc" | bc | cut -c1-3
 #echo "($vtsax_chase + $vtsax_v)*$vtsax + $vtiax_v*$vtiax+3.82947*$eth+0.116346*$btc" | bc | cut -c1-3
 
-# Truncate decimals
-vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax / 1" | bc)
-vtiax_total=$(echo "$vtiax_v * $vtiax / 1" | bc)
-eth_total=$(echo "3.82947 * $eth / 1" | bc)
-btc_total=$(echo "0.116346 * $btc / 1" | bc)
-total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax + $vtiax_v * $vtiax + 3.82947 * $eth + 0.116346 * $btc" | bc | cut -d'.' -f1)
+# Compute raw totals
+vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
+vtiax_total=$(echo "$vtiax_v * $vtiax" | bc)
+eth_total=$(echo "3.82947 * $eth" | bc)
+btc_total=$(echo "0.116346 * $btc" | bc)
+total=$(echo "$vtsax_total + $vtiax_total + $eth_total + $btc_total" | bc)
 
-# Print output
-echo "VTSAX: $vtsax_total"
-echo "VTIAX: $vtiax_total"
-echo "ETH:   $eth_total"
-echo "BTC:   $btc_total"
-echo "Total: $total"
+# Function to round to nearest thousand and add 'k'
+format_k() {
+    rounded=$(echo "$1" | awk '{ printf("%d", int(($1 + 500)/1000)) }')
+    echo "${rounded}k"
+}
+
+# Format all values
+vtsax_fmt=$(format_k $vtsax_total)
+vtiax_fmt=$(format_k $vtiax_total)
+eth_fmt=$(format_k $eth_total)
+btc_fmt=$(format_k $btc_total)
+total_fmt=$(format_k $total)
+
+# Output
+echo "VTSAX: $vtsax_fmt"
+echo "VTIAX: $vtiax_fmt"
+echo "ETH:   $eth_fmt"
+echo "BTC:   $btc_fmt"
+echo "Total: $total_fmt"
