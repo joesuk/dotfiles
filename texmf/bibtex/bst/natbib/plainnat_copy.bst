@@ -1,5 +1,5 @@
-%% File: `plainnat_backup.bst'
-%% A modification of `plain.bst' for use with natbib package
+%% File: `plainnat.bst'
+%% A modification of `plain.bst' for use with natbib package 
 %%
 %% Copyright 1993-2007 Patrick W Daly
 %% Max-Planck-Institut f\"ur Sonnensystemforschung
@@ -299,12 +299,7 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$
-	url empty$
-		{ }
-		{ "\href{" url * "}{" * swap$ * "}" * }
-	if$
-    }
+    { title "t" change.case$ }
   if$
 }
 
@@ -434,31 +429,9 @@ FUNCTION {format.date}
   extra.label *
 }
 
-%FUNCTION {format.btitle}
-%{ title empty$
-    %{ "" }
-    %{ title "t" change.case$
-      %url empty$
-        %{ }
-        %{ "\href{" url * "}{" * swap$ * "}" * }
-      %if$
-    %}
-  %if$
-%}
 FUNCTION {format.btitle}
-{ booktitle empty$
-    { "" }
-    { booktitle "t" change.case$
-	url empty$
-		{ }
-		{ "\href{" url * "}{" * swap$ * "}" * }
-	if$
-    }
-  if$
+{ title emphasize
 }
-
-
-
 
 FUNCTION {tie.or.space.connect}
 { duplicate$ text.length$ #3 <
@@ -747,7 +720,7 @@ FUNCTION {article}
   if$
   format.issn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -784,6 +757,7 @@ FUNCTION {book}
   format.date "year" output.check
   format.isbn output
   format.doi output
+  format.url output
   new.block
   note output
   fin.entry
@@ -801,7 +775,7 @@ FUNCTION {booklet}
   format.date output
   format.isbn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -840,7 +814,7 @@ FUNCTION {inbook}
   format.date "year" output.check
   format.isbn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -870,7 +844,7 @@ FUNCTION {incollection}
   if$
   format.isbn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -908,7 +882,7 @@ FUNCTION {inproceedings}
   if$
   format.isbn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -927,7 +901,7 @@ FUNCTION {manual}
   address output
   format.edition output
   format.date output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -944,7 +918,7 @@ FUNCTION {mastersthesis}
   school "school" output.check
   address output
   format.date "year" output.check
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -960,7 +934,7 @@ FUNCTION {misc}
   howpublished output
   format.date output
   format.issn output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -978,7 +952,7 @@ FUNCTION {phdthesis}
   school "school" output.check
   address output
   format.date "year" output.check
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -999,7 +973,7 @@ FUNCTION {proceedings}
   publisher output
   format.isbn output
   format.doi output
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -1016,7 +990,7 @@ FUNCTION {techreport}
   institution "institution" output.check
   address output
   format.date "year" output.check
-
+  format.url output
   new.block
   note output
   fin.entry
@@ -1031,7 +1005,7 @@ FUNCTION {unpublished}
   new.block
   note "note" output.check
   format.date output
-
+  format.url output
   fin.entry
 }
 
