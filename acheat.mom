@@ -331,9 +331,9 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWt\fP \(en open the selected file in a new tab
 .ITEM
-\f(CWi\fP \(en Open the selected file in a horizontal split window
+\f(CWi\fP \(en Open the selected file in a vertical split window
 .ITEM
-\f(CWs\fP \(en Open the selected file in a vertical split window
+\f(CWs\fP \(en Open the selected file in a horizontal split window
 .ITEM
 \f(CWI\fP \(en Toggle hidden files
 .ITEM
