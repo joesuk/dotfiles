@@ -462,6 +462,8 @@ You'll have to restart the program to see its effects obviously.
 \f(CWCtrl+n\fP \(en mkdir
 .ITEM
 \f(CWCtrl+r\fP \(en reload
+.ITEM
+\f(CWW\fP \(en new terminal in location
 .LIST OFF
 .HEADING 1 "Commands"
 .HEADING 2 "Git"
