@@ -1,12 +1,13 @@
 #!/bin/bash
 
+selected=$(find "$HOME" \( \
+    -path "$HOME/.config" -o -path "$HOME/.config/*" -o \
+    -path "$HOME/.local" -o -path "$HOME/.local/*" \
+\) -type f -o \( \
+    -type d -name '.*' -a ! -path "$HOME/.config*" -a ! -path "$HOME/.local*" -prune \
+\) -o -type f 2>/dev/null | \
+rofi -threads 0 -width 75 -dmenu -i -p "Open" -font 'Noto Sans Mono 20')
 
-hostname=$(cat /proc/sys/kernel/hostname)
-if [ $hostname = "acm" ]; then
-	#locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' | xargs -r -0 xdg-open
-	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 22' )"
-elif [ $hostname = "act" ] || [ $hostname = "ac" ]; then
-	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config /mnt/media/data | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 12' )"
-elif [ $hostname = "artixlinux" ] || [ $hostname = "acf" ]; then
-	xdg-open "$(locate home/amaryllis/dox home/amaryllis/Downloads home/amaryllis/texmf home/amaryllis/.config | rofi -threads 0 -width 75 -dmenu -i -p "locate:" -font 'Noto Sans Mono 20' )"
+if [[ -n "$selected" ]]; then
+    exo-open "$selected"
 fi
