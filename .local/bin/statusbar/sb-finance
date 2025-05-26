@@ -3,7 +3,7 @@ eth=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&
 btc=$(curl -s  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=$(echo $APIKEY)" | jq '.BTC.USD')
 vtsax_chase=1189.657
 vtsax_v=193.634
-vtiax_v=990.618.468
+vtiax_v=990.618
 vtsax=$(bash ticker.sh VTSAX)
 vtiax=$(bash ticker.sh VTIAX)
 
