@@ -20,7 +20,7 @@ format_entry() {
     label=$2
     total=$3
     rounded_k=$(echo "$raw" | awk '{ printf("%d", int(($1 + 500)/1000)) }')
-    percent=$(echo "$raw * 100 / $total" | bc -l | awk '{ printf("%d", $1) }')
+    percent=$(echo "$raw * 100 / $total" | bc -l | awk '{ printf("%d", ($1 + 0.5)) }')
     echo "$label: ${rounded_k}k (${percent}%)"
 }
 
