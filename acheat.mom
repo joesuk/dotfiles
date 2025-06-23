@@ -337,11 +337,12 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWI\fP \(en Toggle hidden files
 .ITEM
-\f(CWm\fP \(en Show the NERD Tree menu
+\f(CWm\fP \(en Show the NERD Tree filesystem menu (for creating new files, etc.)
 .ITEM
 \f(CWR\fP \(en Refresh the tree, useful if files change outside of Vim
 .ITEM
 \f(CW?\fP \(enToggle NERD Tree's quick help
+.ITEM
 .LIST OFF
 .HEADING 2 "Vimwiki"
 .LI
