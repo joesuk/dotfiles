@@ -33,7 +33,8 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 " let g:Tex_CompileRule_pdf='pdflatex --output-directory=/tmp -aux-directory=/tmp -interaction=nonstopmode $*'
-let g:Tex_CompileRule_pdf='xelatex -interaction=nonstopmode $*'
+" let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf='latexmk -pdflatex='lualatex' -pdf -interaction=nonstopmode $*'
 "set conceallevel=1
 "let g:tex_conceal='abdmg'
 
