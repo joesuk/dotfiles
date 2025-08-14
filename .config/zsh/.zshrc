@@ -94,3 +94,6 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # fix folder name highlighting thing
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
