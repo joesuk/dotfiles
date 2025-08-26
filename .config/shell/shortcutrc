@@ -29,6 +29,7 @@ joelatex="cd $HOME/texmf/tex/latex/joe && ls -A" \
 bf="$EDITOR $HOME/.config/shell/bm-files" \
 bd="$EDITOR $HOME/.config/shell/bm-dirs" \
 cfx="cd $HOME/.config/x11 && ls -A" \
+logx="cd $HOME/.local/share/xorg && ls" \
 cfb="$EDITOR ~/.local/src/dwmblocks/config.h" \
 cfv="$EDITOR $HOME/.config/nvim/init.vim" \
 cfs="$EDITOR $HOME/.config/shell/shortcutrc" \
