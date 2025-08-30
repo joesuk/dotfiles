@@ -118,3 +118,6 @@ R/
 .viminfo
 .vpython-root/
 .zoom/
+.mozilla/
+.msmtprc
+.python_history
