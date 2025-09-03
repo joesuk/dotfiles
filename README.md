@@ -36,9 +36,3 @@ or clone the repo files directly to your home directory and install the
 ## what it looks like
 
 ![neofetch](/.local/share/neofetch.png)
-
-## Wallpaper
-
-![wallpaper](/.local/share/the_artists_garden_at_eragny_1970_17_54.jpg)
-
-The Artist's Garden at Eragny, 1898. Camille Pissarro.
