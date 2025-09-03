@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Toggle ConnMan offline mode on and then off
+
+notify-send "[INFO] Enabling offline mode..."
+connmanctl enable offline
+
+sleep 3  # You can increase this delay if needed
+
+notify-send "[INFO] Disabling offline mode..."
+connmanctl disable offline
+
+connmanctl scan wifi
+
+notify-send "[INFO] ConnMan offline reset complete."
