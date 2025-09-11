@@ -10,19 +10,32 @@ static const char *fonts[] = {
 static const unsigned int bgalpha = 0xe0;
 static const unsigned int fgalpha = OPAQUE;
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
+//static const char *colors[SchemeLast][2] = {
+	///*     fg         bg       */
+	//[SchemeNorm] = { "#abb2bf", "#6E5676" },
+	//[SchemeSel] = { "#6943ff", "#D87B90" },
+	//[SchemeOut] = { "#000000", "#00ffff" },
+//};
+//static const unsigned int alphas[SchemeLast][2] = {
+	///*		fgalpha		bgalphga	*/
+	//[SchemeNorm] = { fgalpha, bgalpha },
+	//[SchemeSel] = { fgalpha, bgalpha },
+	//[SchemeOut] = { fgalpha, bgalpha },
+//};
+
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#abb2bf", "#6E5676" },
-	[SchemeSel] = { "#6943ff", "#D87B90" },
-	[SchemeOut] = { "#000000", "#00ffff" },
-};
-static const unsigned int alphas[SchemeLast][2] = {
-	/*		fgalpha		bgalphga	*/
-	[SchemeNorm] = { fgalpha, bgalpha },
-	[SchemeSel] = { fgalpha, bgalpha },
-	[SchemeOut] = { fgalpha, bgalpha },
+	[SchemeNorm] = { "#eeeeee", "#2460de" }, // normal: light gray on dark blue
+	[SchemeSel]  = { "#ffffff", "#40a843" }, // selected: white on green
+	[SchemeOut]  = { "#ffffff", "#33ccff" }, // output: white on bright cyan
 };
 
+static const unsigned int alphas[SchemeLast][2] = {
+	/*       fgalpha   bgalpha */
+	[SchemeNorm] = { fgalpha, bgalpha },
+	[SchemeSel]  = { fgalpha, bgalpha },
+	[SchemeOut]  = { fgalpha, bgalpha },
+};
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
 
