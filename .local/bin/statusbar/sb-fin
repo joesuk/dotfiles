@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Path to your private JSON file (keep in .gitignore)
+AMOUNTS_FILE="$HOME/dox/bidness/finances/amounts.json"
+
+# Extract values from JSON using jq
+eth_amount=$(jq -r '.eth_amount' "$AMOUNTS_FILE")
+btc_amount=$(jq -r '.btc_amount' "$AMOUNTS_FILE")
+vtsax_chase=$(jq -r '.vtsax_chase' "$AMOUNTS_FILE")
+vtsax_v=$(jq -r '.vtsax_v' "$AMOUNTS_FILE")
+vtiax_v=$(jq -r '.vtiax_v' "$AMOUNTS_FILE")
+
+# Fetch live crypto prices
+prices=$(curl -s "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=${APIKEY}")
+eth=$(echo "$prices" | jq '.ETH.USD')
+btc=$(echo "$prices" | jq '.BTC.USD')
+
+# Fetch fund prices via ticker.sh
+vtsax=$(bash ticker.sh VTSAX)
+vtiax=$(bash ticker.sh VTIAX)
+
+# Compute totals
+vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
+vtiax_total=$(echo "$vtiax_v * $vtiax" | bc)
+eth_total=$(echo "$eth_amount * $eth" | bc)
+btc_total=$(echo "$btc_amount * $btc" | bc)
+total=$(echo "$vtsax_total + $vtiax_total + $eth_total + $btc_total" | bc)
+
+# Function to round and format
+format_entry() {
+    raw=$1
+    label=$2
+    total=$3
+    rounded_k=$(echo "$raw" | awk '{ printf("%d", int(($1 + 500)/1000)) }')
+    percent=$(echo "$raw * 100 / $total" | bc -l | awk '{ printf("%d", ($1 + 0.5)) }')
+    echo "$label: ${rounded_k}k (${percent}%)"
+}
+
+# Output
+format_entry $vtsax_total "VTSAX" $total
+format_entry $vtiax_total "VTIAX" $total
+format_entry $eth_total   "ETH"   $total
+format_entry $btc_total   "BTC"   $total
+format_entry $total       "Total" $total
