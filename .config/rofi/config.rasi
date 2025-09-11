@@ -3,36 +3,50 @@
  * User: Rasi
  * Copyright: Rasmus Steinke
  ******************************************************************************/
-* {
-    purple: 			 #6943ff;
-    darkpink:			 #D87B90;
-    darkpurple: #6E5676;
-    pink: #d5aeea;
-    foreground:                  @pink;
-    background:                  @darkpurple;
-    selected-normal-foreground:  @darkpink;
+ * {
+    /* --- Windows XP Luna Palette --- */
+    darkblue:                #2460de;   /* main bar background */
+    green:                   #40a843;   /* Start-button green */
+    cyan:                    #33ccff;   /* bright XP cyan (border/accent) */
+    lightgray:               #eeeeee;   /* normal text */
+    white:                   #ffffff;   /* selected text */
+    red:                     #cc3300;   /* urgent red (optional) */
+
+    /* --- Assign roles --- */
+    foreground:                  @lightgray;
+    background:                  @darkblue;
+
     normal-foreground:           @foreground;
-    alternate-normal-background: @background;
-    selected-urgent-foreground:  @foreground;
-    urgent-foreground:           @foreground;
-    alternate-urgent-background: @background;
-    active-foreground:           @foreground;
-    selected-active-foreground:  @foreground;
-    alternate-active-background: @background;
-    bordercolor:		@background;
-    alternate-normal-foreground: @foreground;
     normal-background:           @background;
-    selected-normal-background:  @background;
-    border-color:                @foreground;
+
+    selected-normal-foreground:  @white;
+    selected-normal-background:  @green;
+
+    urgent-foreground:           @white;
+    urgent-background:           @red;
+    selected-urgent-foreground:  @white;
+    selected-urgent-background:  @red;
+
+    active-foreground:           @white;
+    active-background:           @cyan;
+    selected-active-foreground:  @white;
+    selected-active-background:  @cyan;
+
+    alternate-normal-foreground: @foreground;
+    alternate-normal-background: @background;
+
+    alternate-urgent-foreground: @urgent-foreground;
+    alternate-urgent-background: @urgent-background;
+
+    alternate-active-foreground: @active-foreground;
+    alternate-active-background: @active-background;
+
+    bordercolor:                 @cyan;
+    border-color:                @cyan;
+
     spacing:                     @background;
     separatorcolor:              @background;
-    urgent-background:		@background;
-    selected-urgent-background: @background;
-    alternate-urgent-foreground: @urgent-foreground;
     background-color:            @background;
-    alternate-active-foreground: @active-foreground;
-    active-background:           @background;
-    selected-active-background:  @background;
 }
 
 window {
