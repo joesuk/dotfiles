@@ -328,3 +328,6 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 \fi}}
 
 \makeatother
+
+% make cref section appendix in appendices
+\AtBeginEnvironment{appendices}{\crefalias{section}{appendix}}
