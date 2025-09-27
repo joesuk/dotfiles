@@ -39,7 +39,7 @@ let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
 
 " lightline
 Plug 'itchyny/lightline.vim'
-" source ~/.config/nvim/colors/kawaii_pink.vim (causes problems)
+" source ~/.config/nvim/colors/dark_purple.vim (causes problems)
 let g:lightline = {
 "\ 'colorscheme': 'Tomorrow_Night_Blue',
 \ 'colorscheme': 'lightline_pink',
@@ -326,3 +326,9 @@ function! ShowColourSchemeName()
         echo "default"
     endtry
 endfunction
+
+" more vim-tex stuff
+
+" Custom surround for LaTeX environments so can do "cse" in \[ .. \]
+autocmd FileType tex let b:surround_101 = "\\begin{\1environment: \1}\n\t\r\n\\end{\1\1}"
+autocmd FileType tex let b:surround_100 = "\\[\r\\]"
