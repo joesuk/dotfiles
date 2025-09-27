@@ -362,6 +362,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CW(d,c)sc/(d,c)se/(d,c)s$/(d,c)sd\fP \(en delete/change surrounding command/environment/delimiter.
 .ITEM
+\f(CW(d,c)s$\fP \(en change surrounding mathdisplay delimiters including to environment.
+.ITEM
 \f(CWCtrl+p\fP \(en Get syntax of word under cursor (useful for changing color.
 .ITEM
 \f(CWcs$\fP \(en change surrounding $, $$, \\[, \\( (i.e., inline/math display environment).
