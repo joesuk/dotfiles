@@ -326,9 +326,3 @@ function! ShowColourSchemeName()
         echo "default"
     endtry
 endfunction
-
-" more vim-tex stuff
-
-" Custom surround for LaTeX environments so can do "cse" in \[ .. \]
-autocmd FileType tex let b:surround_109 = "\\[\r\\]"  " 109 = 'm' for math
-autocmd FileType tex let b:surround_97 = "\\begin{\1environment: \1}\r\\end{\1\1}"  " 97 = 'a' for align
