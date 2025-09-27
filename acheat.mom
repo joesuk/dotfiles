@@ -488,6 +488,8 @@ You'll have to restart the program to see its effects obviously.
 .ITEM
 \f(CWpdfunite in1.pdf in2.pdf in3.pdf .... out.pdf\fP \(en merge pdfs
 .ITEM
+\f(CWpdftk input.pdf cat 1-4 output output.pdf\fP \(en crop first 4 pages of pdf
+.ITEM
 \f(CWdf -H\fP \(en see remaining space.
 .ITEM
 \f(CWsudo eject /dev/sda\fP \(en eject drive.
