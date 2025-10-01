@@ -124,6 +124,15 @@
 \newcommand{\im}{\text{Im}}
 \DeclarePairedDelimiterX{\norm}[1]{\|}{\|}{#1}
 \DeclarePairedDelimiterX{\bignorm}[1]{\Bigg\lVert}{\Bigg\rVert}{#1}
+% L-infty norm
+\makeatletter
+\newcommand{\@supnormstar}[1]{\norm*{#1}_{\infty}}
+\newcommand{\@supnormnostar}[2][]{\norm[#1]{#2}_{\infty}}
+\newcommand{\supnorm}{\@ifstar\@supnormstar\@supnormnostar}
+\makeatother
+
+
+
 
 % CS
 \DeclareMathOperator{\polylog}{Polylog}
