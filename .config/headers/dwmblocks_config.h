@@ -17,7 +17,7 @@ static const Block blocks[] = {
 	 /*{"",	"sb-finance",				80000,	21},*/
 	/*{"",	"sb-weather",	18000,	5},*/
 	/*{"",	"sb-torrent",	20,	7},*/
-	  /*{"",	"sb-days",	80000,	16},*/
+	  {"",	"sb-days",	40000,	16},
 	  {"",	"sb-nettraf",	1,	16},
 	 {"",	"sb-memory",	10,	14},
 	 {"",	"sb-cpu",		10,	18},
