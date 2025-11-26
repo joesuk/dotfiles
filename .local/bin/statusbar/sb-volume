@@ -13,7 +13,8 @@
 	#6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 #esac
 
-vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+# vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)"
 
 # If muted, print 🔇 and exit.
 [ "$vol" != "${vol%\[MUTED\]}" ] && echo 🔇 && exit
