@@ -20,7 +20,8 @@ vtsax=$(bash ticker.sh VTSAX)
 vtiax=$(bash ticker.sh VTIAX)
 
 # Compute totals
-vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
+#vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
+vtsax_total=$(echo "($vtsax_v) * $vtsax" | bc)
 vtiax_total=$(echo "$vtiax_v * $vtiax" | bc)
 eth_total=$(echo "$eth_amount * $eth" | bc)
 btc_total=$(echo "$btc_amount * $btc" | bc)
