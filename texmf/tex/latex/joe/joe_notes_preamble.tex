@@ -150,6 +150,14 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
 	mdframed={style=mdbluebox},
 	spaceabove=7pt,
 	headpunct={\hspace{0.5em}},
+	headformat={
+    \raisebox{0pt}[0pt][0pt]{%
+      \colorbox{RoyalPurple!15}{%
+        \strut\textcolor{RoyalPurple}{\NAME~\NUMBER}%
+      }%
+    }%
+    \NOTE
+  },
 	postheadspace={0pt}
 ]{thmbluebox}
 
