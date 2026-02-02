@@ -82,3 +82,8 @@ changepoint
 UCB
 subintervals
 parametrize
+OCSVM
+OCSVM
+better
+SVM
+regularizer
