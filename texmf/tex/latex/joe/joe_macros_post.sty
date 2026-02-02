@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{joe_macros}
+\ProvidesPackage{joe_macros_post}
   [2011/01/11 v0.01 LaTeX package for my own purpose]
 
 \setlength{\parindent}{0in}
@@ -130,6 +130,7 @@
 %\newcommand{\@supnormstar}[1]{\norm*{#1}_{\infty}}
 %\newcommand{\@supnormnostar}[2][]{\norm[#1]{#2}_{\infty}}
 %\newcommand{\supnorm}{\@ifstar\@supnormstar\@supnormnostar}
+\newcommand{\opnorm}[1]{\norm{#1}_{\text{\normalfont OP}}}
 \makeatother
 
 
