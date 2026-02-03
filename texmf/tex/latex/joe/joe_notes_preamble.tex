@@ -530,4 +530,21 @@ attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
   }
 \makeatother
 
+
+% A reusable "recent changes" box
+\newtcolorbox{recentchanges}[1][]{%
+  enhanced,
+  breakable,
+  colback=cyan!8,              % aquamarine-ish fill
+  colframe=Aquamarine,      % darker aquamarine border
+  coltitle=black,
+  fonttitle=\bfseries\color{White},
+  title={Joe Update Log},
+  left=1.2ex, right=1.2ex, top=1.0ex, bottom=1.0ex,
+  boxrule=0.6pt,
+  arc=2mm,
+  drop shadow,
+  #1
+}
+
 \endinput
