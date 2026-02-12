@@ -1,31 +1,31 @@
 #!/bin/sh
-
 # Path to your private JSON file (keep in .gitignore)
 AMOUNTS_FILE="$HOME/dox/bidness/finances/amounts.json"
 
 # Extract values from JSON using jq
 eth_amount=$(jq -r '.eth_amount' "$AMOUNTS_FILE")
 btc_amount=$(jq -r '.btc_amount' "$AMOUNTS_FILE")
-vtsax_chase=$(jq -r '.vtsax_chase' "$AMOUNTS_FILE")
-vtsax_v=$(jq -r '.vtsax_v' "$AMOUNTS_FILE")
-vtiax_v=$(jq -r '.vtiax_v' "$AMOUNTS_FILE")
+vti_shares=$(jq -r '.vti_shares' "$AMOUNTS_FILE")
+vxus_shares=$(jq -r '.vxus_shares' "$AMOUNTS_FILE")
+smh_shares=$(jq -r '.smh_shares' "$AMOUNTS_FILE")
 
 # Fetch live crypto prices
 prices=$(curl -s "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC&tsyms=USD&api_key=${APIKEY}")
 eth=$(echo "$prices" | jq '.ETH.USD')
 btc=$(echo "$prices" | jq '.BTC.USD')
 
-# Fetch fund prices via ticker.sh
-vtsax=$(bash ticker.sh VTSAX)
-vtiax=$(bash ticker.sh VTIAX)
+# Fetch ETF prices via ticker.sh
+vti=$(bash ticker.sh VTI)
+vxus=$(bash ticker.sh VXUS)
+smh=$(bash ticker.sh SMH)
 
 # Compute totals
-#vtsax_total=$(echo "($vtsax_chase + $vtsax_v) * $vtsax" | bc)
-vtsax_total=$(echo "($vtsax_v) * $vtsax" | bc)
-vtiax_total=$(echo "$vtiax_v * $vtiax" | bc)
+vti_total=$(echo "$vti_shares * $vti" | bc)
+vxus_total=$(echo "$vxus_shares * $vxus" | bc)
+smh_total=$(echo "$smh_shares * $smh" | bc)
 eth_total=$(echo "$eth_amount * $eth" | bc)
 btc_total=$(echo "$btc_amount * $btc" | bc)
-total=$(echo "$vtsax_total + $vtiax_total + $eth_total + $btc_total" | bc)
+total=$(echo "$vti_total + $vxus_total + $smh_total + $eth_total + $btc_total" | bc)
 
 # Function to round and format
 format_entry() {
@@ -38,8 +38,9 @@ format_entry() {
 }
 
 # Output
-format_entry $vtsax_total "VTSAX" $total
-format_entry $vtiax_total "VTIAX" $total
-format_entry $eth_total   "ETH"   $total
-format_entry $btc_total   "BTC"   $total
-format_entry $total       "Total" $total
+format_entry $vti_total  "VTI"   $total
+format_entry $vxus_total "VXUS"  $total
+format_entry $smh_total  "SMH"   $total
+format_entry $eth_total  "ETH"   $total
+format_entry $btc_total  "BTC"   $total
+format_entry $total      "Total" $total
