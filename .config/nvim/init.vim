@@ -114,6 +114,7 @@ set hlsearch
 set clipboard+=unnamedplus
 set noshowmode "showing visual/insert mode
 set noruler "don't show the cursor position all the time
+set cursorline "emphasize current cursor line
 set laststatus=2
 set noshowcmd
 set ignorecase
