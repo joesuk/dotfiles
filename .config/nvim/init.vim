@@ -329,3 +329,6 @@ endfunction
 
 " Visual selection colors
 hi Visual guifg=#000000 guibg=#ff9500 gui=NONE cterm=bold ctermbg=13 ctermfg=15
+
+" set termguicolors
+set termguicolors
