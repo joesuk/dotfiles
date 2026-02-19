@@ -325,3 +325,8 @@ function! ShowColourSchemeName()
         echo "default"
     endtry
 endfunction
+
+
+" Visual selection colors
+hi Visual ctermfg=NONE ctermbg=236
+hi Visual guifg=NONE guibg=#3a3a3a
