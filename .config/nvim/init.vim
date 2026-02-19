@@ -328,4 +328,4 @@ endfunction
 
 
 " Visual selection colors
-hi Visual guifg=NONE guibg=#2c3b55 gui=NONE cterm=bold ctermbg=13 ctermfg=15
+hi Visual guifg=#000000 guibg=#ff9500 gui=NONE cterm=bold ctermbg=13 ctermfg=15
