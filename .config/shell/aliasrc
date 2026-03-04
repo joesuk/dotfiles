@@ -60,6 +60,7 @@ alias \
 	update="pacman -S archlinux-keyring && pacman -Syyu && sh $HOME/.local/bin/remaps" \
 	ginsburg1="ssh js5338@ruth.rcs.columbia.edu" \
 	ginsburg2="ssh js5338@bader.rcs.columbia.edu" \
+	torch="ssh -o StrictHostKeyChecking=no js10454@login.torch.hpc.nyu.edu" \
 
 alias \
 	lf="lfub" \
@@ -84,3 +85,6 @@ alias \
 	webcam4="mpv --untimed --no-cache --no-osc --profile=low-latency --title=webcam av://v4l2:/dev/video4" \
 	grubmake="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
 	envactivate="source env/bin/activate"
+
+# nyu vpn stuff
+alias nyuvpn="sudo echo "Sudo first" && openconnect --user=js10454 vpn.nyu.edu --useragent=AnyConnect --cookieonly | sudo openconnect vpn.nyu.edu --useragent=AnyConnect --cookie-on-stdin"
