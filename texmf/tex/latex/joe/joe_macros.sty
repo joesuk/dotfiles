@@ -133,7 +133,8 @@
 \newcommand{\supnorm}{\@ifstar\@supnormstar\@supnormnostar}
 \makeatother
 
-
+\usepackage{stackengine,scalerel}
+\newcommand{\succeqsim}{\mathrel{\stackunder[0.5pt]{\succeq}{\scriptstyle\sim}}}
 
 % CS
 \DeclareMathOperator{\polylog}{Polylog}
