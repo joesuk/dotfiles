@@ -343,7 +343,7 @@ function! MyTexComplete(findstart, base)
   let other_items = []
   for item in items
     let menu = get(item, 'menu', '')
-    let num_str = matchstr(menu, '(\zs\d\+\ze)')
+    let num_str = matchstr(menu, '(\zs\d\+\ze)\|[A-Za-z] \zs\d\+\ze ')
     let type_str = matchstr(menu, '^\w\+')
     if !empty(num_str)
       let short_type = strpart(type_str, 0, 3)
