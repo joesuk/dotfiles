@@ -358,6 +358,7 @@ function! MyTexComplete(findstart, base)
   return map(numbered_items, {_, v -> v[1]}) + other_items
 endfunction
 
+
 augroup MyTexOmni
   autocmd!
   autocmd BufEnter,BufWinEnter,FileType tex setlocal omnifunc=MyTexComplete
