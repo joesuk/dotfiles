@@ -333,7 +333,7 @@ hi Visual guifg=#000000 guibg=#ff9500 gui=NONE cterm=bold ctermbg=13 ctermfg=15
 " set termguicolors
 set termguicolors
 
-" tex autocomplete show equation number first
+" tex autocomplete on \Cref show equation number first
 function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
