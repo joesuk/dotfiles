@@ -361,3 +361,4 @@ function! MyTexComplete(findstart, base)
 endfunction
 
 autocmd FileType tex setlocal omnifunc=MyTexComplete
+inoremap <C-x>o <C-x><C-o>
