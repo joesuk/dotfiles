@@ -1,0 +1,428 @@
+#!/bin/bash
+
+# Pomodoro Tracker - Lightweight bash implementation
+# Data stored in ~/dox/pomo/
+#
+# Usage:
+#   pomo              Start new or resume paused session
+#   pomo add <min>    Add minutes manually (e.g., pomo add 125 = 2 full + 25min partial)
+#   pomo end          End current session early and log it
+#   pomo cancel       Cancel paused session (no log)
+#   pomo stats        Show weekly and daily stats
+#   pomo history [n]  Show last n pomodoros
+#   pomo status       Check if there's a paused session
+#   pomo help         Show help
+
+POMO_DIR="$HOME/dox/pomo"
+POMO_LOG="$POMO_DIR/pomos.log"
+POMO_STATE="$POMO_DIR/state"
+POMO_DURATION=3000  # 50 minutes in seconds
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+BOLD='\033[1m'
+
+init() {
+    mkdir -p "$POMO_DIR"
+    touch "$POMO_LOG"
+}
+
+format_time() {
+    local secs=$1
+    printf "%02d:%02d" $((secs / 60)) $((secs % 60))
+}
+
+get_week_start() {
+    # Week: Monday 6am → following Monday 5:59am (based on pomo END time)
+    local dow=$(date +%u)  # 1=Monday, 7=Sunday
+    local hour=$(date +%H)
+    
+    # If it's Monday before 6am, we're still in the previous week
+    if [ "$dow" -eq 1 ] && [ "$hour" -lt 6 ]; then
+        date -d "7 days ago 06:00" +%s
+    else
+        # Go back to this week's Monday 6am
+        local days_since_mon=$((dow - 1))
+        date -d "$days_since_mon days ago 06:00" +%s
+    fi
+}
+
+get_week_end() {
+    local week_start=$(get_week_start)
+    echo $((week_start + 7 * 24 * 3600 - 1))  # 7 days later minus 1 second
+}
+
+count_week_pomos() {
+    local week_start=$(get_week_start)
+    local week_end=$(get_week_end)
+    local count=0
+
+    while IFS='|' read -r start_ts end_ts duration status; do
+        [ -z "$start_ts" ] && continue
+        [ "$status" != "completed" ] && continue
+        
+        # Count based on END time, not start time
+        if [ "$end_ts" -ge "$week_start" ] && [ "$end_ts" -le "$week_end" ]; then
+            ((count++))
+        fi
+    done < "$POMO_LOG"
+
+    echo "$count"
+}
+
+count_today_pomos() {
+    local hour=$(date +%H)
+    local today_start today_end
+    
+    # "Today" is 6am today → 5:59am tomorrow
+    # If before 6am, we're still in "yesterday"
+    if [ "$hour" -lt 6 ]; then
+        today_start=$(date -d "yesterday 06:00" +%s)
+    else
+        today_start=$(date -d "today 06:00" +%s)
+    fi
+    today_end=$((today_start + 24 * 3600 - 1))
+    
+    local count=0
+
+    while IFS='|' read -r start_ts end_ts duration status; do
+        [ -z "$start_ts" ] && continue
+        [ "$status" != "completed" ] && continue
+
+        # Count based on END time
+        if [ "$end_ts" -ge "$today_start" ] && [ "$end_ts" -le "$today_end" ]; then
+            ((count++))
+        fi
+    done < "$POMO_LOG"
+
+    echo "$count"
+}
+
+show_stats() {
+    local week_count=$(count_week_pomos)
+    local today_count=$(count_today_pomos)
+    local week_start=$(get_week_start)
+    local week_end=$(get_week_end)
+    local week_start_fmt=$(date -d "@$week_start" "+%Y-%m-%d %H:%M")
+    local week_end_fmt=$(date -d "@$week_end" "+%Y-%m-%d %H:%M")
+
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${BOLD}Week (${week_start_fmt} → ${week_end_fmt}):${NC} ${GREEN}${week_count}${NC} pomos"
+    echo -e "${BOLD}Today:${NC} ${GREEN}${today_count}${NC} pomos"
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+}
+
+save_state() {
+    local start_ts=$1
+    local elapsed=$2
+    local paused=$3
+    echo "$start_ts|$elapsed|$paused" > "$POMO_STATE"
+}
+
+load_state() {
+    if [ -f "$POMO_STATE" ]; then
+        cat "$POMO_STATE"
+    fi
+}
+
+clear_state() {
+    rm -f "$POMO_STATE"
+}
+
+log_pomo() {
+    local start_ts=$1
+    local end_ts=$2
+    local duration=$3
+    local status=$4
+    echo "$start_ts|$end_ts|$duration|$status" >> "$POMO_LOG"
+}
+
+run_timer() {
+    local start_ts=$1
+    local elapsed=$2
+    local remaining=$((POMO_DURATION - elapsed))
+
+    echo ""
+    echo -e "${GREEN}Pomodoro started!${NC}"
+    echo -e "Press ${YELLOW}[space]${NC} to pause, ${YELLOW}[q]${NC} to quit, ${YELLOW}[c]${NC} to cancel"
+    echo ""
+    show_stats
+    echo ""
+
+    # Set terminal to non-blocking input
+    stty -echo -icanon time 0 min 0 2>/dev/null
+
+    while [ $remaining -gt 0 ]; do
+        local time_str=$(format_time $remaining)
+        local progress=$((100 * (POMO_DURATION - remaining) / POMO_DURATION))
+        local bar_width=30
+        local filled=$((progress * bar_width / 100))
+        local empty=$((bar_width - filled))
+
+        local bar=""
+        for ((i=0; i<filled; i++)); do bar+="█"; done
+        for ((i=0; i<empty; i++)); do bar+="░"; done
+
+        printf "\r\033[1m⏱  %s\033[0m  [\033[0;32m%s\033[0m] %3d%%" "$time_str" "$bar" "$progress"
+
+        # Check for keypress
+        local key=$(dd bs=1 count=1 2>/dev/null)
+
+        case "$key" in
+            " ")
+                stty echo icanon 2>/dev/null
+                echo ""
+                echo -e "\n${YELLOW}Paused!${NC} Run 'pomo' to resume."
+                save_state "$start_ts" "$((POMO_DURATION - remaining))" "1"
+                exit 0
+                ;;
+            q|Q)
+                stty echo icanon 2>/dev/null
+                echo ""
+                echo -e "\n${YELLOW}Saved!${NC} Run 'pomo' to resume."
+                save_state "$start_ts" "$((POMO_DURATION - remaining))" "0"
+                exit 0
+                ;;
+            c|C)
+                stty echo icanon 2>/dev/null
+                echo ""
+                read -p "Cancel current session without logging? [y/N] " confirm
+                if [[ "$confirm" =~ ^[Yy]$ ]]; then
+                    echo -e "${RED}Cancelled.${NC}"
+                    clear_state
+                    exit 0
+                else
+                    echo "Resuming..."
+                    stty -echo -icanon time 0 min 0 2>/dev/null
+                fi
+                ;;
+        esac
+
+        sleep 1
+        ((remaining--))
+    done
+
+    stty echo icanon 2>/dev/null
+
+    # Completed!
+    local end_ts=$(date +%s)
+    log_pomo "$start_ts" "$end_ts" "$POMO_DURATION" "completed"
+    clear_state
+
+    echo ""
+    echo ""
+    echo -e "${GREEN}${BOLD}✓ Pomodoro complete!${NC}"
+
+    # System notification (works on most Linux with notify-send, or macOS)
+    if command -v notify-send &>/dev/null; then
+        notify-send "Pomodoro" "50 minutes complete! Take a break."
+    elif command -v osascript &>/dev/null; then
+        osascript -e 'display notification "50 minutes complete! Take a break." with title "Pomodoro"'
+    fi
+
+    # Terminal bell
+    printf "\a"
+
+    echo ""
+    show_stats
+}
+
+start_new() {
+    local start_ts=$(date +%s)
+    run_timer "$start_ts" 0
+}
+
+resume() {
+    local state=$(load_state)
+    if [ -z "$state" ]; then
+        echo -e "${YELLOW}No paused session. Starting new pomodoro.${NC}"
+        start_new
+        return
+    fi
+
+    IFS='|' read -r start_ts elapsed paused <<< "$state"
+    echo -e "${GREEN}Resuming pomodoro ($(format_time $elapsed) elapsed)${NC}"
+    run_timer "$start_ts" "$elapsed"
+}
+
+show_history() {
+    local limit=${1:-10}
+    echo -e "\n${BOLD}Recent Pomodoros:${NC}\n"
+
+    if [ ! -s "$POMO_LOG" ]; then
+        echo "No pomodoros recorded yet."
+        return
+    fi
+
+    tail -n "$limit" "$POMO_LOG" | while IFS='|' read -r start_ts end_ts duration status; do
+        local start_date=$(date -d "@$start_ts" "+%Y-%m-%d %H:%M" 2>/dev/null)
+        local dur_min=$((duration / 60))
+        local dur_sec=$((duration % 60))
+
+        if [ "$status" = "completed" ]; then
+            if [ "$duration" -eq "$POMO_DURATION" ]; then
+                echo -e "  ${GREEN}✓${NC} $start_date  (${dur_min} min)"
+            else
+                echo -e "  ${YELLOW}◐${NC} $start_date  (${dur_min}m ${dur_sec}s)"
+            fi
+        else
+            echo -e "  ${RED}✗${NC} $start_date  (${dur_min} min) - $status"
+        fi
+    done
+
+    echo ""
+    show_stats
+}
+
+show_help() {
+    echo -e "${BOLD}pomo${NC} - Lightweight Pomodoro Tracker"
+    echo ""
+    echo -e "${BOLD}Usage:${NC}"
+    echo "  pomo              Start new or resume paused session"
+    echo "  pomo stats        Show weekly and daily stats"
+    echo "  pomo history [n]  Show last n pomodoros (default 10)"
+    echo "  pomo status       Check if there's a paused session"
+    echo "  pomo end          End current session early and log it"
+    echo "  pomo cancel       Cancel paused session (no log)"
+    echo "  pomo add <min>    Add minutes manually (splits into 50-min pomos)"
+    echo "  pomo help         Show this help"
+    echo ""
+    echo -e "${BOLD}During a session:${NC}"
+    echo "  space - Pause (saves progress, exit)"
+    echo "  q - Quit (saves progress, exit)"
+    echo "  c - Cancel (discards session, asks confirmation)"
+    echo ""
+    echo -e "${BOLD}Examples:${NC}"
+    echo "  pomo add 50       Log 1 full pomo"
+    echo "  pomo add 125      Log 2 full pomos + 1 partial (25 min)"
+    echo "  pomo add 30       Log 1 partial pomo (30 min)"
+    echo ""
+    echo -e "${BOLD}Week:${NC} Monday 6am → following Monday 5:59am (by end time)"
+    echo -e "${BOLD}Data stored in:${NC} $POMO_DIR"
+}
+
+show_status() {
+    local state=$(load_state)
+    if [ -z "$state" ]; then
+        echo -e "No active session."
+    else
+        IFS='|' read -r start_ts elapsed paused <<< "$state"
+        local remaining=$((POMO_DURATION - elapsed))
+        local start_date=$(date -d "@$start_ts" "+%Y-%m-%d %H:%M")
+        echo -e "${YELLOW}Paused session:${NC}"
+        echo "  Started: $start_date"
+        echo "  Elapsed: $(format_time $elapsed)"
+        echo "  Remaining: $(format_time $remaining)"
+        echo ""
+        echo "Run 'pomo' to resume."
+    fi
+    echo ""
+    show_stats
+}
+
+cancel_session() {
+    if [ -f "$POMO_STATE" ]; then
+        read -p "Cancel current session without logging? [y/N] " confirm
+        if [[ "$confirm" =~ ^[Yy]$ ]]; then
+            clear_state
+            echo -e "${RED}Session cancelled.${NC}"
+        else
+            echo "Cancelled."
+        fi
+    else
+        echo "No active session to cancel."
+    fi
+}
+
+end_session() {
+    if [ -f "$POMO_STATE" ]; then
+        IFS='|' read -r start_ts elapsed paused <<< "$(load_state)"
+        local end_ts=$(date +%s)
+        log_pomo "$start_ts" "$end_ts" "$elapsed" "completed"
+        clear_state
+        echo -e "${GREEN}Session ended and logged ($(format_time $elapsed)).${NC}"
+        show_stats
+    else
+        echo "No active session to end."
+    fi
+}
+
+add_time() {
+    local minutes=$1
+    if ! [[ "$minutes" =~ ^[0-9]+$ ]]; then
+        echo "Error: Please provide minutes as a number."
+        exit 1
+    fi
+
+    local total_seconds=$((minutes * 60))
+    local full_pomos=$((total_seconds / POMO_DURATION))
+    local remainder=$((total_seconds % POMO_DURATION))
+    local now=$(date +%s)
+
+    # Log full pomos
+    for ((i=0; i<full_pomos; i++)); do
+        local pomo_start=$((now - total_seconds + i * POMO_DURATION))
+        local pomo_end=$((pomo_start + POMO_DURATION))
+        log_pomo "$pomo_start" "$pomo_end" "$POMO_DURATION" "completed"
+    done
+
+    # Log partial pomo if any
+    if [ $remainder -gt 0 ]; then
+        local partial_start=$((now - remainder))
+        log_pomo "$partial_start" "$now" "$remainder" "completed"
+    fi
+
+    local logged_full=$full_pomos
+    local logged_partial=0
+    [ $remainder -gt 0 ] && logged_partial=1
+
+    echo -e "${GREEN}Added ${minutes} minutes:${NC}"
+    [ $logged_full -gt 0 ] && echo "  ${logged_full} full pomo(s) (50 min each)"
+    [ $logged_partial -gt 0 ] && echo "  1 partial pomo ($(format_time $remainder))"
+    echo ""
+    show_stats
+}
+
+# Main
+init
+
+case "${1:-}" in
+    stats)
+        show_stats
+        ;;
+    history)
+        show_history "${2:-10}"
+        ;;
+    status)
+        show_status
+        ;;
+    cancel)
+        cancel_session
+        ;;
+    end)
+        end_session
+        ;;
+    add)
+        add_time "${2:-}"
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    "")
+        if [ -f "$POMO_STATE" ]; then
+            resume
+        else
+            start_new
+        fi
+        ;;
+    *)
+        echo "Unknown command: $1"
+        echo "Run 'pomo help' for usage."
+        exit 1
+        ;;
+esac
