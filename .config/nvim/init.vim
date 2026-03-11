@@ -338,18 +338,15 @@ function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
   endif
-
   let items = vimtex#complete#omnifunc(0, a:base)
   let numbered_items = []
   let other_items = []
-
   for item in items
     let menu = get(item, 'menu', '')
-    " Match any "Word (N) [p. X]" pattern
     let num_str = matchstr(menu, '(\zs\d\+\ze)')
-    let type_str = matchstr(menu, '^\w\+')  " Equation, Theorem, Lemma, etc.
+    let type_str = matchstr(menu, '^\w\+')
     if !empty(num_str)
-      let short_type = strpart(type_str, 0, 3)  " Eq., Thm., Lem., etc.
+      let short_type = strpart(type_str, 0, 3)
       let display = printf('%s.(%2d): %s', short_type, str2nr(num_str), item.word)
       let newitem = {'word': item.word, 'abbr': display, 'menu': menu}
       call add(numbered_items, [str2nr(num_str), newitem])
@@ -357,10 +354,13 @@ function! MyTexComplete(findstart, base)
       call add(other_items, item)
     endif
   endfor
-
   call sort(numbered_items, {a, b -> a[0] - b[0]})
   return map(numbered_items, {_, v -> v[1]}) + other_items
 endfunction
 
-autocmd FileType tex setlocal omnifunc=MyTexComplete
+augroup MyTexOmni
+  autocmd!
+  autocmd BufEnter,BufWinEnter,FileType tex setlocal omnifunc=MyTexComplete
+augroup END
+
 inoremap <C-x>o <C-x><C-o>
