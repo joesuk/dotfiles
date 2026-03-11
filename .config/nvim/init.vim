@@ -338,6 +338,14 @@ function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
   endif
+
+  " Fall back to default vimtex for citations
+  let line = getline('.')
+  let col = col('.') - 1
+  if line[:col] =~ '\\cite[tp\*]*{'
+    return vimtex#complete#omnifunc(0, a:base)
+  endif
+
   let items = vimtex#complete#omnifunc(0, a:base)
   let numbered_items = []
   let other_items = []
