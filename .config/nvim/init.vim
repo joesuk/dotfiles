@@ -338,27 +338,30 @@ function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
   endif
+
   let items = vimtex#complete#omnifunc(0, a:base)
-  echom "Got " . len(items) . " items, first: " . string(get(items, 0, {}))
-  let eq_items = []
+  let numbered_items = []
   let other_items = []
 
   for item in items
-    " Extract number from "Equation (5) [p. 7]" style menu string
-    let num_str = matchstr(get(item, 'menu', ''), 'Equation (\zs\d\+\ze)')
+    let menu = get(item, 'menu', '')
+    " Match any "Word (N) [p. X]" pattern
+    let num_str = matchstr(menu, '(\zs\d\+\ze)')
+    let type_str = matchstr(menu, '^\w\+')  " Equation, Theorem, Lemma, etc.
     if !empty(num_str)
-      let item.abbr = printf('Eq.(%2d): %s', str2nr(num_str), item.word)
-      call add(eq_items, [str2nr(num_str), item])
+      let short_type = strpart(type_str, 0, 3)  " Eq., Thm., Lem., etc.
+      let display = printf('%s.(%2d): %s', short_type, str2nr(num_str), item.word)
+      let newitem = {'word': item.word, 'abbr': display, 'menu': menu}
+      call add(numbered_items, [str2nr(num_str), newitem])
     else
       call add(other_items, item)
     endif
   endfor
 
-  " Sort equations by number
-  call sort(eq_items, {a, b -> a[0] - b[0]})
-
-  return map(eq_items, {_, v -> v[1]}) + other_items
+  call sort(numbered_items, {a, b -> a[0] - b[0]})
+  return map(numbered_items, {_, v -> v[1]}) + other_items
 endfunction
+
 
 autocmd FileType tex setlocal omnifunc=MyTexComplete
 inoremap <C-x>o <C-x><C-o>
