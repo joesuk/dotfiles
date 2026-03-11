@@ -332,3 +332,33 @@ hi Visual guifg=#000000 guibg=#ff9500 gui=NONE cterm=bold ctermbg=13 ctermfg=15
 
 " set termguicolors
 set termguicolors
+
+" tex autocomplete show equation number first
+function! MyTexComplete(findstart, base)
+  if a:findstart
+    return vimtex#complete#omnifunc(1, '')
+  endif
+
+  let items = vimtex#complete#omnifunc(0, a:base)
+
+  let eq_items = []
+  let other_items = []
+
+  for item in items
+    " Extract number from "Equation (5) [p. 7]" style menu string
+    let num_str = matchstr(get(item, 'menu', ''), 'Equation (\zs\d\+\ze)')
+    if !empty(num_str)
+      let item.abbr = printf('Eq.(%2d): %s', str2nr(num_str), item.word)
+      call add(eq_items, [str2nr(num_str), item])
+    else
+      call add(other_items, item)
+    endif
+  endfor
+
+  " Sort equations by number
+  call sort(eq_items, {a, b -> a[0] - b[0]})
+
+  return map(eq_items, {_, v -> v[1]}) + other_items
+endfunction
+
+autocmd FileType tex setlocal omnifunc=MyTexComplete
