@@ -362,6 +362,5 @@ function! MyTexComplete(findstart, base)
   return map(numbered_items, {_, v -> v[1]}) + other_items
 endfunction
 
-
 autocmd FileType tex setlocal omnifunc=MyTexComplete
 inoremap <C-x>o <C-x><C-o>
