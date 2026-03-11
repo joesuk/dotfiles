@@ -338,9 +338,8 @@ function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
   endif
-
   let items = vimtex#complete#omnifunc(0, a:base)
-
+  echom "Got " . len(items) . " items, first: " . string(get(items, 0, {}))
   let eq_items = []
   let other_items = []
 
