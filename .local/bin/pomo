@@ -103,6 +103,17 @@ count_today_pomos() {
     echo "$count"
 }
 
+get_paused_fraction() {
+    # Returns fractional pomo if there's a paused session, empty otherwise
+    if [ -f "$POMO_STATE" ]; then
+        IFS='|' read -r start_ts elapsed paused < "$POMO_STATE"
+        if [ -n "$elapsed" ] && [ "$elapsed" -gt 0 ]; then
+            # Return as "elapsed/total" for awk to process
+            echo "$elapsed $POMO_DURATION"
+        fi
+    fi
+}
+
 show_stats() {
     local week_count=$(count_week_pomos)
     local today_count=$(count_today_pomos)
@@ -110,10 +121,23 @@ show_stats() {
     local week_end=$(get_week_end)
     local week_start_fmt=$(date -d "@$week_start" "+%Y-%m-%d %H:%M")
     local week_end_fmt=$(date -d "@$week_end" "+%Y-%m-%d %H:%M")
+    
+    # Add fractional pomo if paused session exists
+    local paused_info=$(get_paused_fraction)
+    local week_display="$week_count"
+    local today_display="$today_count"
+    
+    if [ -n "$paused_info" ]; then
+        local elapsed=$(echo "$paused_info" | awk '{print $1}')
+        local total=$(echo "$paused_info" | awk '{print $2}')
+        local fraction=$(awk "BEGIN {printf \"%.2f\", $elapsed / $total}")
+        week_display=$(awk "BEGIN {printf \"%.2f\", $week_count + $fraction}")
+        today_display=$(awk "BEGIN {printf \"%.2f\", $today_count + $fraction}")
+    fi
 
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BOLD}Week (${week_start_fmt} → ${week_end_fmt}):${NC} ${GREEN}${week_count}${NC} pomos"
-    echo -e "${BOLD}Today:${NC} ${GREEN}${today_count}${NC} pomos"
+    echo -e "${BOLD}Week (${week_start_fmt} → ${week_end_fmt}):${NC} ${GREEN}${week_display}${NC} pomos"
+    echo -e "${BOLD}Today:${NC} ${GREEN}${today_display}${NC} pomos"
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 }
 
