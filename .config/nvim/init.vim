@@ -335,12 +335,18 @@ set termguicolors
 
 " tex autocomplete on \Cref show equation number first
 function! s:CompareSectionNums(a, b)
-  " Compare dotted version strings like "3.1.2" numerically
   let a_parts = split(a:a[0], '\.')
   let b_parts = split(a:b[0], '\.')
   let i = 0
   while i < len(a_parts) && i < len(b_parts)
-    let diff = str2nr(a_parts[i]) - str2nr(b_parts[i])
+    let ap = a_parts[i]
+    let bp = b_parts[i]
+    " Compare numerically if both are pure numbers, else alphabetically
+    if ap =~ '^\d\+$' && bp =~ '^\d\+$'
+      let diff = str2nr(ap) - str2nr(bp)
+    else
+      let diff = ap < bp ? -1 : ap > bp ? 1 : 0
+    endif
     if diff != 0 | return diff | endif
     let i += 1
   endwhile
@@ -352,7 +358,6 @@ function! MyTexComplete(findstart, base)
     return vimtex#complete#omnifunc(1, '')
   endif
 
-  " Fall back to default vimtex for citations
   let line = getline('.')
   let col = col('.') - 1
   if line[:col] =~ '\\cite[tp\*]*{'
@@ -365,8 +370,8 @@ function! MyTexComplete(findstart, base)
   for item in items
     let menu = get(item, 'menu', '')
     let type_str = matchstr(menu, '^\w\+')
-    " Match (N) for equations, or dotted nums like "3.1.2" for sections
-    let num_str = matchstr(menu, '(\zs\d\+\ze)\|[A-Za-z] \zs\d\+\(\.\d\+\)*\ze ')
+    " Match (N) for equations, or alphanumeric dotted like A.1, 3.1.2 for sections
+    let num_str = matchstr(menu, '(\zs\d\+\ze)\|[A-Za-z] \zs[A-Za-z0-9]\+\(\.[A-Za-z0-9]\+\)*\ze ')
     if !empty(num_str)
       let short_type = strpart(type_str, 0, 3)
       let display = printf('%s.(%s): %s', short_type, num_str, item.word)
