@@ -334,6 +334,19 @@ hi Visual guifg=#000000 guibg=#ff9500 gui=NONE cterm=bold ctermbg=13 ctermfg=15
 set termguicolors
 
 " tex autocomplete on \Cref show equation number first
+function! s:CompareSectionNums(a, b)
+  " Compare dotted version strings like "3.1.2" numerically
+  let a_parts = split(a:a[0], '\.')
+  let b_parts = split(a:b[0], '\.')
+  let i = 0
+  while i < len(a_parts) && i < len(b_parts)
+    let diff = str2nr(a_parts[i]) - str2nr(b_parts[i])
+    if diff != 0 | return diff | endif
+    let i += 1
+  endwhile
+  return len(a_parts) - len(b_parts)
+endfunction
+
 function! MyTexComplete(findstart, base)
   if a:findstart
     return vimtex#complete#omnifunc(1, '')
@@ -351,21 +364,22 @@ function! MyTexComplete(findstart, base)
   let other_items = []
   for item in items
     let menu = get(item, 'menu', '')
-    let num_str = matchstr(menu, '(\zs\d\+\ze)\|[A-Za-z] \zs\d\+\ze ')
     let type_str = matchstr(menu, '^\w\+')
+    " Match (N) for equations, or dotted nums like "3.1.2" for sections
+    let num_str = matchstr(menu, '(\zs\d\+\ze)\|[A-Za-z] \zs\d\+\(\.\d\+\)*\ze ')
     if !empty(num_str)
       let short_type = strpart(type_str, 0, 3)
-      let display = printf('%s.(%2d): %s', short_type, str2nr(num_str), item.word)
+      let display = printf('%s.(%s): %s', short_type, num_str, item.word)
       let newitem = {'word': item.word, 'abbr': display, 'menu': menu}
-      call add(numbered_items, [str2nr(num_str), newitem])
+      call add(numbered_items, [num_str, newitem])
     else
       call add(other_items, item)
     endif
   endfor
-  call sort(numbered_items, {a, b -> a[0] - b[0]})
+
+  call sort(numbered_items, function('s:CompareSectionNums'))
   return map(numbered_items, {_, v -> v[1]}) + other_items
 endfunction
-
 
 augroup MyTexOmni
   autocmd!
