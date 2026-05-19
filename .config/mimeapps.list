@@ -17,6 +17,8 @@ x-scheme-handler/lbry=lbry.desktop
 inode/directory=file.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/http=firefox.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
 
 [Added Associations]
 application/x-compressed-tar=brave-browser.desktop;
